@@ -20,7 +20,6 @@
 <div id="no-result">查无结果</div>
 </div>
 
-
 <style>
 #linux-commands-list li a span{
     color:red;
