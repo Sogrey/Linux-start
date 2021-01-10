@@ -2,7 +2,7 @@ module.exports = {
   port: "3000",
   dest: "docs",
   ga: "UA-85414008-1",
-  base: "/VuepressBlogTemplate/",
+  base: "/Linux-start/",
   markdown: {
     externalLinks: {
       target: '_blank',
@@ -10,19 +10,19 @@ module.exports = {
     }
   },
   lang: "zh-CN",
-  title: "Vuepress 模板",
-  description: "为简化开发而生",
+  title: "Linux 入门",
+  description: "入坑Linux",
   locales: {
     "/zh/": {
       lang: "zh-CN",
-      title: "Vuepress 模板",
-      description: "为简化开发而生"
+      title: "Linux 入门",
+      description: "入坑Linux",
     },
-    "/en/": {
-      lang: "en-US",
-      title: "Vuepress Blog Template",
-      description: "Born To Simplify Development"
-    }
+    // "/en/": {
+    //   lang: "en-US",
+    //   title: "Linux start",
+    //   description: "Linux start"
+    // }
   },
   head: [
     ["link", {
@@ -31,8 +31,8 @@ module.exports = {
     }]
   ],
   themeConfig: {
-    repo: "Sogrey/VuepressBlogTemplate",
-    docsRepo: "Sogrey/VuepressBlogTemplate",
+    repo: "Sogrey/Linux-start",
+    docsRepo: "Sogrey/Linux-start",
     editLinks: true,
     docsDir: 'source',
     locales: {
@@ -43,91 +43,136 @@ module.exports = {
         lastUpdated: "上次更新",
         nav: [{
             text: "指南",
-            link: "/zh/guide/"
+            link: "/zh/"
           },
+          // {
+          //   text: "Linux命令手册",
+          //   link: "/zh/commands/"
+          // },
           {
-            text: "配置",
-            link: "/zh/config/"
-          },
-          {
-            text: "生态",
-            items: [{
-                text: "百度",
-                link: "https://www.baidu.com"
-              },
-              {
-                text: "淘宝",
-                link: "http://www.taobao.com"
-              },
-              {
-                text: "爱奇艺",
-                link: "http://www.iqiyi.com/"
-              }
-            ]
+            text: "参考资料",
+            link: "/zh/reference/"
           }
         ],
         sidebar: {
-          "/zh/guide/": genGuideSidebar(true),
-          "/zh/config/": genConfigSidebar(true)
+          "/zh/": genGuideSidebar(true),
+          "/zh/commands/": genCommandsSidebar(true),
+          "/zh/reference/": genReferenceSidebar(true)
         }
       },
-      "/en/": {
-        label: "English",
-        selectText: "Languages",
-        editLinkText: "Edit this page on GitHub",
-        lastUpdated: "Last Updated",
-        nav: [{
-            text: "Guide",
-            link: "/en/guide/"
-          },
-          {
-            text: "Config",
-            link: "/en/config/"
-          },
-          {
-            text: "Ecosystem",
-            items: [{
-              text: "Baidu",
-              link: "https://www.baidu.com"
-            },
-            {
-              text: "Taobao",
-              link: "http://www.taobao.com"
-            },
-            {
-              text: "Iqiyi",
-              link: "http://www.iqiyi.com/"
-              }
-            ]
-          }
-        ],
-        sidebar: {
-          "/en/guide/": genGuideSidebar(false),
-          "/en/config/": genConfigSidebar(false)
-        }
-      }
+      // "/en/": {
+      //   label: "English",
+      //   selectText: "Languages",
+      //   editLinkText: "Edit this page on GitHub",
+      //   lastUpdated: "Last Updated",
+      //   nav: [{
+      //       text: "Guide",
+      //       link: "/en/guide/"
+      //     },
+      //     {
+      //       text: "Config",
+      //       link: "/en/config/"
+      //     },
+      //     {
+      //       text: "Ecosystem",
+      //       items: [{
+      //         text: "Baidu",
+      //         link: "https://www.baidu.com"
+      //       },
+      //       {
+      //         text: "Taobao",
+      //         link: "http://www.taobao.com"
+      //       },
+      //       {
+      //         text: "Iqiyi",
+      //         link: "http://www.iqiyi.com/"
+      //         }
+      //       ]
+      //     }
+      //   ],
+      //   sidebar: {
+      //     "/en/guide/": genGuideSidebar(false),
+      //     "/en/config/": genConfigSidebar(false)
+      //   }
+      // }
     }
   }
 };
 
 function genGuideSidebar(isZh) {
   return [{
-      title: isZh ? "快速入门" : "Getting Start",
-      collapsable: false,
-      children: ["", "quick-start"]
-    },
-    {
-      title: isZh ? "核心功能" : "Core",
-      collapsable: false,
-      children: ["generator"]
-    }
-  ];
+    title: isZh ? "快速入门" : "Getting Start",
+    collapsable: false,
+    children: ["guide/", "guide/quick-start"]
+  }, {
+    title: isZh ? "Linux命令手册" : "Linux Commands",
+    collapsable: false,
+    children: getCommandsBySord('commands/')
+  }, {
+    title: isZh ? "参考资料" : "Reference",
+    collapsable: false,
+    children: ["reference/"]
+  }];
 }
 
-function genConfigSidebar(isZh) {
+function genCommandsSidebar(isZh) {
   return [{
-    title: isZh ? "配置" : "Config",
+    title: isZh ? "Linux命令手册" : "Linux Commands",
+    collapsable: false,
+    children: getCommandsBySord('')
+  }];
+}
+
+function genReferenceSidebar(isZh) {
+  return [{
+    title: isZh ? "参考资料" : "Reference",
     collapsable: false,
     children: [""]
+  }];
+}
+
+function getCommandsBySord(parentDir) {
+  var LinuxCommands = getCommands();
+  var commands = [];
+  
+  var parent = '';
+  if (parentDir) {
+    parent = parentDir;
+    if (!parent.endsWith('/')) parent += '/';
+
+    commands.push(parent)
+  }
+
+  for (let i = 0; i < LinuxCommands.length; i++) {
+    const linuxCommand = LinuxCommands[i];
+
+    if (commands.indexOf(linuxCommand.command) == -1) {
+      commands.push(parent + linuxCommand.command);
+    }
+  }
+
+  commands.sort();
+  console.log(commands, LinuxCommands);
+  return commands;
+}
+
+var CommandTypes = {
+  FileSystem: '文件系统',
+  DirectoryManagement: '目录管理',
+  Permissions:'权限管理'
+};
+function getCommands() {
+  return [{
+      command: 'ls',
+      desc: '显示目录内容列表',
+      tags: ['FileSystem']
+  }, {
+      command: 'pwd',
+      desc: '显示目录内容列表',
+      tags: ['DirectoryManagement']
+  },{
+      command: 'chmod',
+      desc: '用来变更文件或目录的权限',
+      tags: ['Permissions','FileSystem','DirectoryManagement']
   }];
 }

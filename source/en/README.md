@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /img/logo.png
+heroImage: /img/logo.jpg
 actionText: Get Started →
 actionLink: /zh/guide/
 features:
@@ -28,7 +28,7 @@ Add a friend chain here.
 ---
 <!-- 自定义footer -->
 <p align="center">
-Hosted by <a href="https://pages.github.com" target="_blank" style="font-weight:bold">Github Pages</a> | <a href="https://sogrey.github.io/about/mit.html" target="_blank">MIT License</a> | © 2019 <a href="https://sogrey.github.io" target="_blank">Sogrey</a> | Are there any <a href="https://github.com/Sogrey/VuepressBlogTemplate/issues/new" target="_blank">Issue</a> ?
+Hosted by <a href="https://pages.github.com" target="_blank" style="font-weight:bold">Github Pages</a> | <a href="https://sogrey.github.io/about/mit.html" target="_blank">MIT License</a> | © 2019 <a href="https://sogrey.github.io" target="_blank">Sogrey</a> | Are there any <a href="https://github.com/Sogrey/Linux-start/issues/new" target="_blank">Issue</a> ?
 </p>
 <br><br>
 

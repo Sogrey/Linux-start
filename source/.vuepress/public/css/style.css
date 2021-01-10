@@ -1,0 +1,29 @@
+
+.svg {
+    fill: currentColor;
+    height: 1.5rem;
+    /* width: 1.5rem; */
+    background-repeat: no-repeat;
+    padding-left:30px;margin-right:16px;
+    display:inline-block;
+}
+.svg.redhat,.svg.rhel{
+    fill: #f00;
+    background-image: url("../../.vuepress/public/img/icos/redhat.svg"); 
+}
+.svg.ubuntu{
+    fill: #e95420;
+    background-image: url("../../.vuepress/public/img/icos/ubuntu.svg"); 
+}
+.svg.centos{
+    fill: #262577;
+    background-image: url("../../.vuepress/public/img/icos/centos.svg"); 
+}
+.svg.suse,.svg.opensuse{
+    fill: #73ba25;
+    background-image: url("../../.vuepress/public/img/icos/opensuse.svg"); 
+}
+.svg.fedora{
+    fill: #294172;
+    background-image: url("../../.vuepress/public/img/icos/fedora.svg"); 
+}

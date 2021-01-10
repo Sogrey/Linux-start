@@ -1,5 +1,5 @@
 {
-  "name": "vuepress_blog_template",
+  "name": "linux_start",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sogrey/VuepressBlogTemplate.git"
+    "url": "git+https://github.com/Sogrey/Linux-start.git"
   },
   "author": "Sogrey",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "yargs-parser": ">=13.1.2"
   },
   "bugs": {
-    "url": "https://github.com/Sogrey/VuepressBlogTemplate/issues"
+    "url": "https://github.com/Sogrey/Linux-start/issues"
   },
-  "homepage": "https://github.com/Sogrey/VuepressBlogTemplate#readme"
+  "homepage": "https://github.com/Sogrey/Linux-start#readme"
 }
