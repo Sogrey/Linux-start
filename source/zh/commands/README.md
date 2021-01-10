@@ -176,7 +176,7 @@ function addTypeList(div) {
 }
 
 function addLi(uldiv, type, command, desc, keyword) {
-    var li_1 = document.createElement("li");
+    var li_1 = window.document.createElement("li");
 
     var commandText = command;
 
@@ -242,12 +242,12 @@ var btnSearch;
 
 var onload = function () {
     console.log('window.onload');
-    divTypeList = document.getElementById('type-list');
-    divLinuxCommands = document.getElementById('linux-commands');
-    divLinuxCommandsList = document.getElementById('linux-commands-list');
-    divLinuxCommandsNoResult = document.getElementById('no-result');
-    inputQuery = document.getElementById('query');
-    btnSearch = document.getElementById('search_btn');
+    divTypeList = window.document.getElementById('type-list');
+    divLinuxCommands = window.document.getElementById('linux-commands');
+    divLinuxCommandsList = window.document.getElementById('linux-commands-list');
+    divLinuxCommandsNoResult = window.document.getElementById('no-result');
+    inputQuery = window.document.getElementById('query');
+    btnSearch = window.document.getElementById('search_btn');
 
     btnSearch.onclick = function () {
         doSearch(inputQuery.value);
