@@ -134,7 +134,7 @@ function genReferenceSidebar(isZh) {
 function getCommandsBySord(parentDir) {
   var LinuxCommands = getCommands();
   var commands = [];
-  
+
   var parent = '';
   if (parentDir) {
     parent = parentDir;
@@ -159,20 +159,29 @@ function getCommandsBySord(parentDir) {
 var CommandTypes = {
   FileSystem: '文件系统',
   DirectoryManagement: '目录管理',
-  Permissions:'权限管理'
+  Permissions: '权限管理'
 };
+
 function getCommands() {
   return [{
-      command: 'ls',
-      desc: '显示目录内容列表',
-      tags: ['FileSystem']
+    command: 'ls',
+    desc: '显示目录内容列表',
+    tags: ['FileSystem']
   }, {
-      command: 'pwd',
-      desc: '显示目录内容列表',
-      tags: ['DirectoryManagement']
-  },{
-      command: 'chmod',
-      desc: '用来变更文件或目录的权限',
-      tags: ['Permissions','FileSystem','DirectoryManagement']
+    command: 'pwd',
+    desc: '显示目录内容列表',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'chmod',
+    desc: '用来变更文件或目录的权限',
+    tags: ['Permissions', 'FileSystem', 'DirectoryManagement']
+  }, {
+    command: 'cp',
+    desc: '复制文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'cat',
+    desc: '连接多个文件并打印到标准输出',
+    tags: ['FileSystem']
   }];
 }

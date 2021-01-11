@@ -5,3 +5,10 @@
 https://linuxtools-rst.readthedocs.io/zh_CN/latest/index.html https://github.com/me115/linuxtools_rst
 
 https://linuxgsm.com/  https://github.com/GameServerManagers/LinuxGSM
+
+MX Linux
+
+https://mxlinux.org/
+
+- http://mirror.umd.edu/mxlinux-iso/MX/Final/
+- http://mirror.cogentco.com/pub/linux/mxlinux-iso/MX/Final/

@@ -114,6 +114,14 @@ function getCommands() {
         command: 'chmod',
         desc: '用来变更文件或目录的权限',
         tags: ['Permissions','FileSystem','DirectoryManagement']
+    },{
+        command: 'cp',
+        desc: '复制文件',
+        tags: ['FileSystem']
+    },{
+        command: 'cat',
+        desc: '连接多个文件并打印到标准输出',
+        tags: ['FileSystem']
     }];
 }
 
