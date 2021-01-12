@@ -122,6 +122,14 @@ function getCommands() {
         command: 'cat',
         desc: '连接多个文件并打印到标准输出',
         tags: ['FileSystem']
+    },{
+        command: 'rm',
+        desc: '删除文件和目录',
+        tags: ['FileSystem']
+    },{
+        command: 'tmpwatch',
+        desc: '删除最近一段时间没有访问的文件',
+        tags: ['FileSystem']
     }];
 }
 
