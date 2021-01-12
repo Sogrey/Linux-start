@@ -23,7 +23,6 @@
 <div class="svg alpinelinux">Alpine Linux</div>
 <div class="svg archlinux">Arch Linux</div>
 
-
 ## 语法
 
 ``` bash
@@ -72,6 +71,7 @@ backup  demos  test  test2.txt  test3.txt  test4.txt  test.txt
 
 [sogrey@bogon 文档]$ tmpwatch -U root 1 .  # 不删除root用户的文件
 ```
+
 
 <!-- <link rel="stylesheet" type="text/css" href="../../.vuepress/public/css/style.css"/> -->
 <style>
