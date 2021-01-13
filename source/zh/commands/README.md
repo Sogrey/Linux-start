@@ -130,6 +130,18 @@ function getCommands() {
         command: 'tmpwatch',
         desc: '删除最近一段时间没有访问的文件',
         tags: ['FileSystem']
+    },{
+        command: 'sort',
+        desc: '对文本文件中所有行进行排序',
+        tags: ['FileSystem']
+    },{
+        command: 'whereis',
+        desc: '查找二进制程序、代码等相关文件路径',
+        tags: ['FileSystem']
+    },{
+        command: 'which',
+        desc: '查找并显示给定命令的绝对路径',
+        tags: ['FileSystem']
     }];
 }
 

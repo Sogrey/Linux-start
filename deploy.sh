@@ -37,9 +37,6 @@ vuepress build source --dest docs
 echo -e "\033[32;40m [4/4] \033[0m commit 2 gh-pages branch"
 # 进入生成的文件夹
 cd docs/
-# 如果是发布到自定义域名
-# echo 'www.yourwebsite.com' > CNAME
-
 git init
 git add -A
 git commit -m 'deploy gh-pages'

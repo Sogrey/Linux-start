@@ -6,6 +6,8 @@
 
 如果指定了`--atime`,`--ctime`或者`--mtime`选项，那么删除文件的时间由他们中的最大值决定。如果`--dirmtime`选项意味着忽略目录的atime，即使使用了`—atime`选项。
 
+> 我在 CentOS Linux 8 上测试 需要单独安装。
+
 ## 适用范围
 
 <!-- <div class="svg linux">Linux</div> -->
