@@ -243,21 +243,35 @@ function GetQueryString(name) {
  * @param {*} keyword 
  */
 function doSearch(keyword) {
-    // var searchParamType = GetQueryString('type');
+    var searchParamType = GetQueryString('type');
 
     var searchParamKeyword = keyword;
     if (!searchParamKeyword) {
         searchParamKeyword = GetQueryString('keyword');
     }
+    
+    divLinuxCommandsList.innerHTML = '';
     if (searchParamKeyword&&searchParamKeyword.length>0&&searchParamKeyword!='null') {
-        
+        var commands = getCommandsBySord('', searchParamType, searchParamKeyword);
+    
+        if (commands && JSON.stringify(commands) != "{}") {
+            divLinuxCommandsNoResult.style.display = 'none';
+            for (const key in commands) {
+                if (Object.hasOwnProperty.call(commands, key)) {
+                    const command = commands[key];
+                    addLi(divLinuxCommandsList, command.tags[0], command.command, command.desc, searchParamKeyword);
+                }
+            }
+        } else {
+            divLinuxCommandsNoResult.style.display = 'block';
+        }
     }else{
         searchParamKeyword='';
     }
     //?type=DirectoryManagement&keyword=chmod
-    console.log('查询参数', searchParamKeyword);
+    // console.log('查询参数', searchParamKeyword);
 
-    window.location = 'index.html?keyword=' + searchParamKeyword;
+    // window.location = 'index.html?keyword=' + searchParamKeyword;
 }
 
 var divTypeList;
