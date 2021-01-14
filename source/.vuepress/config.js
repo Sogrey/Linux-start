@@ -29,6 +29,15 @@ module.exports = {
       rel: "icon",
       href: "/favicon.ico"
     }]
+//     ['script', {
+//       id: "scriptImporter"
+//     }, `
+//     (function() { 
+//     var script = document.createElement("script"); 
+//     script.src = "path to your js script";
+//     setTimeout(() => document.body.append(script))
+//     })(); 
+// `]
   ],
   themeConfig: {
     repo: "Sogrey/Linux-start",
@@ -202,6 +211,14 @@ function getCommands() {
   }, {
     command: 'which',
     desc: '查找并显示给定命令的绝对路径',
+    tags: ['FileSystem']
+  }, {
+    command: 'lsattr',
+    desc: '显示指定文件或者目录的属性',
+    tags: ['FileSystem']
+  }, {
+    command: 'chattr',
+    desc: '改变文件的属性',
     tags: ['FileSystem']
   }];
 }

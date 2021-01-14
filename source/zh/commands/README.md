@@ -96,55 +96,6 @@
 
 <!-- <script type="text/javascript" src="../../.vuepress/public/js/linux-commands.js"></script> -->
 <script>
-var CommandTypes = {
-    FileSystem: '文件系统',
-    DirectoryManagement: '目录管理',
-    Permissions:'权限管理'
-};
-function getCommands() {
-    return [{
-        command: 'ls',
-        desc: '显示目录内容列表',
-        tags: ['FileSystem']
-    }, {
-        command: 'pwd',
-        desc: '显示目录内容列表',
-        tags: ['DirectoryManagement']
-    },{
-        command: 'chmod',
-        desc: '用来变更文件或目录的权限',
-        tags: ['Permissions','FileSystem','DirectoryManagement']
-    },{
-        command: 'cp',
-        desc: '复制文件',
-        tags: ['FileSystem']
-    },{
-        command: 'cat',
-        desc: '连接多个文件并打印到标准输出',
-        tags: ['FileSystem']
-    },{
-        command: 'rm',
-        desc: '删除文件和目录',
-        tags: ['FileSystem']
-    },{
-        command: 'tmpwatch',
-        desc: '删除最近一段时间没有访问的文件',
-        tags: ['FileSystem']
-    },{
-        command: 'sort',
-        desc: '对文本文件中所有行进行排序',
-        tags: ['FileSystem']
-    },{
-        command: 'whereis',
-        desc: '查找二进制程序、代码等相关文件路径',
-        tags: ['FileSystem']
-    },{
-        command: 'which',
-        desc: '查找并显示给定命令的绝对路径',
-        tags: ['FileSystem']
-    }];
-}
-
 function getCommandsBySord(parentDir, cmdType, keyword) {
     var LinuxCommands = getCommands();
     var commands = {};
@@ -326,7 +277,62 @@ var onload = function () {
 
 
 }
-
+var CommandTypes = {
+    FileSystem: '文件系统',
+    DirectoryManagement: '目录管理',
+    Permissions:'权限管理'
+};
+function getCommands() {
+    return [{
+        command: 'ls',
+        desc: '显示目录内容列表',
+        tags: ['FileSystem']
+    }, {
+        command: 'pwd',
+        desc: '显示目录内容列表',
+        tags: ['DirectoryManagement']
+    },{
+        command: 'chmod',
+        desc: '用来变更文件或目录的权限',
+        tags: ['Permissions','FileSystem','DirectoryManagement']
+    },{
+        command: 'cp',
+        desc: '复制文件',
+        tags: ['FileSystem']
+    },{
+        command: 'cat',
+        desc: '连接多个文件并打印到标准输出',
+        tags: ['FileSystem']
+    },{
+        command: 'rm',
+        desc: '删除文件和目录',
+        tags: ['FileSystem']
+    },{
+        command: 'tmpwatch',
+        desc: '删除最近一段时间没有访问的文件',
+        tags: ['FileSystem']
+    },{
+        command: 'sort',
+        desc: '对文本文件中所有行进行排序',
+        tags: ['FileSystem']
+    },{
+        command: 'whereis',
+        desc: '查找二进制程序、代码等相关文件路径',
+        tags: ['FileSystem']
+    },{
+        command: 'which',
+        desc: '查找并显示给定命令的绝对路径',
+        tags: ['FileSystem']
+    },{
+        command: 'lsattr',
+        desc: '显示指定文件或者目录的属性',
+        tags: ['FileSystem']
+    },{
+        command: 'chattr',
+        desc: '改变文件的属性',
+        tags: ['FileSystem']
+    }];
+}
 // window.onload = onload;
 setTimeout(function(){onload()}, 1000);
 </script>
