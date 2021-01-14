@@ -28,13 +28,17 @@ module.exports = {
     ["link", {
       rel: "icon",
       href: "/favicon.ico"
-    }]
+    }],
+    ["link", {
+      rel: "stylesheet",
+      href: "/css/style.css"
+    }],
 //     ['script', {
 //       id: "scriptImporter"
 //     }, `
 //     (function() { 
 //     var script = document.createElement("script"); 
-//     script.src = "path to your js script";
+//     script.src = "/js/linux-commands.js";
 //     setTimeout(() => document.body.append(script))
 //     })(); 
 // `]

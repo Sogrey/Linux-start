@@ -1,29 +1,118 @@
+#linux-commands-list li a span{
+    color:red;
+}
+.search {
+    max-width: 400px;
+    height:38px;
+}
+.search {
+    min-height: 20px;
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.search .query {
+    resize: none;
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    height: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid #d5d5d5;
+    border-radius: 10px 0 0 10px;
+    -webkit-appearance: none;
+    outline:none;
+}
+.search .query, .search .enter-input {
+    display: table-cell;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.search .enter-input {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.search .enter-input button {
+    height: 100%;
+    margin: 0;
+    margin-left:5px;
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    padding: 9px 23px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-rendering: auto;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    background-color: #3eaf7c;
+    border: 2px solid transparent;
+    border-collapse: separate;
+    border-radius: 0 10px 10px 0;
+    border-color: #3eaf7c;
+    color: #fff;
+    outline:none;
+}
+#linux-commands #no-result{
+    display:none
+}
+#type-list{
+    margin:10px 0
+}
 
 .svg {
-    fill: currentColor;
     height: 1.5rem;
     /* width: 1.5rem; */
     background-repeat: no-repeat;
     padding-left:30px;margin-right:16px;
     display:inline-block;
 }
+.svg.linux{
+    background-image: url("../img/icos/linux.svg"); 
+}
 .svg.redhat,.svg.rhel{
-    fill: #f00;
-    background-image: url("../../.vuepress/public/img/icos/redhat.svg"); 
+    background-image: url("../img/icos/redhat.svg"); 
 }
 .svg.ubuntu{
-    fill: #e95420;
-    background-image: url("../../.vuepress/public/img/icos/ubuntu.svg"); 
+    background-image: url("../img/icos/ubuntu.svg"); 
 }
 .svg.centos{
-    fill: #262577;
-    background-image: url("../../.vuepress/public/img/icos/centos.svg"); 
+    background-image: url("../img/icos/centos.svg"); 
 }
 .svg.suse,.svg.opensuse{
-    fill: #73ba25;
-    background-image: url("../../.vuepress/public/img/icos/opensuse.svg"); 
+    background-image: url("../img/icos/opensuse.svg"); 
 }
 .svg.fedora{
-    fill: #294172;
-    background-image: url("../../.vuepress/public/img/icos/fedora.svg"); 
+    background-image: url("../img/icos/fedora.svg"); 
+}
+.svg.linuxmint{
+    background-image: url("../img/icos/linuxmint.svg"); 
+}
+.svg.mxlinux{
+    background-image: url("../img/icos/mxlinux.svg"); 
+}
+.svg.alpinelinux{
+    background-image: url("../img/icos/alpinelinux.svg"); 
+}
+.svg.archlinux{
+    background-image: url("../img/icos/archlinux.svg"); 
+}
+.svg.archlinux{
+    background-image: url("../img/icos/archlinux.svg"); 
+}
+.svg.debian{
+    background-image: url("../img/icos/debian.svg"); 
+}
+.svg.deepin{
+    background-image: url("../img/icos/deepin.svg"); 
 }

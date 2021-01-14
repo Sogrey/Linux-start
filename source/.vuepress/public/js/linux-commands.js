@@ -1,8 +1,3 @@
-var CommandTypes = {
-    FileSystem: '文件系统',
-    DirectoryManagement: '目录管理'
-};
-
 function getCommandsBySord(parentDir, cmdType, keyword) {
     var LinuxCommands = getCommands();
     var commands = {};
@@ -22,14 +17,14 @@ function getCommandsBySord(parentDir, cmdType, keyword) {
         } else {
             var isRight = false;
             if (cmdType && !keyword) {
-                if (cmdType == linuxCommand.type) {
+                if (linuxCommand.tags.indexOf(cmdType) > -1) {
                     isRight = true;
                 }
             } else if (!cmdType && keyword) {
                 if (linuxCommand.command.indexOf(keyword) > -1 || linuxCommand.desc.indexOf(keyword) > -1) {
                     isRight = true;
                 }
-            } else if (cmdType == linuxCommand.type && (linuxCommand.command.indexOf(keyword) > -1 || linuxCommand.desc.indexOf(keyword) > -1)) {
+            } else if (linuxCommand.tags.indexOf(cmdType) > -1 && (linuxCommand.command.indexOf(keyword) > -1 || linuxCommand.desc.indexOf(keyword) > -1)) {
                 isRight = true;
             }
 
@@ -44,18 +39,6 @@ function getCommandsBySord(parentDir, cmdType, keyword) {
 
     console.log(commands);
     return commands;
-}
-
-function getCommands() {
-    return [{
-        command: 'ls',
-        desc: '显示目录内容列表',
-        type: 'FileSystem'
-    }, {
-        command: 'pwd',
-        desc: '显示目录内容列表',
-        type: 'DirectoryManagement'
-    }];
 }
 
 function addTypeList(div) {
@@ -73,7 +56,7 @@ function addTypeList(div) {
 }
 
 function addLi(uldiv, type, command, desc, keyword) {
-    var li_1 = document.createElement("li");
+    var li_1 = window.document.createElement("li");
 
     var commandText = command;
 
@@ -113,17 +96,35 @@ function GetQueryString(name) {
  * @param {*} keyword 
  */
 function doSearch(keyword) {
-    // var searchParamType = GetQueryString('type');
+    var searchParamType = GetQueryString('type');
 
     var searchParamKeyword = keyword;
     if (!searchParamKeyword) {
         searchParamKeyword = GetQueryString('keyword');
     }
 
-    //?type=DirectoryManagement&keyword=chmod
-    console.log('查询参数', searchParamKeyword);
+    divLinuxCommandsList.innerHTML = '';
+    if (searchParamKeyword && searchParamKeyword.length > 0 && searchParamKeyword != 'null') {
+        var commands = getCommandsBySord('', searchParamType, searchParamKeyword);
 
-    window.location = 'index.html?keyword=' + searchParamKeyword;
+        if (commands && JSON.stringify(commands) != "{}") {
+            divLinuxCommandsNoResult.style.display = 'none';
+            for (const key in commands) {
+                if (Object.hasOwnProperty.call(commands, key)) {
+                    const command = commands[key];
+                    addLi(divLinuxCommandsList, command.tags[0], command.command, command.desc, searchParamKeyword);
+                }
+            }
+        } else {
+            divLinuxCommandsNoResult.style.display = 'block';
+        }
+    } else {
+        searchParamKeyword = '';
+    }
+    //?type=DirectoryManagement&keyword=chmod
+    // console.log('查询参数', searchParamKeyword);
+
+    // window.location = 'index.html?keyword=' + searchParamKeyword;
 }
 
 var divTypeList;
@@ -135,13 +136,13 @@ var btnSearch;
 
 var onload = function () {
     console.log('window.onload');
-    divTypeList = document.getElementById('type-list');
-    divLinuxCommands = document.getElementById('linux-commands');
-    divLinuxCommandsList = document.getElementById('linux-commands-list');
-    divLinuxCommandsNoResult = document.getElementById('no-result');
-    inputQuery = document.getElementById('query');
-    btnSearch = document.getElementById('search_btn');
-
+    divTypeList = window.document.getElementById('type-list');
+    divLinuxCommands = window.document.getElementById('linux-commands');
+    divLinuxCommandsList = window.document.getElementById('linux-commands-list');
+    divLinuxCommandsNoResult = window.document.getElementById('no-result');
+    inputQuery = window.document.getElementById('query');
+    btnSearch = window.document.getElementById('search_btn');
+    if (!btnSearch) return;
     btnSearch.onclick = function () {
         doSearch(inputQuery.value);
     }
@@ -155,8 +156,10 @@ var onload = function () {
 
     addTypeList(divTypeList);
 
-    if (searchParamKeyword) {
+    if (searchParamKeyword && searchParamKeyword.length > 0 && searchParamKeyword != 'null') {
         inputQuery.value = searchParamKeyword;
+    } else {
+        searchParamKeyword = '';
     }
 
     var commands = getCommandsBySord('', searchParamType, searchParamKeyword);
@@ -166,7 +169,7 @@ var onload = function () {
         for (const key in commands) {
             if (Object.hasOwnProperty.call(commands, key)) {
                 const command = commands[key];
-                addLi(divLinuxCommandsList, command.type, command.command, command.desc, searchParamKeyword);
+                addLi(divLinuxCommandsList, command.tags[0], command.command, command.desc, searchParamKeyword);
             }
         }
     } else {
@@ -176,6 +179,64 @@ var onload = function () {
 
 
 }
+var CommandTypes = {
+    FileSystem: '文件系统',
+    DirectoryManagement: '目录管理',
+    Permissions: '权限管理'
+};
 
+function getCommands() {
+    return [{
+        command: 'ls',
+        desc: '显示目录内容列表',
+        tags: ['FileSystem']
+    }, {
+        command: 'pwd',
+        desc: '显示目录内容列表',
+        tags: ['DirectoryManagement']
+    }, {
+        command: 'chmod',
+        desc: '用来变更文件或目录的权限',
+        tags: ['Permissions', 'FileSystem', 'DirectoryManagement']
+    }, {
+        command: 'cp',
+        desc: '复制文件',
+        tags: ['FileSystem']
+    }, {
+        command: 'cat',
+        desc: '连接多个文件并打印到标准输出',
+        tags: ['FileSystem']
+    }, {
+        command: 'rm',
+        desc: '删除文件和目录',
+        tags: ['FileSystem']
+    }, {
+        command: 'tmpwatch',
+        desc: '删除最近一段时间没有访问的文件',
+        tags: ['FileSystem']
+    }, {
+        command: 'sort',
+        desc: '对文本文件中所有行进行排序',
+        tags: ['FileSystem']
+    }, {
+        command: 'whereis',
+        desc: '查找二进制程序、代码等相关文件路径',
+        tags: ['FileSystem']
+    }, {
+        command: 'which',
+        desc: '查找并显示给定命令的绝对路径',
+        tags: ['FileSystem']
+    }, {
+        command: 'lsattr',
+        desc: '显示指定文件或者目录的属性',
+        tags: ['FileSystem']
+    }, {
+        command: 'chattr',
+        desc: '改变文件的属性',
+        tags: ['FileSystem']
+    }];
+}
 // window.onload = onload;
-setTimeout(function(){onload()}, 1000);
+setTimeout(function () {
+    onload()
+}, 1000);
