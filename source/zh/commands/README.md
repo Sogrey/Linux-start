@@ -257,6 +257,22 @@ function getCommands() {
         command: 'chattr',
         desc: '改变文件的属性',
         tags: ['FileSystem']
+    }, {
+        command: 'cksum',
+        desc: '检查文件的crc是否正确',
+        tags: ['FileSystem']
+    }, {
+        command: 'stat',
+        desc: '显示文件或者文件系统的状态信息',
+        tags: ['FileSystem']
+    }, {
+        command: 'sum',
+        desc: '计算文件的校验码和块数',
+        tags: ['FileSystem']
+    }, {
+        command: 'mkdir',
+        desc: '创建目录',
+        tags: ['FileSystem']
     }];
 }
 // window.onload = onload;

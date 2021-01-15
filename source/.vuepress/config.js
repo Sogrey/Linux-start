@@ -33,15 +33,15 @@ module.exports = {
       rel: "stylesheet",
       href: "/css/style.css"
     }],
-//     ['script', {
-//       id: "scriptImporter"
-//     }, `
-//     (function() { 
-//     var script = document.createElement("script"); 
-//     script.src = "/js/linux-commands.js";
-//     setTimeout(() => document.body.append(script))
-//     })(); 
-// `]
+    //     ['script', {
+    //       id: "scriptImporter"
+    //     }, `
+    //     (function() { 
+    //     var script = document.createElement("script"); 
+    //     script.src = "/js/linux-commands.js";
+    //     setTimeout(() => document.body.append(script))
+    //     })(); 
+    // `]
   ],
   themeConfig: {
     repo: "Sogrey/Linux-start",
@@ -223,6 +223,22 @@ function getCommands() {
   }, {
     command: 'chattr',
     desc: '改变文件的属性',
+    tags: ['FileSystem']
+  }, {
+    command: 'cksum',
+    desc: '检查文件的crc是否正确',
+    tags: ['FileSystem']
+  }, {
+    command: 'stat',
+    desc: '显示文件或者文件系统的状态信息',
+    tags: ['FileSystem']
+  }, {
+    command: 'sum',
+    desc: '计算文件的校验码和块数',
+    tags: ['FileSystem']
+  }, {
+    command: 'mkdir',
+    desc: '创建目录',
     tags: ['FileSystem']
   }];
 }
