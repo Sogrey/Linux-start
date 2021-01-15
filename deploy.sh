@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # 确保脚本抛出遇到的错误
-set -e
+# set -e
 
 echo -e '\033[32;40m
 
