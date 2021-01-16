@@ -35,6 +35,8 @@ Linux的发行版多种多样：
 <div class="svg alpinelinux">Alpine Linux</div>
 <div class="svg archlinux">Arch Linux</div>
 <div class="svg freebsd">FreeBSD</div>
+<div class="svg gentoo">Gentoo</div>
+<div class="svg oracle">Linux | Oracle</div> 
 
 ---
 
@@ -161,59 +163,37 @@ Linux的发行版多种多样：
 
 - [https://www.kali.org/downloads/](https://www.kali.org/downloads/)
 
+### <div class="svg gentoo">Gentoo</div>
+
+官网：[https://www.gentoo.org/](https://www.gentoo.org/)
+
+下载地址：
+
+- [https://www.gentoo.org/downloads/](https://www.gentoo.org/downloads/)
+
+
+### Mandriva
+
+官网：[https://www.openmandriva.org/](https://www.openmandriva.org/)
+
+下载地址：
+
+- [https://www.openmandriva.org/en/download](https://www.openmandriva.org/en/download)
+
+
+### <div class="svg oracle">Linux | Oracle</div> 
+
+官网：[https://www.oracle.com/linux/](https://www.oracle.com/linux/)
+
+下载地址：
+
+- [https://www.oracle.com/linux/technologies/oracle-linux-downloads.html](https://www.oracle.com/linux/technologies/oracle-linux-downloads.html)
+
+### Turbolinux
+
+官网：[http://www.turbolinux.org/](http://www.turbolinux.org/)
+
+
 ---
 
 > 欢迎补充。
-
-<!-- <link rel="stylesheet" type="text/css" href="../../.vuepress/public/css/style.css"/> -->
-<style>
-.svg {
-    height: 1.5rem;
-    /* width: 1.5rem; */
-    background-repeat: no-repeat;
-    padding-left:30px;margin-right:16px;
-    display:inline-block;
-}
-.svg.linux{
-    background-image: url("../../.vuepress/public/img/icos/linux.svg"); 
-}
-.svg.redhat,.svg.rhel{
-    background-image: url("../../.vuepress/public/img/icos/redhat.svg"); 
-}
-.svg.ubuntu{
-    background-image: url("../../.vuepress/public/img/icos/ubuntu.svg"); 
-}
-.svg.centos{
-    background-image: url("../../.vuepress/public/img/icos/centos.svg"); 
-}
-.svg.suse,.svg.opensuse{
-    background-image: url("../../.vuepress/public/img/icos/opensuse.svg"); 
-}
-.svg.fedora{
-    background-image: url("../../.vuepress/public/img/icos/fedora.svg"); 
-}
-.svg.linuxmint{
-    background-image: url("../../.vuepress/public/img/icos/linuxmint.svg"); 
-}
-.svg.mxlinux{
-    background-image: url("../../.vuepress/public/img/icos/mxlinux.svg"); 
-}
-.svg.alpinelinux{
-    background-image: url("../../.vuepress/public/img/icos/alpinelinux.svg"); 
-}
-.svg.archlinux{
-    background-image: url("../../.vuepress/public/img/icos/archlinux.svg"); 
-}
-.svg.archlinux{
-    background-image: url("../../.vuepress/public/img/icos/archlinux.svg"); 
-}
-.svg.debian{
-    background-image: url("../../.vuepress/public/img/icos/debian.svg"); 
-}
-.svg.deepin{
-    background-image: url("../../.vuepress/public/img/icos/deepin.svg"); 
-}
-.svg.freebsd{
-    background-image: url("../../.vuepress/public/img/icos/freebsd.svg"); 
-}
-</style>

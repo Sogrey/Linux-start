@@ -273,6 +273,30 @@ function getCommands() {
         command: 'mkdir',
         desc: '创建目录',
         tags: ['FileSystem']
+    }, {
+        command: 'file',
+        desc: '判断指定文件的文件类型',
+        tags: ['FileSystem']
+    }, {
+        command: 'diffstat',
+        desc: '显示diff命令输出信息的柱状图',
+        tags: ['FileSystem']
+    }, {
+        command: 'diff',
+        desc: '比较给定的两个文件的不同',
+        tags: ['FileSystem']
+    }, {
+        command: 'diff3',
+        desc: '比较3个文件的不同',
+        tags: ['FileSystem']
+    }, {
+        command: 'cmp',
+        desc: '比较两个文件是否有差异',
+        tags: ['FileSystem']
+    }, {
+        command: 'comm',
+        desc: '逐行比较两个已经排序过的文件',
+        tags: ['FileSystem']
     }];
 }
 

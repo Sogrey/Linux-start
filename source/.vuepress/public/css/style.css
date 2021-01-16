@@ -116,3 +116,12 @@
 .svg.deepin{
     background-image: url("../img/icos/deepin.svg"); 
 }
+.svg.gentoo{
+    background-image: url("../img/icos/gentoo.svg"); 
+}
+.svg.oracle{
+    background-image: url("../img/icos/oracle.svg"); 
+}
+.svg.freebsd{
+    background-image: url("../img/icos/freebsd.svg"); 
+}
