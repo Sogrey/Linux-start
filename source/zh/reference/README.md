@@ -51,6 +51,8 @@ Linux的发行版多种多样：
 
 ### <div class="svg ubuntu">Ubuntu</div>
 
+![](../../.vuepress/public/img/LinuxOSs/Ubuntu.png)
+
 官网：[https://ubuntu.com/](https://ubuntu.com/) [Ubuntu Server](https://ubuntu.com/server)
 
 下载地址：
@@ -60,6 +62,8 @@ Linux的发行版多种多样：
 
 ### <div class="svg centos">CentOS</div>
 
+![](../../.vuepress/public/img/LinuxOSs/CentOS.png)
+
 官网：[https://www.centos.org/](https://www.centos.org/)
 
 下载地址：
@@ -67,6 +71,8 @@ Linux的发行版多种多样：
 - [https://wiki.centos.org/Download](https://wiki.centos.org/Download)
 
 ### Huawei EulorOS （基于 CentOS）
+
+![](../../.vuepress/public/img/LinuxOSs/HUAWEI-EulorOS.png)
 
 官网：[https://developer.huaweicloud.com/ict/en/site-euleros/euleros](https://developer.huaweicloud.com/ict/en/site-euleros/euleros)
 
@@ -76,6 +82,8 @@ Linux的发行版多种多样：
 
 ### <div class="svg debian">Debian</div>
 
+![](../../.vuepress/public/img/LinuxOSs/debian.png)
+
 官网：[https://www.debian.org/](https://www.debian.org/)
 
 下载地址：
@@ -84,6 +92,8 @@ Linux的发行版多种多样：
 - [https://www.debian.org/CD/](https://www.debian.org/CD/)
 
 ### <div class="svg deepin">Deepin</div>
+
+![](../../.vuepress/public/img/LinuxOSs/DeepinLinux.png)
 
 官网：挂了
 
@@ -97,6 +107,8 @@ Linux的发行版多种多样：
 
 ### <div class="svg opensuse">openSUSE</div>
 
+![](../../.vuepress/public/img/LinuxOSs/openSUSE.png)
+
 官网：[https://www.opensuse.org/](https://www.opensuse.org/)
 
 下载地址：
@@ -104,6 +116,8 @@ Linux的发行版多种多样：
 - [https://software.opensuse.org/distributions/tumbleweed](https://software.opensuse.org/distributions/tumbleweed)
 
 ### <div class="svg fedora">Fedora</div>
+
+![](../../.vuepress/public/img/LinuxOSs/Fedora.png)
 
 官网：[https://getfedora.org/](https://getfedora.org/)
 
@@ -114,6 +128,8 @@ Linux的发行版多种多样：
 - [[Fedora CoreOS] https://getfedora.org/en/coreos/download](https://getfedora.org/en/coreos/download)
 
 ### <div class="svg linuxmint">Linux Mint</div>
+
+![](../../.vuepress/public/img/LinuxOSs/linuxmint.png)
 
 官网：[https://linuxmint.com/](https://linuxmint.com/)
 
@@ -149,6 +165,8 @@ Linux的发行版多种多样：
 
 ### <div class="svg mxlinux">MX Linux</div> 
 
+![](../../.vuepress/public/img/LinuxOSs/MXLinux.png)
+
 官网：[https://mxlinux.org/](https://mxlinux.org/)
 
 下载地址：
@@ -157,6 +175,8 @@ Linux的发行版多种多样：
 
 ### Kali Linux
 
+![](../../.vuepress/public/img/LinuxOSs/Kali.png)
+
 官网：[https://www.kali.org/](https://www.kali.org/)
 
 下载地址：
@@ -164,6 +184,8 @@ Linux的发行版多种多样：
 - [https://www.kali.org/downloads/](https://www.kali.org/downloads/)
 
 ### <div class="svg gentoo">Gentoo</div>
+
+![](../../.vuepress/public/img/LinuxOSs/GentooLinux.png)
 
 官网：[https://www.gentoo.org/](https://www.gentoo.org/)
 
@@ -174,6 +196,8 @@ Linux的发行版多种多样：
 
 ### Mandriva
 
+![](../../.vuepress/public/img/LinuxOSs/OpenMandriva.png)
+
 官网：[https://www.openmandriva.org/](https://www.openmandriva.org/)
 
 下载地址：
@@ -182,6 +206,8 @@ Linux的发行版多种多样：
 
 
 ### <div class="svg oracle">Linux | Oracle</div> 
+
+![](../../.vuepress/public/img/LinuxOSs/OracleLinux.png)
 
 官网：[https://www.oracle.com/linux/](https://www.oracle.com/linux/)
 
@@ -192,6 +218,16 @@ Linux的发行版多种多样：
 ### Turbolinux
 
 官网：[http://www.turbolinux.org/](http://www.turbolinux.org/)
+
+### 优麒麟 UbuntuKylin
+
+![](../../.vuepress/public/img/LinuxOSs/UbuntuKylin.png)
+
+官网：[https://www.ubuntukylin.com/](https://www.ubuntukylin.com/)
+
+下载地址：
+
+- [https://www.ubuntukylin.com/downloads/show.php?id=451&lang=en](https://www.ubuntukylin.com/downloads/show.php?id=451&lang=en)
 
 
 ---

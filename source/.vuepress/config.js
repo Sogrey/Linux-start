@@ -264,5 +264,21 @@ function getCommands() {
     command: 'comm',
     desc: '逐行比较两个已经排序过的文件',
     tags: ['FileSystem']
+  }, {
+    command: 'csplit',
+    desc: '将一个大文件分割成小的碎片文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'fold',
+    desc: '按照指定的宽度显示文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'paste',
+    desc: '将多个文件按列队列合并',
+    tags: ['FileSystem']
+  }, {
+    command: 'indent',
+    desc: '格式化C语言的源文件',
+    tags: ['FileSystem']
   }];
 }
