@@ -280,5 +280,25 @@ function getCommands() {
     command: 'indent',
     desc: '格式化C语言的源文件',
     tags: ['FileSystem']
+  }, {
+    command: 'umask',
+    desc: '显示或设置创建文件的权限掩码',
+    tags: ['FileSystem']
+  }, {
+    command: 'tr',
+    desc: '将字符进行替换压缩和删除',
+    tags: ['FileSystem']
+  }, {
+    command: 'touch',
+    desc: '创建新的空文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'split',
+    desc: '分割任意大小的文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'patch',
+    desc: '为开放源代码软件安装补丁程序',
+    tags: ['FileSystem']
   }];
 }
