@@ -300,5 +300,25 @@ function getCommands() {
     command: 'patch',
     desc: '为开放源代码软件安装补丁程序',
     tags: ['FileSystem']
+  }, {
+    command: 'join',
+    desc: '两个文件中指定栏位内容相同的行连接起来',
+    tags: ['FileSystem']
+  }, {
+    command: 'spell',
+    desc: '对文件进行拼写检查',
+    tags: ['FileSystem']
+  }, {
+    command: 'ispell',
+    desc: '检查文件中出现的拼写错误',
+    tags: ['FileSystem']
+  }, {
+    command: 'colrm',
+    desc: '删除文件中的指定列',
+    tags: ['FileSystem']
+  }, {
+    command: 'col',
+    desc: '过滤控制字符',
+    tags: ['FileSystem']
   }];
 }
