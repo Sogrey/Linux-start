@@ -353,6 +353,18 @@ function getCommands() {
         command: 'col',
         desc: '过滤控制字符',
         tags: ['FileSystem']
+    }, {
+        command: 'wc',
+        desc: '统计文件的字节数、字数、行数',
+        tags: ['FileSystem']
+    }, {
+        command: 'uniq',
+        desc: '显示或忽略重复的行',
+        tags: ['FileSystem']
+    }, {
+        command: 'tee',
+        desc: '从标准输入读取数据并重定向到标准输出和文件',
+        tags: ['FileSystem']
     }];
 }
 
