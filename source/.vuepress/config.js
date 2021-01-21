@@ -332,5 +332,25 @@ function getCommands() {
     command: 'tee',
     desc: '从标准输入读取数据并重定向到标准输出和文件',
     tags: ['FileSystem']
+  }, {
+    command: 'ex',
+    desc: '启动vim编辑器的ex编辑模式',
+    tags: ['FileSystem']
+  }, {
+    command: 'ed',
+    desc: '简单的单行文本编辑程序',
+    tags: ['FileSystem']
+  }, {
+    command: 'emacs',
+    desc: '功能强大的全屏文本编辑器',
+    tags: ['FileSystem']
+  }, {
+    command: 'jed',
+    desc: '主要用于编辑代码的编辑器',
+    tags: ['FileSystem']
+  }, {
+    command: 'vi',
+    desc: '功能强大的纯文本编辑器',
+    tags: ['FileSystem']
   }];
 }
