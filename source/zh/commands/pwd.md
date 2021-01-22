@@ -33,7 +33,6 @@ pwd  [OPTION]
 --help                           # 显示帮助文档
 --version                        # 显示命令版本信息
 ```
-
 ## 举例
 
 ``` bash
