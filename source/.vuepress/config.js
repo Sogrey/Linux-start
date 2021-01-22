@@ -352,5 +352,17 @@ function getCommands() {
     command: 'vi',
     desc: '功能强大的纯文本编辑器',
     tags: ['FileSystem']
+  }, {
+    command: 'sed',
+    desc: '功能强大的流式文本编辑器',
+    tags: ['FileSystem']
+  }, {
+    command: 'joe',
+    desc: '强大的纯文本编辑器',
+    tags: ['FileSystem']
+  }, {
+    command: 'pico',
+    desc: '功能强大全屏幕的文本编辑器',
+    tags: ['FileSystem']
   }];
 }
