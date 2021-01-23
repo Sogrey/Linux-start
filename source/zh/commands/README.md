@@ -397,6 +397,14 @@ function getCommands() {
         command: 'pico',
         desc: '功能强大全屏幕的文本编辑器',
         tags: ['FileSystem']
+    }, {
+        command: 'cut',
+        desc: '连接文件并打印到标准输出设备上',
+        tags: ['FileSystem']
+    }, {
+        command: 'grep',
+        desc: '强大的文本搜索工具',
+        tags: ['FileSystem']
     }];
 }
 
