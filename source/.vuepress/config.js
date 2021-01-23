@@ -153,7 +153,7 @@ function getCommandsBySord(parentDir) {
     parent = parentDir;
     if (!parent.endsWith('/')) parent += '/';
 
-    // commands.push(parent)
+    // commands.push(parent)  // 暂时去掉搜索主页
   }
 
   for (let i = 0; i < LinuxCommands.length; i++) {
