@@ -55,7 +55,7 @@ cat  file1  file2  >  file3
 返回状态为成功除非给出了非法选项或非法参数。
 
 ## 举例
-
+**常用用例**
 ``` bash
 # 合并显示多个文件
 cat ./1.log ./2.log ./3.log
@@ -70,6 +70,7 @@ cat -b test.log
 # 将标准输入的内容和文件内容一并显示
 echo '######' |cat - test.log
 ```
+
 ``` bash
 [sogrey@bogon 文档]$ ls
 test.txt
