@@ -372,5 +372,25 @@ function getCommands() {
     command: 'grep',
     desc: '强大的文本搜索工具',
     tags: ['FileSystem']
+  }, {
+    command: 'look',
+    desc: '显示文件中以指定字符串开头的任意行',
+    tags: ['FileSystem']
+  }, {
+    command: 'less',
+    desc: '分屏上下翻页浏览文件内容',
+    tags: ['FileSystem']
+  }, {
+    command: 'head',
+    desc: '显示文件的开头部分',
+    tags: ['FileSystem']
+  }, {
+    command: 'tail',
+    desc: '在屏幕上显示指定文件的末尾若干行',
+    tags: ['FileSystem']
+  }, {
+    command: 'tailf',
+    desc: '在屏幕上显示指定文件的末尾若干行内容，通常用于日志文件的跟踪输出',
+    tags: ['FileSystem']
   }];
 }
