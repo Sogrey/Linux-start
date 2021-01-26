@@ -392,5 +392,13 @@ function getCommands() {
     command: 'tailf',
     desc: '在屏幕上显示指定文件的末尾若干行内容，通常用于日志文件的跟踪输出',
     tags: ['FileSystem']
+  }, {
+    command: 'tac',
+    desc: '连接多个文件并以行为单位反向打印到标准输出',
+    tags: ['FileSystem']
+  }, {
+    command: 'od',
+    desc: '输出文件的八进制、十六进制等格式编码的字节',
+    tags: ['FileSystem']
   }];
 }
