@@ -400,5 +400,17 @@ function getCommands() {
     command: 'od',
     desc: '输出文件的八进制、十六进制等格式编码的字节',
     tags: ['FileSystem']
+  }, {
+    command: 'unexpand',
+    desc: '将文件的空白字符转换为制表符',
+    tags: ['FileSystem']
+  }, {
+    command: 'expand',
+    desc: '将文件的制表符转换为空白字符',
+    tags: ['FileSystem']
+  }, {
+    command: 'fmt',
+    desc: '读取文件后优化处理并输出',
+    tags: ['FileSystem']
   }];
 }
