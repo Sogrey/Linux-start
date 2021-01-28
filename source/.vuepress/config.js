@@ -412,5 +412,13 @@ function getCommands() {
     command: 'fmt',
     desc: '读取文件后优化处理并输出',
     tags: ['FileSystem']
+  }, {
+    command: 'ar',
+    desc: '建立或修改备存文件，或是从备存文件中抽取文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'tar',
+    desc: '将许多文件一起保存至一个单独的磁带或磁盘归档，并能从归档中单独还原所需文件',
+    tags: ['FileSystem']
   }];
 }
