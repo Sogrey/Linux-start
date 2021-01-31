@@ -59,201 +59,66 @@ tar  [选项]  文件
 操作修饰符
 
 ``` bash
---check-device
-
-创建增量档案时检查设备编号(默认)
-
--g, --listed-incremental=FILE
-
-处理新的GNU格式增量备份
-
--G, --incremental
-
-处理旧的GNU格式增量备份
-
---ignore-failed-read
-
-不要在不可读文件上使用非零退出
-
---level=NUMBER
-
-创建列表的转储级别-增量存档
-
--n, --seek
-
-档案是可查找的
-
---no-check-device
-
-创建增量档案时不检查设备编号
-
---no-seek
-
-档案是不可寻的
-
---occurrence[=NUMBER]
-
-只处理存档中每个文件的第NUMBER次出现的文件；此选项仅与--delete、--diff、--extract、--list一起使用时有效，以及在命令行上或通过-T选项给出的文件列表有效；数字默认值为1。
-
---sparse-version=MAJOR[.MINOR]
-
-将稀疏格式的版本
-
--S, --sparse
-
-有效处理稀疏文件
+--check-device                # 创建增量档案时检查设备编号(默认)
+-g, --listed-incremental=FILE # 处理新的GNU格式增量备份
+-G, --incremental             # 处理旧的GNU格式增量备份
+--ignore-failed-read          # 不要在不可读文件上使用非零退出
+--level=NUMBER                # 创建列表的转储级别-增量存档
+-n, --seek                    # 档案是可查找的
+--no-check-device             # 创建增量档案时不检查设备编号
+--no-seek                     # 档案是不可寻的
+--occurrence[=NUMBER]         # 只处理存档中每个文件的第NUMBER次出现的文件；此选项仅与--delete、--diff、--extract、--list一起使用时有效，以及在命令行上或通过-T选项给出的文件列表有效；数字默认值为1。
+--sparse-version=MAJOR[.MINOR] # 将稀疏格式的版本
+-S, --sparse                  # 有效处理稀疏文件
 ```
 
 覆盖控制
 
 ``` bash
--k | --keep-old-files
-
-解压缩时不要替换现有文件，将它们视为错误
-
---skip-old-files
-
-解压缩时不要替换现有文件，请悄悄跳过它们
-
---keep-newer-files
-
-不要替换比其存档副本更新的现有文件
-
---no-overwrite-dir
-
-保存现有目录的元数据
-
---overwrite
-
-解压时替换现有的文件
-
---overwrite-dir
-
-提取时覆盖现有目录的元数据(默认)
-
---recursive-unlink
-
-提取目录之前的空层次结构
-
---remove-files
-
-将文件添加到存档后删除它们
-
--U | --unlink-first
-
-在提取每个文件之前删除它。
-
--W | --verify
-
-在编写存档后尝试验证它
+-k, --keep-old-files         # 解压缩时不要替换现有文件，将它们视为错误
+--skip-old-files             # 解压缩时不要替换现有文件，请悄悄跳过它们
+--keep-newer-files           # 不要替换比其存档副本更新的现有文件
+--no-overwrite-dir           # 保存现有目录的元数据
+--overwrite                  # 解压时替换现有的文件
+--overwrite-dir              # 提取时覆盖现有目录的元数据(默认)
+--recursive-unlink           # 提取目录之前的空层次结构
+--remove-files               # 将文件添加到存档后删除它们
+-U, --unlink-first           # 在提取每个文件之前删除它。
+-W, --verify                 # 在编写存档后尝试验证它
 ```
 选择输出流
 ``` bash
---ignore-command-error
-
-忽略子级退出代码
-
---no-ignore-command-error
-
-将子级的非零退出码视为错误
-
--O, --to-stdout
-
-将文件解压缩到标准输出
-
---to-command=COMMAND
-
-将文件解压缩到另一个处理文件属性的程序。
-
---acls
-
-将ACLs保存到存档中
-
---atime-preserve[=METHOD]
-
-保留转储文件的访问时间，方法是在读取后恢复时间(METHOD=’replace’；默认值)，或者不首先设置时间(METHOD=’system’)
-
---delay-directory-restore
-
-将已提取目录的设置修改时间和权限延迟到提取结束
-
---group=NAME
-
-强制NAME作为添加文件的组
-
---mode=CHANGES
-
-强制(符号) 添加的文件的模式为CHANGES
-
---mtime=DATE-OR-FILE
-
-设置文件的mtime
-
--m, --touch
-
-不要提取文件修改时间
-
---no-acls
-
-不要从存档中提取ACLs
-
---no-delay-directory-restore
-
-取消选项“--delay-directory-restore”
-
---no-same-owner
-
-自解压缩文件(普通用户默认)
-
---no-same-permissions
-
-从存档提取权限时应用用户的umask(普通用户默认)
-
---no-selinux
-
-不要提取SELinux上下文
-
---no-xattrs
-
-不要从归档文件中提取用户/root的xatts
-
---numeric-owner
-
-始终使用数字作为用户名/组名。
-
---owner=NAME
-
-强制NAME作为添加文件的所有者
-
--p, --preserve-permissions, --same-permissions
-
-提取有关文件权限的信息(超级用户默认)
-
---preserve
-
-同时具备“-p”和“-s”选项
-
---same-owner
-
-尝试提取与存档中存在的所有权相同的文件(默认为超级用户)。
-
--s | --preserve-order | --same-order
-
-排序要提取的名称以匹配存档
-
---selinux
-
-保存SELinux上下文到存档
-
--xattrs
-
-保存用户/rootd xattrs到存档
+--ignore-command-error       # 忽略子级退出代码
+--no-ignore-command-error    # 将子级的非零退出码视为错误
+-O, --to-stdout              # 将文件解压缩到标准输出
+--to-command=COMMAND         # 将文件解压缩到另一个处理文件属性的程序。
+--acls                       # 将ACLs保存到存档中
+--atime-preserve[=METHOD]    # 保留转储文件的访问时间，方法是在读取后恢复时间(METHOD=’replace’；默认值)，或者不首先设置时间(METHOD=’system’)
+--delay-directory-restore    # 将已提取目录的设置修改时间和权限延迟到提取结束
+--group=NAME                 # 强制NAME作为添加文件的组
+--mode=CHANGES               # 强制(符号) 添加的文件的模式为CHANGES
+--mtime=DATE-OR-FILE         # 设置文件的mtime
+-m, --touch                  # 不要提取文件修改时间
+--no-acls                    # 不要从存档中提取ACLs
+--no-delay-directory-restore # 取消选项“--delay-directory-restore”
+--no-same-owner              # 自解压缩文件(普通用户默认)
+--no-same-permissions        # 从存档提取权限时应用用户的umask(普通用户默认)
+--no-selinux                 # 不要提取SELinux上下文
+--no-xattrs                  # 不要从归档文件中提取用户/root的xatts
+--numeric-owner              # 始终使用数字作为用户名/组名。
+--owner=NAME                 # 强制NAME作为添加文件的所有者
+-p, --preserve-permissions, --same-permissions # 提取有关文件权限的信息(超级用户默认)
+--preserve                   # 同时具备“-p”和“-s”选项
+--same-owner                 # 尝试提取与存档中存在的所有权相同的文件(默认为超级用户)。
+-s, --preserve-order, --same-order # 排序要提取的名称以匹配存档
+--selinux                    # 保存SELinux上下文到存档
+-xattrs                      # 保存用户/rootd xattrs到存档
 ```
 
 设备选择和切换
 
 ``` bash
--f | --file=ARCHIVE
+-f, --file=ARCHIVE
 
 使用存档文件或设备ARCHIVE
 
@@ -269,11 +134,11 @@ tar  [选项]  文件
 
 在每个磁带的末尾运行脚本
 
-L | --tape-length=NUMBER
+L, --tape-length=NUMBER
 
 在写入NUMBERx1024字节后更改磁带
 
--M | --multi-volume
+-M, --multi-volume
 
 创建/列表/提取多卷存档
 
@@ -291,15 +156,15 @@ L | --tape-length=NUMBER
 ```
 设备块
 ``` bash
--b | --blocking-factor=BLOCKS
+-b, --blocking-factor=BLOCKS
 
 每个记录BLOCKSx512个字节
 
--B | --read-full-records
+-B, --read-full-records
 
 重新定义block大小
 
--i | --ignore-zeros
+-i, --ignore-zeros
 
 忽略归档中的零块(意为EOF)
 
@@ -309,7 +174,7 @@ L | --tape-length=NUMBER
 ```
 归档格式选择
 ``` bash
--H | --format=FORMAT
+-H, --format=FORMAT
 
 使用给定的格式创建归档，格式可以是：
 
@@ -325,7 +190,7 @@ ustar，POSIX 1003.1-1988 (ustar)格式
 
 v7，旧的v7 tar格式
 
---old-archive | --portability
+--old-archive, --portability
 
 等价于“--format=v7”
 
@@ -339,25 +204,25 @@ keyword[[:]=value][,keyword[[:]=value]]...
 
 等价于“--format=posix”
 
-V | --label=TEXT
+V, --label=TEXT
 
 使用卷名TEXT创建存档；在列表/解压缩时，使用TEXT作为卷名的全局模式
 ```
 压缩选项
 ``` bash
--a | --auto-compress
+-a, --auto-compress
 
 使用归档后缀确定压缩程序
 
--I | --use-compress-program=PROG
+-I, --use-compress-program=PROG
 
 通过PROG过滤(必须接受-d)
 
--j | --bzip2
+-j, --bzip2
 
 通过bzip2过滤存档
 
--J | --xz
+-J, --xz
 
 通过xz过滤存档
 
@@ -369,15 +234,15 @@ V | --label=TEXT
 
 通过lzma过滤存档
 
---lzop | --no-auto-compress
+--lzop, --no-auto-compress
 
 不要使用归档后缀来确定压缩程序。
 
--z | --gzip | --gunzip | --ungzip
+-z, --gzip, --gunzip, --ungzip
 
 通过gzip过滤存档
 
--Z | --compress | --uncompress
+-Z, --compress, --uncompress
 
 通过compress过滤存档
 ```
@@ -431,7 +296,7 @@ CACHEDIR.TAG的目录
 
 排除版本控制的系统目录
 
--h | --dereference
+-h, --dereference
 
 遵循符号链接；归档和转储它们指向的文件
 
@@ -439,7 +304,7 @@ CACHEDIR.TAG的目录
 
 遵循硬链接；归档和转储它们指向的文件
 
--K | --starting-file=MEMBER-NAME
+-K, --starting-file=MEMBER-NAME
 
 从存档中的成员MEMBER-NAME开始
 
@@ -459,11 +324,11 @@ CACHEDIR.TAG的目录
 
 不要取消引用-T读取的文件名
 
---null | -T
+--null, -T
 
 读取以空结尾的名称，禁用-C
 
--N | --newer=DATE-OR-FILE
+-N, --newer=DATE-OR-FILE
 
 --after-date=DATE-OR-FILE
 
@@ -473,7 +338,7 @@ CACHEDIR.TAG的目录
 
 创建存档时保持本地文件系统
 
--P | --absolute-names
+-P, --absolute-names
 
 不要从文件名中去掉前导‘/’
 
@@ -485,7 +350,7 @@ CACHEDIR.TAG的目录
 
 删除之前备份，重写通常的后缀(‘~’除非被环境变量SIMPLE_BACKUP_SUFFIX覆盖)
 
--T | --files-from=FILE
+-T, --files-from=FILE
 
 获取要从FILE中提取或创建的名称
 
@@ -495,7 +360,7 @@ CACHEDIR.TAG的目录
 
  
 
--X | --exclude-from=FILE
+-X, --exclude-from=FILE
 
 排除FILE中列出的模式
 ```
@@ -557,7 +422,7 @@ CACHEDIR.TAG的目录
 
 将详细信息输出到FILE
 
--l | --check-links
+-l, --check-links
 
 如果不是所有链接都已转储，则打印一条消息
 
@@ -573,7 +438,7 @@ CACHEDIR.TAG的目录
 
 设置名称引用样式
 
--R | --block-number
+-R, --block-number
 
 在存档中显示每条消息的块号
 
@@ -599,7 +464,7 @@ CACHEDIR.TAG的目录
 
 使用UTC格式打印文件修改日期
 
--v | --verbose
+-v, --verbose
 
 详细列出已处理的文件
 
@@ -607,7 +472,7 @@ CACHEDIR.TAG的目录
 
 警告控制
 
--w | --interactive, --confirmation
+-w, --interactive, --confirmation
 
 要求确认每一项行动
 ```

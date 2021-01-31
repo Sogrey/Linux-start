@@ -409,7 +409,7 @@ function getCommands() {
     desc: '将文件的制表符转换为空白字符',
     tags: ['FileSystem']
   }, {
-    command: 'fmt',
+    command: 'fmt',  
     desc: '读取文件后优化处理并输出',
     tags: ['FileSystem']
   }, {
@@ -419,6 +419,18 @@ function getCommands() {
   }, {
     command: 'tar',
     desc: '将许多文件一起保存至一个单独的磁带或磁盘归档，并能从归档中单独还原所需文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'bzmore',
+    desc: '查看bzip2压缩过的文本文件的内容',
+    tags: ['FileSystem']
+  }, {
+    command: 'bzcat',
+    desc: '查看bzip2压缩过的文本文件的内容',
+    tags: ['FileSystem']
+  }, {
+    command: 'bunzip2',
+    desc: '解压缩bzip2压缩过的文件',
     tags: ['FileSystem']
   }];
 }
