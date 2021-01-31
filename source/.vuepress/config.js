@@ -116,7 +116,7 @@ function genGuideSidebar(isZh) {
   return [{
     title: isZh ? "快速入门" : "Getting Start",
     collapsable: false,
-    children: ["guide/", "guide/quick-start"]
+    children: ["guide/", "guide/quick-start","guide/startup-disk-tools"]
   }, {
     title: isZh ? "Linux命令手册" : "Linux Commands",
     collapsable: false,

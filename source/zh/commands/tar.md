@@ -118,41 +118,16 @@ tar  [选项]  文件
 设备选择和切换
 
 ``` bash
--f, --file=ARCHIVE
-
-使用存档文件或设备ARCHIVE
-
---force-local
-
-存档文件是本地的，即使它有冒号。
-
+-f, --file=ARCHIVE           # 使用存档文件或设备ARCHIVE
+--force-local                # 存档文件是本地的，即使它有冒号。
 -F
-
 --info-script=NAME
-
---new-volume-script=NAME
-
-在每个磁带的末尾运行脚本
-
-L, --tape-length=NUMBER
-
-在写入NUMBERx1024字节后更改磁带
-
--M, --multi-volume
-
-创建/列表/提取多卷存档
-
---rmt-command=COMMAND
-
-使用给定的rmt命令代替rmt
-
---rsh-command=COMMAND
-
-使用给定的远程命令代替rsh
-
---volno-file=FILE
-
-使用/更新文件中的卷号
+--new-volume-script=NAME     # 在每个磁带的末尾运行脚本
+L, --tape-length=NUMBER      # 在写入NUMBERx1024字节后更改磁带
+-M, --multi-volume           # 创建/列表/提取多卷存档
+--rmt-command=COMMAND        # 使用给定的rmt命令代替rmt
+--rsh-command=COMMAND        # 使用给定的远程命令代替rsh
+--volno-file=FILE            # 使用/更新文件中的卷号
 ```
 设备块
 ``` bash
