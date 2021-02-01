@@ -131,95 +131,38 @@ L, --tape-length=NUMBER      # 在写入NUMBERx1024字节后更改磁带
 ```
 设备块
 ``` bash
--b, --blocking-factor=BLOCKS
-
-每个记录BLOCKSx512个字节
-
--B, --read-full-records
-
-重新定义block大小
-
--i, --ignore-zeros
-
-忽略归档中的零块(意为EOF)
-
---record-size=NUMBER
-
-每个记录NUMBER字节，倍数为512
+-b, --blocking-factor=BLOCKS  # 每个记录BLOCKSx512个字节
+-B, --read-full-records       # 重新定义block大小
+-i, --ignore-zeros            # 忽略归档中的零块(意为EOF)
+--record-size=NUMBER          # 每个记录NUMBER字节，倍数为512
 ```
 归档格式选择
 ``` bash
--H, --format=FORMAT
-
-使用给定的格式创建归档，格式可以是：
-
-gnu，GNU tar 1.13.x格式
-
-oldgnu，按tar<=1.12表示的GNU格式
-
-pax，POSIX 1003.1-2001 (pax)格式
-
-posix，和pax一样
-
-ustar，POSIX 1003.1-1988 (ustar)格式
-
-v7，旧的v7 tar格式
-
---old-archive, --portability
-
-等价于“--format=v7”
-
+-H, --format=FORMAT           # 使用给定的格式创建归档，格式可以是：
+                              # gnu，GNU tar 1.13.x格式    
+                              # oldgnu，按tar<=1.12表示的GNU格式
+                              # pax，POSIX 1003.1-2001 (pax)格式
+                              # posix，和pax一样
+                              # ustar，POSIX 1003.1-1988 (ustar)格式
+                              # v7，旧的v7 tar格式
+--old-archive, --portability  # 等价于“--format=v7”
 --pax-option=
-
 keyword[[:]=value][,keyword[[:]=value]]...
-
-控制pax关键字
-
---posix
-
-等价于“--format=posix”
-
-V, --label=TEXT
-
-使用卷名TEXT创建存档；在列表/解压缩时，使用TEXT作为卷名的全局模式
+                              # 控制pax关键字
+--posix                       # 等价于“--format=posix”
+V, --label=TEXT               # 使用卷名TEXT创建存档；在列表/解压缩时，使用TEXT作为卷名的全局模式
 ```
 压缩选项
 ``` bash
--a, --auto-compress
-
-使用归档后缀确定压缩程序
-
--I, --use-compress-program=PROG
-
-通过PROG过滤(必须接受-d)
-
--j, --bzip2
-
-通过bzip2过滤存档
-
--J, --xz
-
-通过xz过滤存档
-
---lzip
-
-通过lzip过滤存档
-
---lzma
-
-通过lzma过滤存档
-
---lzop, --no-auto-compress
-
-不要使用归档后缀来确定压缩程序。
-
--z, --gzip, --gunzip, --ungzip
-
-通过gzip过滤存档
-
--Z, --compress, --uncompress
-
-通过compress过滤存档
+-a, --auto-compress           # 使用归档后缀确定压缩程序
+-I, --use-compress-program=PROG # 通过PROG过滤(必须接受-d)
+-j, --bzip2                   # 通过bzip2过滤存档
+-J, --xz                      # 通过xz过滤存档
+--lzip                        # 通过lzip过滤存档
+--lzma                        # 通过lzma过滤存档
+--lzop, --no-auto-compress    # 不要使用归档后缀来确定压缩程序。
+-z, --gzip, --gunzip, --ungzip # 通过gzip过滤存档
+-Z, --compress, --uncompress   # 通过compress过滤存档
 ```
 本地文件选择
 ``` bash
