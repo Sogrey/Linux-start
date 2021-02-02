@@ -166,121 +166,35 @@ V, --label=TEXT               # 使用卷名TEXT创建存档；在列表/解压�
 ```
 本地文件选择
 ``` bash
---add-file=FILE
-
-将给定的文件添加到归档文件中(如果其名称以‘-’开头，则有用)
-
---backup[=CONTROL]
-
-删除前的备份，选择版本控制
-
--C, --directory=DIR
-
-切换到目录dir
-
---exclude=PATTERN
-
-排除指定文件
-
---exclude-backups
-
-排除备份和锁定的文件
-
---exclude-caches
-
-排除包含CACHEDIR.TAG的目录的内容，标记文件本身除外
-
---exclude-caches-all
-
-CACHEDIR.TAG的目录
-
---exclude-caches-under
-
-排除包含CACHEDIR.TAG目录下的所有内容
-
---exclude-tag=FILE
-
-排除包含FILE的目录的内容，但文件本身除外
-
---exclude-tag-all=FILE
-
-排除包含FILE的目录
-
---exclude-tag-under=FILE
-
-排除包含FILE的目录下的所有内容
-
---exclude-vcs
-
-排除版本控制的系统目录
-
--h, --dereference
-
-遵循符号链接；归档和转储它们指向的文件
-
---hard-dereference
-
-遵循硬链接；归档和转储它们指向的文件
-
--K, --starting-file=MEMBER-NAME
-
-从存档中的成员MEMBER-NAME开始
-
---newer-mtime=DATE
-
-比较仅更改数据的日期和时间
-
---no-null
-
-关闭“--null”选项
-
---no-recursion
-
-避免在目录中自动递归
-
---no-unquote
-
-不要取消引用-T读取的文件名
-
---null, -T
-
-读取以空结尾的名称，禁用-C
-
+--add-file=FILE               # 将给定的文件添加到归档文件中(如果其名称以‘-’开头，则有用)
+--backup[=CONTROL]            # 删除前的备份，选择版本控制
+-C, --directory=DIR           # 切换到目录dir
+--exclude=PATTERN             # 排除指定文件
+--exclude-backups             # 排除备份和锁定的文件
+--exclude-caches              # 排除包含CACHEDIR.TAG的目录的内容，标记文件本身除外
+--exclude-caches-all          # CACHEDIR.TAG的目录
+--exclude-caches-under        # 排除包含CACHEDIR.TAG目录下的所有内容
+--exclude-tag=FILE            # 排除包含FILE的目录的内容，但文件本身除外
+--exclude-tag-all=FILE        # 排除包含FILE的目录
+--exclude-tag-under=FILE      # 排除包含FILE的目录下的所有内容
+--exclude-vcs                 # 排除版本控制的系统目录
+-h, --dereference             # 遵循符号链接；归档和转储它们指向的文件
+--hard-dereference            # 遵循硬链接；归档和转储它们指向的文件
+-K, --starting-file=MEMBER-NAME # 从存档中的成员MEMBER-NAME开始
+--newer-mtime=DATE            # 比较仅更改数据的日期和时间
+--no-null                     # 关闭“--null”选项
+--no-recursion                # 避免在目录中自动递归
+--no-unquote                  # 不要取消引用-T读取的文件名
+--null, -T                    # 读取以空结尾的名称，禁用-C
 -N, --newer=DATE-OR-FILE
-
---after-date=DATE-OR-FILE
-
-只保存比DATE-OR-FILE新的文件
-
---one-file-system
-
-创建存档时保持本地文件系统
-
--P, --absolute-names
-
-不要从文件名中去掉前导‘/’
-
---recursion
-
-递归操作，默认的
-
---suffix=STRING
-
-删除之前备份，重写通常的后缀(‘~’除非被环境变量SIMPLE_BACKUP_SUFFIX覆盖)
-
--T, --files-from=FILE
-
-获取要从FILE中提取或创建的名称
-
---unquote
-
-取消引用-T读取的文件名(默认)
-
- 
-
--X, --exclude-from=FILE
-
-排除FILE中列出的模式
+--after-date=DATE-OR-FILE     # 只保存比DATE-OR-FILE新的文件
+--one-file-system             # 创建存档时保持本地文件系统
+-P, --absolute-names          # 不要从文件名中去掉前导‘/’
+--recursion                   # 递归操作，默认的
+--suffix=STRING               # 删除之前备份，重写通常的后缀(‘~’除非被环境变量SIMPLE_BACKUP_SUFFIX覆盖)
+-T, --files-from=FILE         # 获取要从FILE中提取或创建的名称
+--unquote                     # 取消引用-T读取的文件名(默认)
+-X, --exclude-from=FILE       # 排除FILE中列出的模式
 ```
 文件名字转换
 ``` bash
