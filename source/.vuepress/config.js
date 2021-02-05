@@ -432,5 +432,9 @@ function getCommands() {
     command: 'bunzip2',
     desc: '解压缩bzip2压缩过的文件',
     tags: ['FileSystem']
+  }, {
+    command: 'gunzip',
+    desc: '用来解压缩文件',
+    tags: ['FileSystem']
   }];
 }
