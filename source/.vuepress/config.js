@@ -436,5 +436,21 @@ function getCommands() {
     command: 'gunzip',
     desc: '用来解压缩文件',
     tags: ['FileSystem']
+  }, {
+    command: 'zcat',
+    desc: '显示压缩包中文件的内容',
+    tags: ['FileSystem']
+  }, {
+    command: 'unzip',
+    desc: '用于解压缩由zip命令压缩的压缩包',
+    tags: ['FileSystem']
+  }, {
+    command: 'uncompress',
+    desc: '用来解压.Z文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'unarj',
+    desc: '解压缩由arj命令创建的压缩包',
+    tags: ['FileSystem']
   }];
 }
