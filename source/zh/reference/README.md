@@ -229,7 +229,18 @@ Linux的发行版多种多样：
 
 - [https://www.ubuntukylin.com/downloads/show.php?id=451&lang=en](https://www.ubuntukylin.com/downloads/show.php?id=451&lang=en)
 
+### MaboxLinux
 
+![](../../.vuepress/public/img/LinuxOSs/MaboxLinux.jpg)
+
+![](../../.vuepress/public/img/LinuxOSs/MaboxLinux.png)
+
+官网：[https://maboxlinux.org/](https://maboxlinux.org/)
+
+下载地址：
+
+- [https://maboxlinux.org/users-guide/download-and-installation/](https://maboxlinux.org/users-guide/download-and-installation/)
+- [https://sourceforge.net/projects/mabox-linux/files/latest/download](https://sourceforge.net/projects/mabox-linux/files/latest/download)
 ---
 
 > 欢迎补充。
