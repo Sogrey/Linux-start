@@ -452,5 +452,9 @@ function getCommands() {
     command: 'unarj',
     desc: '解压缩由arj命令创建的压缩包',
     tags: ['FileSystem']
+  }, {
+    command: 'bzip2',
+    desc: '将文件压缩成bz2格式',
+    tags: ['FileSystem']
   }];
 }
