@@ -456,5 +456,13 @@ function getCommands() {
     command: 'bzip2',
     desc: '将文件压缩成bz2格式',
     tags: ['FileSystem']
+  }, {
+    command: 'bzip2recover',
+    desc: '恢复被破坏的.bz2压缩包中的文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'compress',
+    desc: '使用Lempress-Ziv编码压缩数据文件',
+    tags: ['FileSystem']
   }];
 }
