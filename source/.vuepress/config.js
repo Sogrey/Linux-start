@@ -464,5 +464,17 @@ function getCommands() {
     command: 'compress',
     desc: '使用Lempress-Ziv编码压缩数据文件',
     tags: ['FileSystem']
+  }, {
+    command: 'cpio',
+    desc: '用来建立、还原备份档的工具程序',
+    tags: ['FileSystem']
+  }, {
+    command: 'gzexe',
+    desc: '用来压缩可执行文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'gzip',
+    desc: '用来压缩文件',
+    tags: ['FileSystem']
   }];
 }
