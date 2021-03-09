@@ -476,5 +476,17 @@ function getCommands() {
     command: 'gzip',
     desc: '用来压缩文件',
     tags: ['FileSystem']
+  }, {
+    command: 'zip',
+    desc: '可以用来解压缩文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'zforce',
+    desc: '强制gzip格式的文件使用gz后缀名',
+    tags: ['FileSystem']
+  }, {
+    command: 'lha',
+    desc: '压缩或解压缩lzh格式文件',
+    tags: ['FileSystem']
   }];
 }
