@@ -30,33 +30,13 @@ zip  [选项]  zipfile  list
 ## 选项
 
 ``` bash
--a, --ascii
-
-将系统使用的EBCDIC文件转换为ascii
-
--A, --adjust-sfx
-
-调整自解压可执行档案。自解压缩的可执行存档是通过将SFX存根放在现有存档的前面创建的。-A选项告诉zip调整存储在归档中的条目偏移量，以考虑到这些“序言”数据。
-
--b path ,  --temp-path path
-
-为临时zip归档使用指定的路径
-
--B, --binary
-
-使用二进制格式，默认是文本格式
-
--c, --entry-comments
-
-给被压缩的文件加上注释信息
-
--d, --delete
-
-将指定的文件从压缩文件中删除
-
--db, --display-bytes
-
-显示正在运行的字节计数，显示压缩的字节和要运行的字节。
+-a, --ascii                      # 将系统使用的EBCDIC文件转换为ascii
+-A, --adjust-sfx                 # 调整自解压可执行档案。自解压缩的可执行存档是通过将SFX存根放在现有存档的前面创建的。-A选项告诉zip调整存储在归档中的条目偏移量，以考虑到这些“序言”数据。
+-b path ,  --temp-path path      # 为临时zip归档使用指定的路径
+-B, --binary                     # 使用二进制格式，默认是文本格式
+-c, --entry-comments             # 给被压缩的文件加上注释信息
+-d, --delete                     # 将指定的文件从压缩文件中删除
+-db, --display-bytes             # 显示正在运行的字节计数，显示压缩的字节和要运行的字节。
 
 -dc, --display-counts
 
