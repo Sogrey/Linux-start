@@ -1,6 +1,6 @@
 # zforce - 强制gzip格式的文件使用gz后缀名
 
-这样可以放置gzip被压缩两次。
+这样可以防止gzip被压缩两次。
 
 
 ## 适用范围
@@ -28,15 +28,39 @@ zforce   gzip格式文件
 
 ## 选项
 
-``` bash
--L                               # 从环境变量中使用PWD
--P                               # 跳过所有的符号链接
---help                           # 显示帮助文档
---version                        # 显示命令版本信息
-```
+无
+
 ## 举例
 
 ``` bash
-[sogrey@bogon 文档]$ pwd
-/home/sogrey/文档
+[sogrey@bogon 文档]$ ll
+总用量 16
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 1.c
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 2.c
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 3.c
+-rw-------. 1 sogrey sogrey 415 3月   8 23:50 file1.txt
+-rw-------. 1 sogrey sogrey 576 3月   8 23:51 file2.txt
+-rw-------. 1 sogrey sogrey  12 3月   9 00:43 list.txt
+-rwx------. 1 sogrey sogrey  90 3月   9 00:23 run.sh
+[sogrey@bogon 文档]$ gzip file1.txt 
+[sogrey@bogon 文档]$ ll
+总用量 16
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 1.c
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 2.c
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 3.c
+-rw-------. 1 sogrey sogrey 337 3月   8 23:50 file1.txt.gz
+-rw-------. 1 sogrey sogrey 576 3月   8 23:51 file2.txt
+-rw-------. 1 sogrey sogrey  12 3月   9 00:43 list.txt
+-rwx------. 1 sogrey sogrey  90 3月   9 00:23 run.sh
+[sogrey@bogon 文档]$ zforce file1.txt.gz 
+[sogrey@bogon 文档]$ ll
+总用量 16
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 1.c
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 2.c
+-rw-------. 1 sogrey sogrey   0 3月   9 00:44 3.c
+-rw-------. 1 sogrey sogrey 337 3月   8 23:50 file1.txt.gz
+-rw-------. 1 sogrey sogrey 576 3月   8 23:51 file2.txt
+-rw-------. 1 sogrey sogrey  12 3月   9 00:43 list.txt
+-rwx------. 1 sogrey sogrey  90 3月   9 00:23 run.sh
+[sogrey@bogon 文档]$ 
 ```

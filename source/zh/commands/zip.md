@@ -37,102 +37,30 @@ zip  [选项]  zipfile  list
 -c, --entry-comments             # 给被压缩的文件加上注释信息
 -d, --delete                     # 将指定的文件从压缩文件中删除
 -db, --display-bytes             # 显示正在运行的字节计数，显示压缩的字节和要运行的字节。
-
--dc, --display-counts
-
-显示已压缩的条目的运行计数和要运行的条目
-
--dd, --display-dots
-
-在每个条目被拉链时显示点(除了在具有自己的进度指示器的端口上)。见下面的设置点大小-DS。默认情况下，每处理10 MB的输入文件就有一个点。-v选项还显示点(以前的速率比这个高得多，但现在-v也默认为10 MB)，这个速率也是由-ds控制的。
-
--dg, --display-globaldots
-
-显示存档的进度点，而不是为每个文件显示进度点。
-
--ds size, --dot-size size
-
-设置为显示的每个点处理的输入文件的数量。尺寸为nm格式，其中n是一个数字，m是一个乘数。目前m可以是k(KB)，m(MB)，g(GB)，或者t(TB)，所以如果n是100，m是k，那么大小将是100 k，即100 KB。默认值为10 MB。
-
--du, --display-usize
-
-显示每个条目的未压缩大小。
-
--dv, --display-volume
-
-显示正在读取的每个条目的卷(磁盘)号，如果读取现有存档，并将其写入
-
--D, --no-dir-entries
-
-不要在zip存档中为目录创建条目。
-
--DF, --difference-archive
-
-创建一个包含自原始存档创建以来所有新的和已更改的文件的归档文件。
-
--e, --encrypt
-
-压缩文件加密
-
--f, --freshen
-
-替代压缩文件中的旧文件，如果文件不存在，那么不会追加文件
-
--F, --fix, -FF, --fixfix
-
-尝试修复已经损坏的压缩文件
-
--FI, --fifo
-
-通常zip会跳过读取遇到的任何FIFO(命名管道)，因为如果FIFO没有被喂入，zip就会挂起。
-
--FS, --filesync
-
-将存档的内容与操作系统上的文件同步
-
--g, --grow
-
-将文件追加到已经存在的压缩文件结尾
-
--i, --include
-
-仅包含指定的文件
-
--j, --junk-paths
-
-压缩的时候，忽略文件名中的路径，只保存文件名和内容
-
--J, --junk-sfx
-
-从存档中删除任何预置的数据
-
--i, --include
-
-只包含指定的文件
-
--la, --log-append
-
-附加到现有日志文件。默认值是覆盖
-
--lf, --logfile-path
-
-在给定路径上打开日志文件。默认情况下，该位置的任何现有文件都会被覆盖
-
--li, --log-info
-
-在日志中包含信息消息，例如正在压缩的文件名。默认情况下，只包含命令行、任何警告和错误以及最终状态。
-
--L, --license
-
-显示zip的许可证
-
--m, --move
-
-将指定的文件移动到压缩文件
-
--MM, --must-match
-
-所有输入模式必须至少匹配一个文件，所有找到的输入文件必须是可读的。
+-dc, --display-counts            # 显示已压缩的条目的运行计数和要运行的条目
+-dd, --display-dots              # 在每个条目被拉链时显示点(除了在具有自己的进度指示器的端口上)。见下面的设置点大小-DS。默认情况下，每处理10 MB的输入文件就有一个点。-v选项还显示点(以前的速率比这个高得多，但现在-v也默认为10 MB)，这个速率也是由-ds控制的。
+-dg, --display-globaldots        # 显示存档的进度点，而不是为每个文件显示进度点。
+-ds size, --dot-size size        # 设置为显示的每个点处理的输入文件的数量。尺寸为nm格式，其中n是一个数字，m是一个乘数。目前m可以是k(KB)，m(MB)，g(GB)，或者t(TB)，所以如果n是100，m是k，那么大小将是100 k，即100 KB。默认值为10 MB。
+-du, --display-usize             # 显示每个条目的未压缩大小。
+-dv, --display-volume            # 显示正在读取的每个条目的卷(磁盘)号，如果读取现有存档，并将其写入
+-D, --no-dir-entries             # 不要在zip存档中为目录创建条目。
+-DF, --difference-archive        # 创建一个包含自原始存档创建以来所有新的和已更改的文件的归档文件。
+-e, --encrypt                    # 压缩文件加密
+-f, --freshen                    # 替代压缩文件中的旧文件，如果文件不存在，那么不会追加文件
+-F, --fix, -FF, --fixfix         # 尝试修复已经损坏的压缩文件
+-FI, --fifo                      # 通常zip会跳过读取遇到的任何FIFO(命名管道)，因为如果FIFO没有被喂入，zip就会挂起。
+-FS, --filesync                  # 将存档的内容与操作系统上的文件同步
+-g, --grow                       # 将文件追加到已经存在的压缩文件结尾
+-i, --include                    # 仅包含指定的文件
+-j, --junk-paths                 # 压缩的时候，忽略文件名中的路径，只保存文件名和内容
+-J, --junk-sfx                   # 从存档中删除任何预置的数据
+-i, --include                    # 只包含指定的文件 
+-la, --log-append                # 附加到现有日志文件。默认值是覆盖
+-lf, --logfile-path              # 在给定路径上打开日志文件。默认情况下，该位置的任何现有文件都会被覆盖
+-li, --log-info                  # 在日志中包含信息消息，例如正在压缩的文件名。默认情况下，只包含命令行、任何警告和错误以及最终状态。
+-L, --license                    # 显示zip的许可证
+-m, --move                       # 将指定的文件移动到压缩文件
+-MM, --must-match                # 所有输入模式必须至少匹配一个文件，所有找到的输入文件必须是可读的。
 
 -n, --suffixes
 
@@ -263,11 +191,9 @@ zip  [选项]  zipfile  list
 ```
 ## 模式匹配
 
-`?`，匹配任意单个字符
-
-`*`，匹配任意多个字符
-
-`[]`匹配括号内所示范围内的任何字符(例如：[a-f]，[0-9])。
+- `?`，匹配任意单个字符
+- `*`，匹配任意多个字符
+- `[]`匹配括号内所示范围内的任何字符(例如：[a-f]，[0-9])。
 
 ## 退出码
 
@@ -358,49 +284,35 @@ $ zip -r httpdocs.zip httpdocs --exclude "*.log"
 
 压缩文件
 ``` bash
-[root@localhost weijie]# zip -r res . -i *.c             //压缩当前目录下的所有.c文件
-
-  adding: 11.c (stored 0%)
-
-  adding: 4.c (stored 0%)
-
-  adding: 2.c (deflated 9%)
-
+[sogrey@bogon 文档]$ ls
+1.c  2.c  3.c  file1.txt.gz  file2.txt  list.txt  run.sh
+[sogrey@bogon 文档]$ zip -r res . -i *.c #压缩当前目录下的所有.c文件
+  adding: 2.c (stored 0%)
   adding: 3.c (stored 0%)
-
-  adding: 5.c (deflated 13%)
-
-[root@localhost weijie]# ls
-
-11.c  1.c.gz  2.c  3.c  4.c  5.c  6.c~  res.zip
+  adding: 1.c (stored 0%)
+[sogrey@bogon 文档]$ ls
+1.c  2.c  3.c  file1.txt.gz  file2.txt  list.txt  res.zip  run.sh
+[sogrey@bogon 文档]$ 
 ```
 2）给压缩文件添加、删除内容
 ``` bash
-[root@localhost weijie]# zip res.zip -g 6.c~          //追加6.c~
-
-  adding: 6.c~ (stored 0%)
-
-[root@localhost weijie]# zip res.zip -d 2.c           //删除2.c
-
-deleting: 2.c
+[sogrey@bogon 文档]$ zip res.zip -g file2.txt #追加file2.txt
+  adding: file2.txt (deflated 28%)
+[sogrey@bogon 文档]$ ls
+1.c  2.c  3.c  file1.txt.gz  file2.txt  list.txt  res.zip  run.sh
+[sogrey@bogon 文档]$ zip res.zip -d file2.txt #删除file2.txt
+deleting: file2.txt
+[sogrey@bogon 文档]$ 
 ```
 3）压缩时设置密码
 ``` bash
-[root@localhost weijie]# zip -er res . -i *.c        //设置密码，需要输入两次密码
-
-Enter password:
-
-Verify password:
-
-  adding: 11.c (stored 0%)
-
-  adding: 4.c (stored 0%)
-
-  adding: 2.c (deflated 9%)
-
+[sogrey@bogon 文档]$ zip -er res2 . -i *.c #设置密码，需要输入两次密码
+Enter password: 
+Verify password: 
+  adding: 2.c (stored 0%)
   adding: 3.c (stored 0%)
-
-  adding: 5.c (deflated 13%)
+  adding: 1.c (stored 0%)
+[sogrey@bogon 文档]$ 
 ```
 
 ## 安装
