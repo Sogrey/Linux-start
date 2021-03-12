@@ -172,7 +172,8 @@ function getCommandsBySord(parentDir) {
 var CommandTypes = {
   FileSystem: '文件系统',
   DirectoryManagement: '目录管理',
-  Permissions: '权限管理'
+  Permissions: '权限管理',
+  Compress: '解压缩'
 };
 
 function getCommands() {
@@ -199,7 +200,7 @@ function getCommands() {
   }, {
     command: 'rm',
     desc: '删除文件和目录',
-    tags: ['FileSystem']
+    tags: ['FileSystem','DirectoryManagement']
   }, {
     command: 'tmpwatch',
     desc: '删除最近一段时间没有访问的文件',
@@ -211,15 +212,15 @@ function getCommands() {
   }, {
     command: 'whereis',
     desc: '查找二进制程序、代码等相关文件路径',
-    tags: ['FileSystem']
+    tags: ['FileSystem','DirectoryManagement']
   }, {
     command: 'which',
     desc: '查找并显示给定命令的绝对路径',
-    tags: ['FileSystem']
+    tags: ['FileSystem','DirectoryManagement']
   }, {
     command: 'lsattr',
     desc: '显示指定文件或者目录的属性',
-    tags: ['FileSystem']
+    tags: ['FileSystem','DirectoryManagement']
   }, {
     command: 'chattr',
     desc: '改变文件的属性',
@@ -239,7 +240,7 @@ function getCommands() {
   }, {
     command: 'mkdir',
     desc: '创建目录',
-    tags: ['FileSystem']
+    tags: ['FileSystem','DirectoryManagement']
   }, {
     command: 'file',
     desc: '判断指定文件的文件类型',
@@ -415,78 +416,86 @@ function getCommands() {
   }, {
     command: 'ar',
     desc: '建立或修改备存文件，或是从备存文件中抽取文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'tar',
     desc: '将许多文件一起保存至一个单独的磁带或磁盘归档，并能从归档中单独还原所需文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'bzmore',
     desc: '查看bzip2压缩过的文本文件的内容',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'bzcat',
     desc: '查看bzip2压缩过的文本文件的内容',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'bunzip2',
     desc: '解压缩bzip2压缩过的文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'gunzip',
     desc: '用来解压缩文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'zcat',
     desc: '显示压缩包中文件的内容',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'unzip',
     desc: '用于解压缩由zip命令压缩的压缩包',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'uncompress',
     desc: '用来解压.Z文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'unarj',
     desc: '解压缩由arj命令创建的压缩包',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'bzip2',
     desc: '将文件压缩成bz2格式',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'bzip2recover',
     desc: '恢复被破坏的.bz2压缩包中的文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'compress',
     desc: '使用Lempress-Ziv编码压缩数据文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'cpio',
     desc: '用来建立、还原备份档的工具程序',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'gzexe',
     desc: '用来压缩可执行文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'gzip',
     desc: '用来压缩文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'zip',
     desc: '可以用来解压缩文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'zforce',
     desc: '强制gzip格式的文件使用gz后缀名',
-    tags: ['FileSystem']
+    tags: ['Compress']
   }, {
     command: 'lha',
     desc: '压缩或解压缩lzh格式文件',
-    tags: ['FileSystem']
+    tags: ['Compress']
+  }, {
+    command: 'zipinfo',
+    desc: '用来列出压缩文件信息',
+    tags: ['Compress']
+  }, {
+    command: 'znew',
+    desc: '将.Z压缩包重新转化为gzip命令压缩的.gz压缩包',
+    tags: ['Compress']
   }];
 }
