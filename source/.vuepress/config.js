@@ -173,7 +173,7 @@ var CommandTypes = {
   FileSystem: '文件系统',
   DirectoryManagement: '目录管理',
   Permissions: '权限管理',
-  Compress: '解压缩'
+  UserManagement: '用户管理'
 };
 
 function getCommands() {
@@ -497,5 +497,13 @@ function getCommands() {
     command: 'znew',
     desc: '将.Z压缩包重新转化为gzip命令压缩的.gz压缩包',
     tags: ['Compress']
+  }, {
+    command: 'chsh',
+    desc: '用来更换登录系统时使用的shell',
+    tags: ['UserManagement']
+  }, {
+    command: 'chfn',
+    desc: '用来改变finger命令显示的信息',
+    tags: ['UserManagement']
   }];
 }
