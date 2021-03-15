@@ -505,5 +505,13 @@ function getCommands() {
     command: 'chfn',
     desc: '用来改变finger命令显示的信息',
     tags: ['UserManagement']
+  }, {
+    command: 'grpconv',
+    desc: '用来开启群组的投影密码',
+    tags: ['UserManagement']
+  }, {
+    command: 'grpunconv',
+    desc: '用来关闭群组的投影密码',
+    tags: ['UserManagement']
   }];
 }
