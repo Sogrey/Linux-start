@@ -513,5 +513,13 @@ function getCommands() {
     command: 'grpunconv',
     desc: '用来关闭群组的投影密码',
     tags: ['UserManagement']
+  }, {
+    command: 'groupmod',
+    desc: '更改群组识别码或名称',
+    tags: ['UserManagement']
+  }, {
+    command: 'gpasswd',
+    desc: 'Linux下工作组文件的管理工具',
+    tags: ['UserManagement']
   }];
 }
