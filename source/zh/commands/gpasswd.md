@@ -84,7 +84,7 @@ gpasswd -a user_name group_name
 ```
 ## 举例
 
-将用户 usr01 添加到组 sogrey
+将用户 `usr01` 添加到组 `sogrey`
 ``` bash
 [sogrey@bogon 文档]$ gpasswd -a usr01 sogrey  #向sogrey组添加用户usr01
 Adding user usr01 to group sogrey
