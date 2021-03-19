@@ -521,5 +521,13 @@ function getCommands() {
     command: 'gpasswd',
     desc: 'Linux下工作组文件的管理工具',
     tags: ['UserManagement']
+  }, {
+    command: 'groupadd',
+    desc: '用于创建一个新的工作组',
+    tags: ['UserManagement']
+  }, {
+    command: 'groupdel',
+    desc: '用于删除指定的工作组',
+    tags: ['UserManagement']
   }];
 }
