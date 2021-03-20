@@ -529,5 +529,13 @@ function getCommands() {
     command: 'groupdel',
     desc: '用于删除指定的工作组',
     tags: ['UserManagement']
+  }, {
+    command: 'groups',
+    desc: '打印指定用户所在组的名称',
+    tags: ['UserManagement']
+  }, {
+    command: 'grpck',
+    desc: '用于验证组文件的完整性',
+    tags: ['UserManagement']
   }];
 }
