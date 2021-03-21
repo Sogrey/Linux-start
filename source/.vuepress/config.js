@@ -173,7 +173,8 @@ var CommandTypes = {
   FileSystem: '文件系统',
   DirectoryManagement: '目录管理',
   Permissions: '权限管理',
-  UserManagement: '用户管理'
+  UserManagement: '用户管理',
+  NetworkManagement: '网络管理'
 };
 
 function getCommands() {
@@ -537,5 +538,17 @@ function getCommands() {
     command: 'grpck',
     desc: '用于验证组文件的完整性',
     tags: ['UserManagement']
+  }, {
+    command: 'useradd',
+    desc: '创建的新的系统用户',
+    tags: ['UserManagement']
+  }, {
+    command: 'userdel',
+    desc: '用于删除给定的用户以及与用户相关的文件',
+    tags: ['UserManagement']
+  }, {
+    command: 'usernetctl',
+    desc: '被允许时操作指定的网络接口',
+    tags: ['NetworkManagement']
   }];
 }
