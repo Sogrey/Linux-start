@@ -550,5 +550,13 @@ function getCommands() {
     command: 'usernetctl',
     desc: '被允许时操作指定的网络接口',
     tags: ['NetworkManagement']
+  }, {
+    command: 'users',
+    desc: '打印当前主机所有登陆用户的名称',
+    tags: ['UserManagement']
+  }, {
+    command: 'usermod',
+    desc: '用于修改用户的基本信息',
+    tags: ['UserManagement']
   }];
 }
