@@ -558,5 +558,17 @@ function getCommands() {
     command: 'usermod',
     desc: '用于修改用户的基本信息',
     tags: ['UserManagement']
+  }, {
+    command: 'su',
+    desc: '用于切换当前用户身份到其他用户身份',
+    tags: ['UserManagement']
+  }, {
+    command: 'sudo',
+    desc: '以其他身份来执行命令',
+    tags: ['UserManagement']
+  }, {
+    command: 'pwck',
+    desc: '用来验证系统认证文件内容和格式的完整性',
+    tags: ['UserManagement']
   }];
 }
