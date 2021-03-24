@@ -243,4 +243,112 @@ Linux的发行版多种多样：
 - [https://sourceforge.net/projects/mabox-linux/files/latest/download](https://sourceforge.net/projects/mabox-linux/files/latest/download)
 ---
 
+### Bodhi Linux
+
+![](../../.vuepress/public/img/LinuxOSs/BodhiLinux.png)
+
+官网：[https://www.bodhilinux.com/](https://www.bodhilinux.com/)
+
+下载地址：
+
+[https://www.bodhilinux.com/download/](https://www.bodhilinux.com/download/)
+
+---
+
+### Puppy Linux
+
+
+![](../../.vuepress/public/img/LinuxOSs/PuppyLinux.png)
+
+官网：[https://puppylinux.com/](https://puppylinux.com/)
+
+下载地址：
+
+[https://puppylinux.com/index.html#download](https://puppylinux.com/index.html#download)
+
+---
+
+### Silverblue 
+
+![](../../.vuepress/public/img/LinuxOSs/Silverblue.png)
+
+官网：[https://silverblue.fedoraproject.org](https://silverblue.fedoraproject.org)
+
+下载地址：
+
+[https://silverblue.fedoraproject.org/download](https://silverblue.fedoraproject.org/download)
+
+---
+### Elementary OS
+
+![](../../.vuepress/public/img/LinuxOSs/ElementaryOS.png)
+
+官网：[https://elementary.io/](https://elementary.io/)
+
+---
+### Manjaro
+
+![](../../.vuepress/public/img/LinuxOSs/Manjaro.png)
+
+
+官网：[https://manjaro.org](https://manjaro.org)
+
+下载地址：
+
+[https://manjaro.org/download/](https://manjaro.org/download/)
+
+
+---
+
+### Zorin OS
+
+
+官网：[https://zorinos.com/](https://zorinos.com/)
+
+下载地址：
+
+[https://zorinos.com/download/](https://zorinos.com/download/)
+
+---
+
+### eXtern OS
+
+
+官网：[https://externos.io/](https://externos.io/)
+
+下载地址：
+
+[https://externos.io/latest/](https://externos.io/latest/)
+
+---
+
+### Nitrux
+
+![](../../.vuepress/public/img/LinuxOSs/Nitrux.png)
+
+
+官网：[https://nxos.org/](https://nxos.org/)
+
+下载地址：
+
+[https://fosstorrents.com/distributions/nitrux/](https://fosstorrents.com/distributions/nitrux/)
+
+---
+
+### Robolinux
+
+
+
+官网：[https://www.robolinux.org/](https://www.robolinux.org/)
+
+
+
+
+
+
+
+
+
+
+
 > 欢迎补充。
