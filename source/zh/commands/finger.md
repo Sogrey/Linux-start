@@ -35,7 +35,7 @@ finger  [-lmsp]  user
 -m                   # 不查找用户真实姓名
 ```
 ## 举例
-查看用户root信息
+查看用户root信息：
 ``` bash
 [sogrey@bogon 文档]$ finger -l root
 Login: root                   Name: root
@@ -49,3 +49,4 @@ New mail received 六 9月 22 18:00 2018 (CST)
      Unread since 二 8月 21 09:22 2018 (CST)
 No Plan.
 ```
+
