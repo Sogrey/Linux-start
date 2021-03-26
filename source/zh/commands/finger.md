@@ -35,7 +35,9 @@ finger  [-lmsp]  user
 -m                   # 不查找用户真实姓名
 ```
 ## 举例
+
 查看用户root信息：
+
 ``` bash
 [sogrey@bogon 文档]$ finger -l root
 Login: root                   Name: root
