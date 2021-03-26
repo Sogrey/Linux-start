@@ -313,7 +313,6 @@ Linux的发行版多种多样：
 
 ### eXtern OS
 
-
 官网：[https://externos.io/](https://externos.io/)
 
 下载地址：
@@ -325,7 +324,6 @@ Linux的发行版多种多样：
 ### Nitrux
 
 ![](../../.vuepress/public/img/LinuxOSs/Nitrux.png)
-
 
 官网：[https://nxos.org/](https://nxos.org/)
 
