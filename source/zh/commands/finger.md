@@ -41,7 +41,7 @@ finger  [-lmsp]  user
 ``` bash
 [sogrey@bogon 文档]$ finger -l root
 Login: root                   Name: root
-Directory: /root                      Shell: /bin/bash
+Directory: /root              Shell: /bin/bash
 On since 五 9月  7 21:02 (CST) on tty1 from :0
     14 days 20 hours idle
 On since 六 9月 22 07:36 (CST) on pts/0 from :0.0
