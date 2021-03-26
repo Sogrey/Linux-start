@@ -570,5 +570,13 @@ function getCommands() {
     command: 'pwck',
     desc: '用来验证系统认证文件内容和格式的完整性',
     tags: ['UserManagement']
+  }, {
+    command: 'logname',
+    desc: '打印当前终端登录用户的名称',
+    tags: ['UserManagement']
+  }, {
+    command: 'finger',
+    desc: '用于查找并显示用户信息',
+    tags: ['UserManagement']
   }];
 }
