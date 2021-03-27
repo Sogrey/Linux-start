@@ -34,6 +34,7 @@ finger  [-lmsp]  user
 -p       # 和-l一样，但是不显示“.plan“、“.project”、“.pgpkey”文件
 -m       # 不查找用户真实姓名
 ```
+
 ## 举例
 
 查看用户root信息：
