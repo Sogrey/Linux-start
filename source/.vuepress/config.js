@@ -578,5 +578,9 @@ function getCommands() {
     command: 'finger',
     desc: '用于查找并显示用户信息',
     tags: ['UserManagement']
+  }, {
+    command: 'passwd',
+    desc: '用于让用户可以更改自己的密码',
+    tags: ['UserManagement']
   }];
 }
