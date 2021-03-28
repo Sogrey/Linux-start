@@ -582,5 +582,25 @@ function getCommands() {
     command: 'passwd',
     desc: '用于让用户可以更改自己的密码',
     tags: ['UserManagement']
+  }, {
+    command: 'mmd',
+    desc: '在ms-dos系统中创建目录',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'ln',
+    desc: '用来为文件创建链接',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'cd',
+    desc: '切换用户当前工作目录',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'mv',
+    desc: '用来对文件或目录重新命名',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'rmdir',
+    desc: '用来删除空目录',
+    tags: ['DirectoryManagement']
   }];
 }
