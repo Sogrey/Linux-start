@@ -602,5 +602,17 @@ function getCommands() {
     command: 'rmdir',
     desc: '用来删除空目录',
     tags: ['DirectoryManagement']
+  }, {
+    command: 'find',
+    desc: '在指定目录下查找文件',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'chgrp',
+    desc: '用来变更文件或目录的所属群组',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'chown',
+    desc: '用来变更文件或目录的拥有者或所属群组',
+    tags: ['DirectoryManagement']
   }];
 }
