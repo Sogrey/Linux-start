@@ -22,14 +22,17 @@
   "devDependencies": {
     "acorn": "^8.0.1",
     "braces": "^3.0.2",
+    "elliptic": ">=6.5.4",
+    "is-svg": ">=4.2.2",
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.20",
     "lodash.template": ">=4.5.0",
     "minimist": ">=1.2.3",
     "node-forge": ">=0.10.0",
     "serialize-javascript": "^5.0.1",
-    "yargs-parser": ">=13.1.2",
-    "elliptic": ">=6.5.4"
+    "ssri": ">=8.0.1",
+    "y18n": ">=4.0.1",
+    "yargs-parser": ">=13.1.2"
   },
   "bugs": {
     "url": "https://github.com/Sogrey/Linux-start/issues"
