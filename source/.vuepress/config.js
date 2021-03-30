@@ -181,7 +181,7 @@ function getCommands() {
   return [{
     command: 'ls',
     desc: '显示目录内容列表',
-    tags: ['FileSystem']
+    tags: ['DirectoryManagement','FileSystem']
   }, {
     command: 'pwd',
     desc: '显示目录内容列表',
