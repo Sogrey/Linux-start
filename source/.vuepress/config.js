@@ -614,5 +614,9 @@ function getCommands() {
     command: 'chown',
     desc: '用来变更文件或目录的拥有者或所属群组',
     tags: ['DirectoryManagement']
+  }, {
+    command: 'dump',
+    desc: '用于备份ext2或者ext3文件系统',
+    tags: ['FileSystem']
   }];
 }
