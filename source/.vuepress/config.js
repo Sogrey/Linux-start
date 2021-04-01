@@ -618,5 +618,13 @@ function getCommands() {
     command: 'dump',
     desc: '用于备份ext2或者ext3文件系统',
     tags: ['FileSystem']
+  }, {
+    command: 'mkfs',
+    desc: '用于在设备上创建Linux文件系统',
+    tags: ['DirectoryManagement']
+  }, {
+    command: 'mke2fs',
+    desc: '创建磁盘分区上的etc2/etc3文件系统',
+    tags: ['FileSystem']
   }];
 }

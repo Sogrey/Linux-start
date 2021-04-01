@@ -313,6 +313,8 @@ Linux的发行版多种多样：
 
 ### eXtern OS
 
+![](../../.vuepress/public/img/LinuxOSs/eXternOS.png)
+
 官网：[https://externos.io/](https://externos.io/)
 
 下载地址：
