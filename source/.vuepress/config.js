@@ -626,5 +626,9 @@ function getCommands() {
     command: 'mke2fs',
     desc: '创建磁盘分区上的etc2/etc3文件系统',
     tags: ['FileSystem']
+  }, {
+    command: 'mkisofs',
+    desc: '建立ISO 9660映像文件',
+    tags: ['FileSystem']
   }];
 }
