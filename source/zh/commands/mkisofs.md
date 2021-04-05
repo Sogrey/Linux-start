@@ -55,353 +55,103 @@ foo/bar/xxx=../old.lis
 ## 选项
 
 ``` bash
--abstract  file
-
-设置摘要文件名称，可以有37个字符
-
--A  AppId
-
-指定描述光盘应用程序Id的文本字符串，可以有128个字符
-
--allow-limited-size
-
-当处理不能在ISO 9660中容易表示的大于2GiB的文件时，用缩小的可见文件大小将它们添加到ISO 9660，并将正确的可见文件大小添加到UDF系统。结果是一个不一致的文件系统，用户需要确保他们真的使用UDF而不是ISO 9660驱动程序来读取这样的磁盘。意味着启用-UDF。
-
--allow-leading-dots-ldots
-
-允许ISO 9660文件名以句点开始。通常，为了保持MS-DOS的兼容性，使用下划线替换前导点。这违反了ISO 9660标准，但它恰好适用于许多系统。小心使用。
-
--allow-lowercase
-
-允许iso9660文件名中出现小写字母。这违反了ISO 9660标准，但它恰好适用于某些系统，谨慎使用。
-
--allow-multidot
-
-允许iso9660文件名中出现多个点。引导点不受此选项的影响，可以单独使用“-allow-leading-dots”，这违反了ISO 9660标准，但它恰好适用于许多系统。小心使用。
-
--biblio file
-
-指定书目文件名。有37个字符的空间。等效于“.genisoImagerc”文件中的BIBL。
-
--cache-inodes
-
--no-cache-inodes
-
-启用或禁用inode缓存和以设备号查找指向文件的硬链接。如果genisoImage找到一个硬链接(具有多个名称的文件)，该文件也将在cd上被硬链接，因此文件内容只显示一次。这有助于节省空间。类似Unix的操作系统，但在Cygwin等其他系统上默认使用非缓存inode，因为在这些系统上假定inode编号唯一是不安全的。(某些版本Cygwin使用弱散列算法创建假inode编号，这可能会产生重复。)如果两个文件有相同的inode号，但不是同一个文件的硬链接，“genisoImage -cache-indes”的行为将不正确。“-no cache-inode”在所有情况下都是安全的，但在这种情况下genisoImage无法检测硬链接，因此所产生的cd映像可能比所需的要大。
-
--alpha-boot alpha _boot_image
-
-指定在制作Alpha/SRM可引导CD时使用的引导映像的路径和文件名。路径名必须相对于指定给genisoimage的源路径。
-
--hppa-bootloader  hppa_bootloader_image
-
-指定在制作HPPA可引导CD时使用的引导映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。还需要其他选项，至少需要一个内核文件名和一个引导命令行。
-
--hppa-cmdline  hppa_boot_command_line
-
-指定在制作可引导CD时要传递给HPPA引导加载程序的命令行。用空格或逗号分隔参数。必须将更多选项传递给genisoImage，至少要传递一个内核文件名和引导加载程序文件名。
-
--hppa-kernel-32  hppa_kernel_32
-
--hppa-kernel-64  hppa_kernel_64
-
-指定在制作HPPA可引导CD时使用的32位和/或64位内核映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。还需要其他选项，至少引导加载程序文件名和引导命令行。
-
--hppa-ramdisk  hppa_ramdisk_image
-
-指定在制作HPPA可引导CD时使用的ramdisk映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。此参数是可选的。还需要其他选项，至少需要一个内核文件名和引导命令行。
-
--mips-boot  mips_boot_image
-
-指定在生成SGI/大端MIPS可引导CD时使用的引导映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。可以多次指定此选项，以存储最多15个引导映像。
-
--mipsel-boot  mipsel_boot_image
-
-指定制作DEC/小端MIPS引导映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。
-
--b eltorito_boot_image
-
-指定在为x86 PC制作EL Torito可引导CD时使用的引导映像的路径和文件名。路径名必须相对于为genisoImage指定的源路径。此选项是制作El Torito可引导CD所必需的。引导映像必须精确地为1200 kB、1440 kB或2880 kB，当创建iso 9660文件系统时，genisoImage将使用此大小。pc BIOS将使用该映像来模拟软盘，因此第一个512字节扇区应该包含pc引导代码。
-
-如果引导映像不是软盘映像，则需要添加“-hard-disk-boot”或“-no-emul-boot.”。如果系统不应该从模拟磁盘启动，则使用“-no-boot”。
-
-如果未指定“-sort”，则引导映像将以低优先级(2)排序到介质的开头。如果您不喜欢这种情况，则需要为引导映像指定0的排序权重。
-
--B img_sun4,img_sun4c,img_sun4m,img_sun4d,img_sun4e
-
--sparc-boot img_sun4,img_sun4c,img_sun4m,img_sun4d,img_sun4e
-
-设置引导文件名，img_sun4,img_sun4c,img_sun4m,img_sun4d,img_sun4e。
-
-指定为SPARC系统制作可引导cd所需的逗号分隔的引导映像列表。分区0用于iso 9660映像，第一个映像文件映射到分区1。以逗号分隔的列表最多可能有7个字段，包括空字段。此选项是为Sun制作可引导cd所必需的。如果-B或-SPARC-引导已指定，则生成映像的第一个扇区将包含一个Sun磁盘标签。此磁盘标签为ISO 9660映像指定片0，为用此选项指定的引导映像指定切片1至7。每个附加引导映像中的字节偏移量512到8191必须包含适合于适当的SPARC体系结构的主引导。每个映像的其余部分通常包含一个用于主内核引导阶段的ufs文件系统。
-
-实现的引导方法是在SunOS4.x和SunOS5.x中找到的。但是，它不依赖于SunOS内部，而只依赖于OpenBootprom的属性，因此它应该可以用于任何用于SPARC系统的操作系统。
-
-如果指定了文件名，则将实际的和下面的所有引导分区映射到前一个分区。如果使用-G映像-B调用genisoImage，所有引导分区都映射到包含iso 9660文件系统映像的分区，而位于磁盘前16个扇区的通用引导映像用于所有体系结构。
-
--G  generic_boot_image
-
-指定在制作通用可引导cd时使用的引导映像的路径和文件名。引导映像将放置在cd的前16个扇区上，位于iso 9660主卷描述符之前。如果此选项与-sparc-boot一起使用，则Sun磁盘标签将覆盖泛型引导映像的前512字节。
-
--eltorito-alt-boot
-
-从一组新的El Torito启动参数开始。最多63个El Torito引导项可以存储在一张CD上。
-
--hard-disk-boot
-
-指定用于创建El Torito可引导CD的引导映像是硬盘映像。映像必须以包含单个分区的主引导记录开始。
-
--no-emul-boot
-
-指定用于创建El Torito可引导cd的引导映像是“无仿真”映像。系统将在不执行任何磁盘模拟的情况下加载和执行此映像。
-
--no-boot
-
-指定应将创建的El Torito CD标记为不可引导。系统将提供一个模拟驱动器的图像，但将启动一个标准的启动设备。
-
--boot-load-seg  segment_address
-
-指定非模拟El Torito cd的引导映像的加载段地址
-
--boot-load-size  load_sectors
-
-指定在非模拟模式下加载的“虚拟”(512字节)扇区的数量。默认情况是加载整个引导文件。如果不是4的倍数，一些BIOSes可能会出现问题。
-
--boot-info-table
-
-指定在引导文件中的偏移量8处修补一个56字节的表，其中包含CD-ROM布局的信息。如果提供此选项，则启动文件将在源文件系统中被修改，因此，如果无法轻松重新生成该文件，请创建该文件的副本！有关此表的说明，请参阅El Torito启动信息表部分。
-
--C  last_sess_start,next_sess_start
-
-此选项需要为多会话磁盘创建一个额外的CD或第二个会话或更高级别会话的图像。“-C”需要两个数字，用逗号分隔。第一个是应该附加到的磁盘最后一个会话中的第一个扇区。第二个是新会话的起始扇区号。正确的编号可以通过调用“wodin-msinfo”得到。如果-“C”与“-M”一起使用，genisoImage将创建一个文件系统映像，该映像将作为上一次会话的延续。如果使用“-C”而不使用“-M”，genisoImage将创建一个文件系统映像，用于CD额外的第二次会话。这是一个多会话cd，在第一个会话中保存音频数据，在第二个会话中保存iso 9660文件系统。
-
--c  boot_catalog
-
-指定引导目录的路径和文件名，这是El Torito可引导CD所必需的。路径名必须相对于指定给genisoImage的源路径。此文件将插入到输出树中，而不是在源文件系统中创建，因此请确保指定的文件名不与现有文件冲突，否则将被排除。通常选择一个像“boot.Catalog”这样的名称。
-
-如果未指定“-sort”，则引导目录以低优先级(1)排序到介质的开头。如果您不喜欢这种情况，则需要为引导目录指定0的排序权重。
-
--check-oldnames
-
-检查从旧会话导入的所有文件名是否符合iso 9660文件命名规则。如果没有此选项，只检查超过31个字符的名称，因为这些文件严重违反iso 9660标准。
-
--check-session  file
-
-检查所有旧会话是否符合实际的genisoImage iso 9660文件命名规则。这是一个高级选项，它结合了“-M  file  -C  0,0  -check-oldnames”
-
--copyright  file
-
-指定版权信息，通常是光盘上的文件名。有37个字符的空间。相当于在“.genisoImagerc”文件中复制。
-
--d
-
-不要将句点附加到没有句点的文件中。这违反了ISO 9660标准，但它恰好适用于许多系统。小心使用。
-
--D
-
-不要使用深度目录重新定位，而是按我们看到的方式打包它们。如果未选择iso 9660：1999，则违反iso 9660标准，但它恰好适用于许多系统。
-
--dir-mode  mode
-
-重写用于创建镜像的目录mode，指定为chmod(1)中权限位的4位数字。
-
--dvd-video
-
-生成一个符合DVD视频的UDF文件系统.这是通过排序适当文件的内容顺序和在需要时在文件之间添加填充来实现的。注意，只有当DVD视频文件名只包含大写字符时，排序才能工作。
-
-注意，为了获得符合dvd视频的文件系统映像，您需要准备一个符合dvd视频的目录树，这需要生成dvd的根目录中包含目录VIDEO_TS和AUDIO_TS(所有大写)。VIDEO_TS需要包含视频文件系统的所有所需文件(文件名必须为所有大写)。
-
--f
-
-在生成文件系统时遵循符号链接。当这个选项没有使用时，符号链接将使用Rock Ridge，如果Rock Ridge也没有启用，那么它们将被忽略。
-
--file-mode  mode
-
-重写用于创建image的常规文件的模式，使用4位模式
-
--gid  gid
-
-将从源文件读取的组ID重写为gid的值。指定此选项将自动启用RockRidge扩展
-
--gui
-
-切换GUI的行为。这使得输出更加冗长，但将来可能会产生其他影响。
-
--graft-points
-
-允许文件名使用嫁接点。如果使用此选项，将检查所有文件名是否有嫁接点。文件名在第一个未转义的等号处被分隔。如果“-graft-points”已经指定，所有出现的‘\’和‘=’字符必须用‘\’转义。
-
--hide  glob
-
-隐藏出现在ISO 9660或Rock Ridge目录中的与shell通配符模式GLOB匹配的任何文件。GLOB可能与文件名或路径的任何部分匹配。如果GLOB匹配某个目录，则该目录的内容将被隐藏。为了匹配目录名，请确保路径名不包括尾随“/‘字符。所有隐藏文件仍将写入输出CD映像文件。请参见-Hided-Joliet和README.Hide。此选项可多次使用。
-
--hide-list  file
-
-包含要隐藏的shell通配符列表的文件
-
--hidden  glob
-
-为匹配GLOB的文件和目录添加隐藏(存在)ISO 9660目录属性，这是一个shell通配符模式。该属性将防止文件被某些MS-DOS和Windows命令显示。GLOB可能匹配文件名或路径的任何部分。‘/’字符。此选项可多次使用
-
--hidden-list  file
-
-包含获取隐藏属性的shell通配符列表的文件
-
--hide-joliet  glob
-
-隐藏在Joliet目录中看到的与shell通配符模式GLOB匹配的文件和目录。GLOB可能匹配文件名或路径的任何部分。如果GLOB匹配某个目录，则该目录的内容将被隐藏。为了匹配目录名，请确保路径名不包括尾随的“/‘字符。所有隐藏文件仍将写入输出CD映像文件。此选项通常与-Hide一起使用。请参见README.Hide。此选项可多次使用。
-
--hide-joliet-list  file
-
-包含要向Joliet树隐藏的shell通配符列表的文件。
-
--hide-joliet-trans-tbl
-
-将TRANS.TBL文件隐藏在Joliet树中。这些文件在Joliet世界中通常没有意义，因为它们列出了真实名称和ISO 9660名称，这两者都可能与Joliet名称不同。
-
--hide-rr-moved
-
-将RockRidge树中目录“RR_MOVED”的“.rr_move”目。这样似乎不可能完全将“RR_MOVED”目录隐藏在Rock Ridge树中。此选项只会使不知道该目录的人更容易混淆可见树。如果你不需要“RR_MOVED“目录，那么使用“-D”选项。请注意，如果指定了-D，则生成的文件系统不符合ISO 9660 level-1，在MS-DOS上也无法读取。
-
--input-charset  charset
-
-定义本地文件名中使用的输入字符集。要获得有效字符集名称的列表，请调用“genisoImage-put-charset”获取帮助。要获得1：1的映射，可以使用默认值作为字符集名称。默认初始值在DOS系统上为cp 437，在所有其他系统上为iso 8859-1。有关详细信息，请参阅下面的字符集部分。
-
--output-charset  charset
-
-定义Rock  Ridge文件名中将使用的输出字符集，默认为输入字符集。有关详细信息，请参阅下面的字符集部分。
-
--iso-level  level
-
-设置ISO 9660一致性级别。有效数字是1到4。
-
-1）对于第1级，文件只能由一个部分组成，文件名限制为8.3类型。
-
-2）对于第2级，文件只能由一个部分组成。
-
-3）对于第三级，没有任何限制 (ISO-9660：1988除外)。
-
-所有ISO 9660级别从1到3，所有文件名仅限于大写字母、数字和下划线(_)。文件名限制为31个字符，目录嵌套限制为8个级别，路径名限制为255个字符。
-
-4）级别4正式不存在，但genisoImage将其映射到ISO-9660：1999，这是ISO 9660版本2。
-
-使用第4级时，增强型卷描述符的版本号和文件结构的版本号设置为2。目录嵌套不限于8级，不需要文件包含点，点没有特殊意义，文件名没有版本号，文件名最长可达207个字符，如果使用Rock Ridge，文件名可达197个字符。
-
-在创建第2版image时，genisoImage会发出一个增强的卷描述符，与主卷描述符相似但不完全相同。请注意不要使用损坏的软件通过假设第二个PVD副本并将这个假定的PVD副本修补为El Torito VD，从而使ISO 9660图像可引导。
-
--J
-
-除了正常的ISO 9660文件名之外，还生成Joliet目录记录。在Windows机器上使用光盘时，这是有用的。Joliet文件名是在Unicode编码，每个路径组件最多可以有64个Unicode字符。注意，Joliet不是标准的-只有Microsoft Windows和Linux系统才能读取Joliet扩展。要获得更好的可移植性，请同时考虑使用Joliet和Rock Ridge扩展。
-
--joliet-long
-
-允许Joliet文件名最多为103个Unicode字符，而不是64个字符。这违反了Joliet规范，但似乎有效。谨慎使用。
-
--jcharset  charset
-
-“-J -input-charset charset”的组合。
-
--l
-
-允许完整的31个字符的文件名。通常iso 9660文件名将采用与MS-DOS兼容的8.3格式，尽管iso 9660标准允许最多31个字符的文件名。如果使用此选项，光盘可能很难在MS-DOS系统上使用，但会在大多数其他系统上使用。请谨慎使用。
-
--L
-
-过时的选项，使用“-allow-leading-dots”代替。
-
--jigdo-jigdo  jigdo_file
-
-生成一个jigdo.jigdo元数据文件以及文件系统映像。
-
--jigdo-template  template_file
-
-生成一个jigdo.template元数据文件以及文件系统映像。
-
--jigdo-min-file-size  size
-
-指定要在.jigdo文件中列出的文件的最小size。默认值(和最小允许值)为1KB。
-
--jigdo-force-md5  path
-
-指定文件模式，其中文件必须包含在由“-md5-list”提供的externally-sup-plied MD5列表中。
-
--jigdo-exclude  path
-
-指定一个不再“.jigdo”中列出的文件模式
-
--jigdo-map  path
-
-为jigdo文件指定模式映射，例如“Debian=/mirror/debian”
-
--md5-list  md5_file
-
-指定一个文件，这个文件列出了包含在“.jigdo”文件列表中的文件的MD5sum、大小和路径名。
-
--jigdo-template-compress  algorithm
-
-指定模板date.gzip和bzip 2当前支持的压缩算法，默认情况是gzip。
-
--log-file  log_file
-
-将所有错误、警告和信息性消息重定向到log_file，而不是标准错误
-
--m glob
-
-将与shell通配符模式glob匹配的文件排除到CD-ROM。blob可能与文件名组件或完整路径名匹配。此选项可多次使用。例如“genisoimage -o rom -m ’*.o’ -m core -m foobar”，将从image中排除所有以“.o”结尾的文件，或者名为core或foobar的文件。
-
--exclude-list  file
-
-包含要排除的shell通配符列表的文件
-
--max-iso9660-filenames
-
-允许ISO 9660文件名长达37个字符。此选项启用-N，因为额外的名称空间是从为文件版本号保留的空间中提取的。这违反了ISO 9660标准，但它恰好适用于许多系统。虽然符合要求的应用程序需要提供至少37个字符的缓冲区空间，但使用此选项创建的光盘可能会导致读取操作系统中的缓冲区溢出。极其小心地使用
-
+-abstract  file          # 设置摘要文件名称，可以有37个字符
+-A  AppId                # 指定描述光盘应用程序Id的文本字符串，可以有128个字符
+-allow-limited-size      # 当处理不能在ISO 9660中容易表示的大于2GiB的文件时，用缩小的可见文件大小将它们添加到ISO 9660，并将正确的可见文件大小添加到UDF系统。结果是一个不一致的文件系统，用户需要确保他们真的使用UDF而不是ISO 9660驱动程序来读取这样的磁盘。意味着启用-UDF。
+-allow-leading-dots-ldots # 允许ISO 9660文件名以句点开始。通常，为了保持MS-DOS的兼容性，使用下划线替换前导点。这违反了ISO 9660标准，但它恰好适用于许多系统。小心使用。
+-allow-lowercase          # 允许iso9660文件名中出现小写字母。这违反了ISO 9660标准，但它恰好适用于某些系统，谨慎使用。
+-allow-multidot           # 允许iso9660文件名中出现多个点。引导点不受此选项的影响，可以单独使用“-allow-leading-dots”，这违反了ISO 9660标准，但它恰好适用于许多系统。小心使用。
+-biblio file             # 指定书目文件名。有37个字符的空间。等效于“.genisoImagerc”文件中的BIBL。
+-cache-inodes            # 
+-no-cache-inodes         # 启用或禁用inode缓存和以设备号查找指向文件的硬链接。如果genisoImage找到一个硬链接(具有多个名称的文件)，该文件也将在cd上被硬链接，因此文件内容只显示一次。这有助于节省空间。类似Unix的操作系统，但在Cygwin等其他系统上默认使用非缓存inode，因为在这些系统上假定inode编号唯一是不安全的。(某些版本Cygwin使用弱散列算法创建假inode编号，这可能会产生重复。)如果两个文件有相同的inode号，但不是同一个文件的硬链接，“genisoImage -cache-indes”的行为将不正确。“-no cache-inode”在所有情况下都是安全的，但在这种情况下genisoImage无法检测硬链接，因此所产生的cd映像可能比所需的要大。
+-alpha-boot alpha _boot_image # 指定在制作Alpha/SRM可引导CD时使用的引导映像的路径和文件名。路径名必须相对于指定给genisoimage的源路径。
+-hppa-bootloader  hppa_bootloader_image # 指定在制作HPPA可引导CD时使用的引导映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。还需要其他选项，至少需要一个内核文件名和一个引导命令行。
+-hppa-cmdline  hppa_boot_command_line # 指定在制作可引导CD时要传递给HPPA引导加载程序的命令行。用空格或逗号分隔参数。必须将更多选项传递给genisoImage，至少要传递一个内核文件名和引导加载程序文件名。
+-hppa-kernel-32  hppa_kernel_32 #
+-hppa-kernel-64  hppa_kernel_64 # 指定在制作HPPA可引导CD时使用的32位和/或64位内核映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。还需要其他选项，至少引导加载程序文件名和引导命令行。
+-hppa-ramdisk  hppa_ramdisk_image # 指定在制作HPPA可引导CD时使用的ramdisk映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。此参数是可选的。还需要其他选项，至少需要一个内核文件名和引导命令行。
+-mips-boot  mips_boot_image # 指定在生成SGI/大端MIPS可引导CD时使用的引导映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。可以多次指定此选项，以存储最多15个引导映像。
+-mipsel-boot  mipsel_boot_image # 指定制作DEC/小端MIPS引导映像的路径和文件名。路径名必须相对于指定给genisoImage的源路径。
+-b eltorito_boot_image  # 指定在为x86 PC制作EL Torito可引导CD时使用的引导映像的路径和文件名。路径名必须相对于为genisoImage指定的源路径。此选项是制作El Torito可引导CD所必需的。引导映像必须精确地为1200 kB、1440 kB或2880 kB，当创建iso 9660文件系统时，genisoImage将使用此大小。pc BIOS将使用该映像来模拟软盘，因此第一个512字节扇区应该包含pc引导代码。
+                        # - 如果引导映像不是软盘映像，则需要添加“-hard-disk-boot”或“-no-emul-boot.”。如果系统不应该从模拟磁盘启动，则使用“-no-boot”。
+                        # - 如果未指定“-sort”，则引导映像将以低优先级(2)排序到介质的开头。如果您不喜欢这种情况，则需要为引导映像指定0的排序权重。
+-B img_sun4,img_sun4c,img_sun4m,img_sun4d,img_sun4e #
+-sparc-boot img_sun4,img_sun4c,img_sun4m,img_sun4d,img_sun4e # 设置引导文件名，img_sun4,img_sun4c,img_sun4m,img_sun4d,img_sun4e。
+                           # - 指定为SPARC系统制作可引导cd所需的逗号分隔的引导映像列表。分区0用于iso 9660映像，第一个映像文件映射到分区1。以逗号分隔的列表最多可能有7个字段，包括空字段。此选项是为Sun制作可引导cd所必需的。如果-B或-SPARC-引导已指定，则生成映像的第一个扇区将包含一个Sun磁盘标签。此磁盘标签为ISO 9660映像指定片0，为用此选项指定的引导映像指定切片1至7。每个附加引导映像中的字节偏移量512到8191必须包含适合于适当的SPARC体系结构的主引导。每个映像的其余部分通常包含一个用于主内核引导阶段的ufs文件系统。
+                           # - 实现的引导方法是在SunOS4.x和SunOS5.x中找到的。但是，它不依赖于SunOS内部，而只依赖于OpenBootprom的属性，因此它应该可以用于任何用于SPARC系统的操作系统。
+                           # - 如果指定了文件名，则将实际的和下面的所有引导分区映射到前一个分区。如果使用-G映像-B调用genisoImage，所有引导分区都映射到包含iso 9660文件系统映像的分区，而位于磁盘前16个扇区的通用引导映像用于所有体系结构。
+-G  generic_boot_image     # 指定在制作通用可引导cd时使用的引导映像的路径和文件名。引导映像将放置在cd的前16个扇区上，位于iso 9660主卷描述符之前。如果此选项与-sparc-boot一起使用，则Sun磁盘标签将覆盖泛型引导映像的前512字节。
+-eltorito-alt-boot         # 从一组新的El Torito启动参数开始。最多63个El Torito引导项可以存储在一张CD上。
+-hard-disk-boot            # 指定用于创建El Torito可引导CD的引导映像是硬盘映像。映像必须以包含单个分区的主引导记录开始。
+-no-emul-boot              # 指定用于创建El Torito可引导cd的引导映像是“无仿真”映像。系统将在不执行任何磁盘模拟的情况下加载和执行此映像。
+-no-boot                   # 指定应将创建的El Torito CD标记为不可引导。系统将提供一个模拟驱动器的图像，但将启动一个标准的启动设备。
+-boot-load-seg  segment_address # 指定非模拟El Torito cd的引导映像的加载段地址
+-boot-load-size  load_sectors   # 指定在非模拟模式下加载的“虚拟”(512字节)扇区的数量。默认情况是加载整个引导文件。如果不是4的倍数，一些BIOSes可能会出现问题。
+-boot-info-table                # 指定在引导文件中的偏移量8处修补一个56字节的表，其中包含CD-ROM布局的信息。如果提供此选项，则启动文件将在源文件系统中被修改，因此，如果无法轻松重新生成该文件，请创建该文件的副本！有关此表的说明，请参阅El Torito启动信息表部分。
+-C  last_sess_start,next_sess_start  # 此选项需要为多会话磁盘创建一个额外的CD或第二个会话或更高级别会话的图像。“-C”需要两个数字，用逗号分隔。第一个是应该附加到的磁盘最后一个会话中的第一个扇区。第二个是新会话的起始扇区号。正确的编号可以通过调用“wodin-msinfo”得到。如果-“C”与“-M”一起使用，genisoImage将创建一个文件系统映像，该映像将作为上一次会话的延续。如果使用“-C”而不使用“-M”，genisoImage将创建一个文件系统映像，用于CD额外的第二次会话。这是一个多会话cd，在第一个会话中保存音频数据，在第二个会话中保存iso 9660文件系统。
+-c  boot_catalog          # 指定引导目录的路径和文件名，这是El Torito可引导CD所必需的。路径名必须相对于指定给genisoImage的源路径。此文件将插入到输出树中，而不是在源文件系统中创建，因此请确保指定的文件名不与现有文件冲突，否则将被排除。通常选择一个像“boot.Catalog”这样的名称。
+                          # - 如果未指定“-sort”，则引导目录以低优先级(1)排序到介质的开头。如果您不喜欢这种情况，则需要为引导目录指定0的排序权重。
+-check-oldnames           # 检查从旧会话导入的所有文件名是否符合iso 9660文件命名规则。如果没有此选项，只检查超过31个字符的名称，因为这些文件严重违反iso 9660标准。
+-check-session  file      # 检查所有旧会话是否符合实际的genisoImage iso 9660文件命名规则。这是一个高级选项，它结合了“-M  file  -C  0,0  -check-oldnames”
+-copyright  file          # 指定版权信息，通常是光盘上的文件名。有37个字符的空间。相当于在“.genisoImagerc”文件中复制。
+-d                        # 不要将句点附加到没有句点的文件中。这违反了ISO 9660标准，但它恰好适用于许多系统。小心使用。
+-D                        # 不要使用深度目录重新定位，而是按我们看到的方式打包它们。如果未选择iso 9660：1999，则违反iso 9660标准，但它恰好适用于许多系统。
+-dir-mode  mode           # 重写用于创建镜像的目录mode，指定为chmod(1)中权限位的4位数字。
+-dvd-video                # 生成一个符合DVD视频的UDF文件系统.这是通过排序适当文件的内容顺序和在需要时在文件之间添加填充来实现的。注意，只有当DVD视频文件名只包含大写字符时，排序才能工作。          
+                          # 注意，为了获得符合dvd视频的文件系统映像，您需要准备一个符合dvd视频的目录树，这需要生成dvd的根目录中包含目录VIDEO_TS和AUDIO_TS(所有大写)。VIDEO_TS需要包含视频文件系统的所有所需文件(文件名必须为所有大写)。
+-f                        # 在生成文件系统时遵循符号链接。当这个选项没有使用时，符号链接将使用Rock Ridge，如果Rock Ridge也没有启用，那么它们将被忽略。
+-file-mode  mode          # 重写用于创建image的常规文件的模式，使用4位模式
+-gid  gid                 # 将从源文件读取的组ID重写为gid的值。指定此选项将自动启用RockRidge扩展
+-gui                      # 切换GUI的行为。这使得输出更加冗长，但将来可能会产生其他影响。
+-graft-points             # 允许文件名使用嫁接点。如果使用此选项，将检查所有文件名是否有嫁接点。文件名在第一个未转义的等号处被分隔。如果“-graft-points”已经指定，所有出现的‘\’和‘=’字符必须用‘\’转义。
+-hide  glob               # 隐藏出现在ISO 9660或Rock Ridge目录中的与shell通配符模式GLOB匹配的任何文件。GLOB可能与文件名或路径的任何部分匹配。如果GLOB匹配某个目录，则该目录的内容将被隐藏。为了匹配目录名，请确保路径名不包括尾随“/‘字符。所有隐藏文件仍将写入输出CD映像文件。请参见-Hided-Joliet和README.Hide。此选项可多次使用。
+-hide-list  file          # 包含要隐藏的shell通配符列表的文件
+-hidden  glob             # 为匹配GLOB的文件和目录添加隐藏(存在)ISO 9660目录属性，这是一个shell通配符模式。该属性将防止文件被某些MS-DOS和Windows命令显示。GLOB可能匹配文件名或路径的任何部分。‘/’字符。此选项可多次使用
+-hidden-list  file        # 包含获取隐藏属性的shell通配符列表的文件
+-hide-joliet  glob        # 隐藏在Joliet目录中看到的与shell通配符模式GLOB匹配的文件和目录。GLOB可能匹配文件名或路径的任何部分。如果GLOB匹配某个目录，则该目录的内容将被隐藏。为了匹配目录名，请确保路径名不包括尾随的“/‘字符。所有隐藏文件仍将写入输出CD映像文件。此选项通常与-Hide一起使用。请参见README.Hide。此选项可多次使用。
+-hide-joliet-list  file   # 包含要向Joliet树隐藏的shell通配符列表的文件。
+-hide-joliet-trans-tbl    # 将TRANS.TBL文件隐藏在Joliet树中。这些文件在Joliet世界中通常没有意义，因为它们列出了真实名称和ISO 9660名称，这两者都可能与Joliet名称不同。
+-hide-rr-moved            # 将RockRidge树中目录“RR_MOVED”的“.rr_move”目。这样似乎不可能完全将“RR_MOVED”目录隐藏在Rock Ridge树中。此选项只会使不知道该目录的人更容易混淆可见树。如果你不需要“RR_MOVED“目录，那么使用“-D”选项。请注意，如果指定了-D，则生成的文件系统不符合ISO 9660 level-1，在MS-DOS上也无法读取。
+-input-charset  charset   # 定义本地文件名中使用的输入字符集。要获得有效字符集名称的列表，请调用“genisoImage-put-charset”获取帮助。要获得1：1的映射，可以使用默认值作为字符集名称。默认初始值在DOS系统上为cp 437，在所有其他系统上为iso 8859-1。有关详细信息，请参阅下面的字符集部分。
+-output-charset  charset  # 定义Rock  Ridge文件名中将使用的输出字符集，默认为输入字符集。有关详细信息，请参阅下面的字符集部分。
+-iso-level  level         # 设置ISO 9660一致性级别。有效数字是1到4。
+                          # - 对于第1级，文件只能由一个部分组成，文件名限制为8.3类型。
+                          # - 对于第2级，文件只能由一个部分组成。
+                          # - 对于第三级，没有任何限制 (ISO-9660：1988除外)。
+                          #   所有ISO 9660级别从1到3，所有文件名仅限于大写字母、数字和下划线(_)。文件名限制为31个字符，目录嵌套限制为8个级别，路径名限制为255个字符。
+                          # - 级别4正式不存在，但genisoImage将其映射到ISO-9660：1999，这是ISO 9660版本2。
+                          #   使用第4级时，增强型卷描述符的版本号和文件结构的版本号设置为2。目录嵌套不限于8级，不需要文件包含点，点没有特殊意义，文件名没有版本号，文件名最长可达207个字符，如果使用Rock Ridge，文件名可达197个字符。
+                          # 创建第2版image时，genisoImage会发出一个增强的卷描述符，与主卷描述符相似但不完全相同。请注意不要使用损坏的软件通过假设第二个PVD副本并将这个假定的PVD副本修补为El Torito VD，从而使ISO 9660图像可引导。
+-J                        # 除了正常的ISO 9660文件名之外，还生成Joliet目录记录。在Windows机器上使用光盘时，这是有用的。Joliet文件名是在Unicode编码，每个路径组件最多可以有64个Unicode字符。注意，Joliet不是标准的-只有Microsoft Windows和Linux系统才能读取Joliet扩展。要获得更好的可移植性，请同时考虑使用Joliet和Rock Ridge扩展。
+-joliet-long              # 允许Joliet文件名最多为103个Unicode字符，而不是64个字符。这违反了Joliet规范，但似乎有效。谨慎使用。
+-jcharset  charset        # “-J -input-charset charset”的组合。
+-l                        # 允许完整的31个字符的文件名。通常iso 9660文件名将采用与MS-DOS兼容的8.3格式，尽管iso 9660标准允许最多31个字符的文件名。如果使用此选项，光盘可能很难在MS-DOS系统上使用，但会在大多数其他系统上使用。请谨慎使用。
+-L                        # 过时的选项，使用“-allow-leading-dots”代替。
+-jigdo-jigdo  jigdo_file  # 生成一个jigdo.jigdo元数据文件以及文件系统映像。
+-jigdo-template  template_file # 生成一个jigdo.template元数据文件以及文件系统映像。
+-jigdo-min-file-size  size  # 指定要在.jigdo文件中列出的文件的最小size。默认值(和最小允许值)为1KB。
+-jigdo-force-md5  path      # 指定文件模式，其中文件必须包含在由“-md5-list”提供的externally-sup-plied MD5列表中。
+-jigdo-exclude  path        # 指定一个不再“.jigdo”中列出的文件模式
+-jigdo-map  path            # 为jigdo文件指定模式映射，例如“Debian=/mirror/debian”
+-md5-list  md5_file         # 指定一个文件，这个文件列出了包含在“.jigdo”文件列表中的文件的MD5sum、大小和路径名。
+-jigdo-template-compress  algorithm # 指定模板date.gzip和bzip 2当前支持的压缩算法，默认情况是gzip。
+-log-file  log_file         # 将所有错误、警告和信息性消息重定向到log_file，而不是标准错误
+-m glob                     # 将与shell通配符模式glob匹配的文件排除到CD-ROM。blob可能与文件名组件或完整路径名匹配。此选项可多次使用。例如“genisoimage -o rom -m ’*.o’ -m core -m foobar”，将从image中排除所有以“.o”结尾的文件，或者名为core或foobar的文件。
+-exclude-list  file         # 包含要排除的shell通配符列表的文件
+-max-iso9660-filenames      # 允许ISO 9660文件名长达37个字符。此选项启用-N，因为额外的名称空间是从为文件版本号保留的空间中提取的。这违反了ISO 9660标准，但它恰好适用于许多系统。虽然符合要求的应用程序需要提供至少37个字符的缓冲区空间，但使用此选项创建的光盘可能会导致读取操作系统中的缓冲区溢出。极其小心地使用
 -M  path
-
--M  device            
-
--dev  device
-
-指定要合并的现有ISO 9660映像的路径。另一种形式采用SCSI设备说明符，它使用与“dev=  parameter”相同的语法。genisoImage的输出将是一个新的会话，它应该被写入-M中指定的image的末尾，这通常需要用于CD记录器的多会话功能。此选项只能与-C一起使用。
-
--N
-
-从ISO 9660文件名中省略版本号。这违反了iso 9660标准，但没有人真正使用版本号。
-
--new-dir-mode  mode
-
-指定在文件系统映像中创建新目录时使用的mode，缺省值为0555。
-
--nobak
-
--no-bak
-
-排除ISO 9660文件系统上的备份文件；也就是说，包含字符“~”或“#”或以.bak结尾的文件名。这些文件通常是Unix文本编辑器的备份文件。
-
--force-rr
-
-不要对以前的会话进行自动的Rock Ridge属性识别。这可以解决由Nero Burning ROM创建的image的问题
-
--no-rr
-
-不要使用以前会话中的RockRidge属性。这可能有助于避免当genisoImage在旧会话上发现非法的RockRidge签名时出现的问题。
-
--no-split-symlink-components
-
-不要拆分符号链接组件，而是开始一个新的连续区域(CE)。这可能会浪费一些空间，但是SunOS 4.1.4和Solaris 2.5.1 CDROM驱动程序在读取拆分的符号链接字段(a‘/’可以删除)时有错误。
-
--no-split-symlink-fields
-
-不要拆分符号链接字段，而是开始一个新的连续区域(CE)。这可能会浪费一些空间，但是SunOS 4.1.4和Solaris 2.5.1 CDROM驱动程序在读取拆分的符号链接字段(a‘/’可以删除)方面有一个错误。
-
--o filename
-
-指定iso 9660文件系统映像的输出文件。这可以是磁盘文件、磁带驱动器，也可以直接对应光盘写入器的设备名称。如果没有指定，则使用stdout。注意，输出也可以是常规磁盘分区的块设备，在这种情况下，可以使用iso 9660。可以正常安装文件系统，以验证是否正确地生成了文件系统。
-
--pad
-
-将整个映像的末尾按150个扇区(300 KB)填充。默认启用此选项。如果与-B一起使用，则在ISO 9660分区和引导分区之间插入填充，以便第一个引导分区以16的扇区号开始。当许多操作系统(例如Linux)在其文件系统I/O中实现readahead错误时，就需要填充。这些错误会导致位于磁道末尾附近的文件的读取错误，特别是如果磁盘是在一次模式下以磁道方式写入的，或者在CD音频轨道跟随数据轨道的情况下。
+-M  device 
+-dev  device                 # 指定要合并的现有ISO 9660映像的路径。另一种形式采用SCSI设备说明符，它使用与“dev=  parameter”相同的语法。genisoImage的输出将是一个新的会话，它应该被写入-M中指定的image的末尾，这通常需要用于CD记录器的多会话功能。此选项只能与-C一起使用。
+-N                           # 从ISO 9660文件名中省略版本号。这违反了iso 9660标准，但没有人真正使用版本号。
+-new-dir-mode  mode          # 指定在文件系统映像中创建新目录时使用的mode，缺省值为0555。
+-nobak 
+-no-bak                      # 排除ISO 9660文件系统上的备份文件；也就是说，包含字符“~”或“#”或以.bak结尾的文件名。这些文件通常是Unix文本编辑器的备份文件。
+-force-rr                    # 不要对以前的会话进行自动的Rock Ridge属性识别。这可以解决由Nero Burning ROM创建的image的问题
+-no-rr                       # 不要使用以前会话中的RockRidge属性。这可能有助于避免当genisoImage在旧会话上发现非法的RockRidge签名时出现的问题。
+-no-split-symlink-components # 不要拆分符号链接组件，而是开始一个新的连续区域(CE)。这可能会浪费一些空间，但是SunOS 4.1.4和Solaris 2.5.1 CDROM驱动程序在读取拆分的符号链接字段(a‘/’可以删除)时有错误。
+-no-split-symlink-fields     # 不要拆分符号链接字段，而是开始一个新的连续区域(CE)。这可能会浪费一些空间，但是SunOS 4.1.4和Solaris 2.5.1 CDROM驱动程序在读取拆分的符号链接字段(a‘/’可以删除)方面有一个错误。
+-o filename                  # 指定iso 9660文件系统映像的输出文件。这可以是磁盘文件、磁带驱动器，也可以直接对应光盘写入器的设备名称。如果没有指定，则使用stdout。注意，输出也可以是常规磁盘分区的块设备，在这种情况下，可以使用iso 9660。可以正常安装文件系统，以验证是否正确地生成了文件系统。
+-pad                         # 将整个映像的末尾按150个扇区(300 KB)填充。默认启用此选项。如果与-B一起使用，则在ISO 9660分区和引导分区之间插入填充，以便第一个引导分区以16的扇区号开始。当许多操作系统(例如Linux)在其文件系统I/O中实现readahead错误时，就需要填充。这些错误会导致位于磁道末尾附近的文件的读取错误，特别是如果磁盘是在一次模式下以磁道方式写入的，或者在CD音频轨道跟随数据轨道的情况下。
 
 -no-pad
 
@@ -989,7 +739,7 @@ Done with: Ending Padblock                         Block(s)    150
 Max brk space used 0
 175 extents written (0 MB)
 You have new mail in /var/spool/mail/root
-[root@localhost sogrey]# ls
+[root@localhost sogrey]$ ls
 1.c  my.iso  wj123.kpET  wj123.oH2o4P  wj234.q1C  wjtpflR
-[root@localhost sogrey]#
+[root@localhost sogrey]$
 ```
