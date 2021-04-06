@@ -201,14 +201,8 @@ HFS选项
 ``` bash
 -hfs                         # 创建ISO 9660/HFS混合CD。此选项应与-map、-magic或下列各种双破折号选项结合使用。
 -apple                       # 创建带有Apple扩展的ISO 9660 CD。类似于-hfs，只是添加了对ISO 9660的苹果扩展，而不是创建一个HFS混合卷。以前的genisoImage版本在默认情况下包括Rock Ridge属性，如果“-apple”是指定的。这个版本的genisoImage不再这样做了。如果您希望拥有RockRidge属性，则需要分别指定此属性。
-
--map  mapping_file
-
-使用映射文件根据文件名的扩展名为文件设置创建者并键入文件的信息。只有当文件名不是已知的Apple/Unix文件格式时，才会映射它。请参阅下面的HFS CREATOR/TYPE部分。
-
--magic  magic_file
-
-创建者和类型信息是通过使用文件的magic数字(通常是文件的前几个字节)来设置的。只有当文件不是已知的Apple/unix文件格式，或者文件扩展名尚未使用-map映射时，才会使用magic_file。
+-map  mapping_file           # 使用映射文件根据文件名的扩展名为文件设置创建者并键入文件的信息。只有当文件名不是已知的Apple/Unix文件格式时，才会映射它。请参阅下面的HFS CREATOR/TYPE部分。
+-magic  magic_file           # 创建者和类型信息是通过使用文件的magic数字(通常是文件的前几个字节)来设置的。只有当文件不是已知的Apple/unix文件格式，或者文件扩展名尚未使用-map映射时，才会使用magic_file。
 
 -hfs-creator  creator
 
