@@ -203,38 +203,14 @@ HFS选项
 -apple                       # 创建带有Apple扩展的ISO 9660 CD。类似于-hfs，只是添加了对ISO 9660的苹果扩展，而不是创建一个HFS混合卷。以前的genisoImage版本在默认情况下包括Rock Ridge属性，如果“-apple”是指定的。这个版本的genisoImage不再这样做了。如果您希望拥有RockRidge属性，则需要分别指定此属性。
 -map  mapping_file           # 使用映射文件根据文件名的扩展名为文件设置创建者并键入文件的信息。只有当文件名不是已知的Apple/Unix文件格式时，才会映射它。请参阅下面的HFS CREATOR/TYPE部分。
 -magic  magic_file           # 创建者和类型信息是通过使用文件的magic数字(通常是文件的前几个字节)来设置的。只有当文件不是已知的Apple/unix文件格式，或者文件扩展名尚未使用-map映射时，才会使用magic_file。
-
--hfs-creator  creator
-
-设置所有文件的默认创建者。一定是4个字符。请参阅HFSCREATOR/TYPE。
-
--hfs-type  type
-
-设置所有文件的默认类型。必须精确为4个字符。请参阅HFSCREATOR/TYPE。
-
--probe
-
-搜索所有已知的Apple/Unix文件格式的文件内容。然而，检测MacBinary and AppleSingle文件唯一的方法是打开和读取他们，因此这个选项可能会增加处理时间。如果已知正在使用的Apple/Unix格式，最好使用下面给出的选项
-
--no-desktop
-
-不要创建(空)桌面文件。当在Macintosh上使用CD时，将创建新的hfs桌面文件。默认情况下，空桌面文件将添加到hfs卷中。
-
--mac-name
-
-使用HFS文件名作为ISO 9660、Joliet和Rock Ridge文件名的起点。有关更多信息，请参见下面的HFS Macintosh文件名部分。
-
--boot-hfs-file  driver_file
-
-安装驱动程序文件，使CD可在Macintosh上启动。
-
--part
-
-生成一个HFS分区表。默认情况下，不生成分区表，但是一些较老的macintosh CD-ROM驱动程序需要CD-ROM上的hfs分区表才能识别混合CD-ROM。
-
--auto  AutoStart_file
-
-让HFS CD使用QuickTime2.0自动启动功能来启动应用程序或文档。给定的文件名必须是位于CD顶层的文档或应用程序的名称。文件名必须小于12个字符。
+-hfs-creator  creator        # 设置所有文件的默认创建者。一定是4个字符。请参阅HFSCREATOR/TYPE。
+-hfs-type  type              # 设置所有文件的默认类型。必须精确为4个字符。请参阅HFSCREATOR/TYPE。
+-probe                       # 搜索所有已知的Apple/Unix文件格式的文件内容。然而，检测MacBinary and AppleSingle文件唯一的方法是打开和读取他们，因此这个选项可能会增加处理时间。如果已知正在使用的Apple/Unix格式，最好使用下面给出的选项
+-no-desktop                  # 不要创建(空)桌面文件。当在Macintosh上使用CD时，将创建新的hfs桌面文件。默认情况下，空桌面文件将添加到hfs卷中。
+-mac-name                    # 使用HFS文件名作为ISO 9660、Joliet和Rock Ridge文件名的起点。有关更多信息，请参见下面的HFS Macintosh文件名部分。
+-boot-hfs-file  driver_file  # 安装驱动程序文件，使CD可在Macintosh上启动。
+-part                        # 生成一个HFS分区表。默认情况下，不生成分区表，但是一些较老的macintosh CD-ROM驱动程序需要CD-ROM上的hfs分区表才能识别混合CD-ROM。
+-auto  AutoStart_file        # 让HFS CD使用QuickTime2.0自动启动功能来启动应用程序或文档。给定的文件名必须是位于CD顶层的文档或应用程序的名称。文件名必须小于12个字符。
 
 -cluster-size  size
 
