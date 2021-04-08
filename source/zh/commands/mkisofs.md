@@ -211,58 +211,19 @@ HFS选项
 -boot-hfs-file  driver_file  # 安装驱动程序文件，使CD可在Macintosh上启动。
 -part                        # 生成一个HFS分区表。默认情况下，不生成分区表，但是一些较老的macintosh CD-ROM驱动程序需要CD-ROM上的hfs分区表才能识别混合CD-ROM。
 -auto  AutoStart_file        # 让HFS CD使用QuickTime2.0自动启动功能来启动应用程序或文档。给定的文件名必须是位于CD顶层的文档或应用程序的名称。文件名必须小于12个字符。
-
--cluster-size  size
-
-以字节为单位设置PC Exchange文件的群集或分配单元的大小。
-
--hide-hfs  glob
-
-将shell通配符模式GLOB隐藏在HFS卷中。该文件或目录仍然存在于iso 9660和/或Joliet目录中。GLOB可能与文件名的任何部分匹配。可以排除多个全局。例如命令
-
-genisoimage -o rom -hfs -hide-hfs ’*.o’ -hide-hfs foobar
-
-将会从HFS卷中排除所有以“.o”结尾或称为foobar的文件。注意，如果您有一个名为foobar的目录，那么它(当然还有它的所有后代)也会被排除在外。GLOB也可以是相对于命令行上给定的源目录的路径名，例如
-
- 
-
-仅从src目录中排除名为html的文件或目录。树中任何其他名为html的文件或目录都不会被排除。应该与“-hide”或“-hide-joliet”一起使用。为了匹配目录名，请确保模式不包含尾随的“/”字符。
-
--hide-hfs-list  file
-
-指定一个文件，该文件包含要隐藏的通配符模式的列表，如“-hide-hfs”中所示。
-
--hfs-volid  hfs_volid
-
-HFS分区的卷名称。这是分配给macintosh上的磁盘的名称，并用-V替换使用的volid。
-
--icon-position
-
-如果存在图标位置信息，就使用。图标将显示在与Macintosh桌面相同的位置。文件夹在屏幕上的位置和大小、滚动位置、文件夹视图(视图为图标、小图标等)也会保留下来。
-
--root-info  file
-
-为HFS卷的根文件夹设置位置、屏幕上的大小、滚动位置、文件夹视图等。
-
--prep-boot  file
-
-准备引导映像文件。最多允许4次
-
--chrp-boot
-
-添加CHRP引导头
-
--input-hfs-charset  charset
-
-输入字符集，定义与“-mac-name”一起使用时在hfs文件名中使用的字符。默认字符集为cp 10000
-
--output-hfs-charset  charset
-
-定义将在HFS文件名中使用的字符的输出字符集。默认输入字符集
-
--hfs-unlock
-
-默认情况下，genisoImage将创建一个被锁定的hfs卷。此选项使卷不被锁定，以便其他应用程序(例如hfsutils)可以修改卷。
+-cluster-size  size          # 以字节为单位设置PC Exchange文件的群集或分配单元的大小。
+-hide-hfs  glob              # 将shell通配符模式GLOB隐藏在HFS卷中。该文件或目录仍然存在于iso 9660和/或Joliet目录中。GLOB可能与文件名的任何部分匹配。可以排除多个全局。例如命令
+genisoimage -o rom -hfs -hide-hfs ’*.o’ -hide-hfs foobar # 将会从HFS卷中排除所有以“.o”结尾或称为foobar的文件。注意，如果您有一个名为foobar的目录，那么它(当然还有它的所有后代)也会被排除在外。GLOB也可以是相对于命令行上给定的源目录的路径名，例如
+                             # 仅从src目录中排除名为html的文件或目录。树中任何其他名为html的文件或目录都不会被排除。应该与“-hide”或“-hide-joliet”一起使用。为了匹配目录名，请确保模式不 包含尾随的“/”字符。
+-hide-hfs-list  file         # 指定一个文件，该文件包含要隐藏的通配符模式的列表，如“-hide-hfs”中所示。
+-hfs-volid  hfs_volid        # HFS分区的卷名称。这是分配给macintosh上的磁盘的名称，并用-V替换使用的volid。
+-icon-position               # 如果存在图标位置信息，就使用。图标将显示在与Macintosh桌面相同的位置。文件夹在屏幕上的位置和大小、滚动位置、文件夹视图(视图为图标、小图标等)也会保留下来。
+-root-info  file             # 为HFS卷的根文件夹设置位置、屏幕上的大小、滚动位置、文件夹视图等。
+-prep-boot  file             # 准备引导映像文件。最多允许4次
+-chrp-boot                   # 添加CHRP引导头
+-input-hfs-charset  charset  # 输入字符集，定义与“-mac-name”一起使用时在hfs文件名中使用的字符。默认字符集为cp 10000
+-output-hfs-charset  charset # 定义将在HFS文件名中使用的字符的输出字符集。默认输入字符集
+-hfs-unlock                  # 默认情况下，genisoImage将创建一个被锁定的hfs卷。此选项使卷不被锁定，以便其他应用程序(例如hfsutils)可以修改卷。
 
 -hfs-bless  folder_name
 
