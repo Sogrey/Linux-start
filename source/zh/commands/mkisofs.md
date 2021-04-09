@@ -224,70 +224,22 @@ genisoimage -o rom -hfs -hide-hfs ’*.o’ -hide-hfs foobar # 将会从HFS卷�
 -input-hfs-charset  charset  # 输入字符集，定义与“-mac-name”一起使用时在hfs文件名中使用的字符。默认字符集为cp 10000
 -output-hfs-charset  charset # 定义将在HFS文件名中使用的字符的输出字符集。默认输入字符集
 -hfs-unlock                  # 默认情况下，genisoImage将创建一个被锁定的hfs卷。此选项使卷不被锁定，以便其他应用程序(例如hfsutils)可以修改卷。
-
--hfs-bless  folder_name
-
-“Bless”指定目录(文件夹)。这通常是系统文件夹，用于创建HFS可引导CD。目录的名称必须是genisoImage所看到的整个路径名。例如，如果给定的路径规范是“./cddata“，所需的文件夹称为系统文件夹，则整个路径名为“/cddata/system”文件夹(如果名称包含空格，请记住使用引号)。
-
--hfs-parms  parameters
-
-重写用于创建HFS文件系统的某些参数。不太可能在正常情况下使用
-
---cap
-
-查找AUFS CAP Macintosh文件。仅搜索CAP Apple/Unix文件格式。搜索其他可能的Apple/Unix文件格式将被禁用，除非给出其他“--”选项
-
---netatalk
-
-查找NETATALK Macintosh文件
-
---double
-
-查找AppleDouble Macintosh文件
-
---ethershare
-
-查找Helios EtherShare Macintosh文件
-
---ushare
-
-查找IPT UShare Macintosh文件
-
---exchange
-
-查找PC Exchange Macintosh文件
-
---sgi
-
-查找SGI Macintosh文件
-
---xinet
-
-查找XINET  Macintosh文件
-
---macbin
-
-查找MacBinary Macintosh文件
-
---single
-
-查找AppleSingle Macintosh文件
-
---dave
-
-查找Thursby Software Systems DAVE Macintosh文件
-
---sfm
-
-查找Microsoft’s Services for Macintosh文件
-
---osx-double
-
-查找Mac OS X AppleDouble Macintosh文件
-
---osx-hfs
-
-查找Mac OS X HFS Macintosh文件
+-hfs-bless  folder_name      # “Bless”指定目录(文件夹)。这通常是系统文件夹，用于创建HFS可引导CD。目录的名称必须是genisoImage所看到的整个路径名。例如，如果给定的路径规范是“./cddata“，所需的文件夹称为系统文件夹，则整个路径名为“/cddata/system”文件夹(如果名称包含空格，请记住使用引号)。
+-hfs-parms  parameters       # 重写用于创建HFS文件系统的某些参数。不太可能在正常情况下使用
+--cap                        # 查找AUFS CAP Macintosh文件。仅搜索CAP Apple/Unix文件格式。搜索其他可能的Apple/Unix文件格式将被禁用，除非给出其他“--”选项
+--netatalk                   # 查找NETATALK Macintosh文件
+--double                     # 查找AppleDouble Macintosh文件
+--ethershare                 # 查找Helios EtherShare Macintosh文件
+--ushare                     # 查找IPT UShare Macintosh文件
+--exchange                   # 查找PC Exchange Macintosh文件
+--sgi                        # 查找SGI Macintosh文件
+--xinet                      # 查找XINET  Macintosh文件
+--macbin                     # 查找MacBinary Macintosh文件
+--single                     # 查找AppleSingle Macintosh文件
+--dave                       # 查找Thursby Software Systems DAVE Macintosh文件
+--sfm                        # 查找Microsoft’s Services for Macintosh文件
+--osx-double                 # 查找Mac OS X AppleDouble Macintosh文件
+--osx-hfs                    # 查找Mac OS X HFS Macintosh文件
 ```
 ## 字符集
 genisoImage以符合POSIX的方式将文件名处理为8位字符的字符串。要表示所有语言的所有编码，8位字符是不够的。Unicode或Iso-10646定义了至少需要21位才能表示所有已知语言的字符编码。它们可以用utf-32、utf-16或utf-8编码表示。utf-32使用普通的32位编码，但似乎不常见。microsoft使用utf-16时使用win 32，缺点是16位字符不符合POSIX文件系统接口。
