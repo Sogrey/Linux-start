@@ -54,6 +54,7 @@ Linux为所有的设备文件都提供了统一的操作函数接口，方法是
 [root@bogon 文档]$ ls -l /dev/sdb4
 brw-r--r-- 1 root root 1, 1 9月   7 08:21 /dev/sdb4
 ```
+
 创建字符设备文件
 ``` bash
 [root@bogon 文档]$ mknod /dev/ttywj c 2 1   #创建一个设备
