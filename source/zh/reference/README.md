@@ -95,7 +95,11 @@ Linux的发行版多种多样：
 
 ![](../../.vuepress/public/img/LinuxOSs/DeepinLinux.png)
 
-官网：挂了
+官网：[https://www.deepin.org/](https://www.deepin.org/)
+
+下载地址：
+
+- [https://www.deepin.org/zh/download/](https://www.deepin.org/zh/download/)
 
 ### <div class="svg suse">SUSE</div> 
 
