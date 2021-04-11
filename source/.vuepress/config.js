@@ -630,5 +630,13 @@ function getCommands() {
     command: 'mkisofs',
     desc: '建立ISO 9660映像文件',
     tags: ['FileSystem']
+  }, {
+    command: 'mkswap',
+    desc: '建立和设置SWAP交换分区',
+    tags: ['FileSystem']
+  }, {
+    command: 'mknod',
+    desc: '创建字符设备文件和块设备文件',
+    tags: ['FileSystem']
   }];
 }
