@@ -638,5 +638,13 @@ function getCommands() {
     command: 'mknod',
     desc: '创建字符设备文件和块设备文件',
     tags: ['FileSystem']
+  }, {
+    command: 'mktemp',
+    desc: '创建临时文件供shell脚本使用',
+    tags: ['FileSystem']
+  }, {
+    command: 'restore',
+    desc: '所进行的操作和dump指令相反',
+    tags: ['FileSystem']
   }];
 }
