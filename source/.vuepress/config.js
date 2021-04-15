@@ -646,5 +646,13 @@ function getCommands() {
     command: 'restore',
     desc: '所进行的操作和dump指令相反',
     tags: ['FileSystem']
+  }, {
+    command: 'swapoff',
+    desc: '关闭指定的交换空间',
+    tags: ['FileSystem']
+  }, {
+    command: 'ex2fsck',
+    desc: '检查ext2、ext3、ext4文件系统',
+    tags: ['FileSystem']
   }];
 }
