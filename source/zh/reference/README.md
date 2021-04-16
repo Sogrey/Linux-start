@@ -306,6 +306,7 @@ Linux的发行版多种多样：
 
 ### Zorin OS
 
+![](../../.vuepress/public/img/LinuxOSs/ZorinOS.png)
 
 官网：[https://zorinos.com/](https://zorinos.com/)
 
