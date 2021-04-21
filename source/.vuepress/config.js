@@ -654,5 +654,9 @@ function getCommands() {
     command: 'ex2fsck',
     desc: '检查ext2、ext3、ext4文件系统',
     tags: ['FileSystem']
+  }, {
+    command: 'swapon',
+    desc: '激活Linux系统中交换空间',
+    tags: ['FileSystem']
   }];
 }
