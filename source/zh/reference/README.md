@@ -294,7 +294,6 @@ Linux的发行版多种多样：
 
 ![](../../.vuepress/public/img/LinuxOSs/Manjaro.png)
 
-
 官网：[https://manjaro.org](https://manjaro.org)
 
 下载地址：
