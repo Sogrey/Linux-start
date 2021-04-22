@@ -301,7 +301,6 @@ Linux的发行版多种多样：
 
 [https://manjaro.org/download/](https://manjaro.org/download/)
 
-
 ---
 
 ### Zorin OS
