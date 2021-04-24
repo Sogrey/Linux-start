@@ -31,37 +31,14 @@ swapon  -a  [-e]  [-f]  [-v]
 ## 选项
 
 ``` bash
--v | --verbose
-
-执行的时候显示详细信息
-
--a | --all
-
-打开所有的交换分区。除具有“noauto”选项的设备外，所有标记为“/etc/fstab”中“swap”的设备都是可用的。已经用作交换的设备将被悄悄跳过。
-
--e | --ifexists
-
-跳过不存在的设备
-
--f |  --fixpgsz
-
-如果交换空间的页大小与当前运行的内核不匹配，则重新初始化(exec/sbin/mkswap)。mkswap(2)初始化整个设备，不检查是否存在错误块。
-
--L label
-
-启动指定label的交换分区，为此，需要访问/proc/分区。
-
--p
-
-设置优先权0~32767，数字越大，优先权越高。将“pri=value”添加到与“swapon -a”一起使用的“/etc/fstab”选项字段中。
-
--s | --summary
-
-按设备显示交换用途摘要，等价于“cat /proc/swaps “
-
--U uuid
-
-启动指定uuid的交换分区
+-v, --verbose              # 执行的时候显示详细信息
+-a, --all                  # 打开所有的交换分区。除具有“noauto”选项的设备外，所有标记为“/etc/fstab”中“swap”的设备都是可用的。已经用作交换的设备将被悄悄跳过。
+-e, --ifexists             # 跳过不存在的设备
+-f,  --fixpgsz             # 如果交换空间的页大小与当前运行的内核不匹配，则重新初始化(exec/sbin/mkswap)。mkswap(2)初始化整个设备，不检查是否存在错误块。
+-L label                   # 启动指定label的交换分区，为此，需要访问/proc/分区。
+-p                         # 设置优先权0~32767，数字越大，优先权越高。将“pri=value”添加到与“swapon -a”一起使用的“/etc/fstab”选项字段中。
+-s, --summary              # 按设备显示交换用途摘要，等价于“cat /proc/swaps “
+-U uuid                    # 启动指定uuid的交换分区
 
 --help                           # 显示帮助文档
 --version                        # 显示命令版本信息
