@@ -658,5 +658,9 @@ function getCommands() {
     command: 'swapon',
     desc: '激活Linux系统中交换空间',
     tags: ['FileSystem']
+  }, {
+    command: 'fsck',
+    desc: '检查并且试图修复文件系统中的错误',
+    tags: ['FileSystem']
   }];
 }
