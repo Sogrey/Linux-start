@@ -662,5 +662,13 @@ function getCommands() {
     command: 'fsck',
     desc: '检查并且试图修复文件系统中的错误',
     tags: ['FileSystem']
+  }, {
+    command: 'grub',
+    desc: '多重引导程序grub的命令行shell工具',
+    tags: ['FileSystem']
+  }, {
+    command: 'lilo',
+    desc: '安装核心载入开机管理程序',
+    tags: ['FileSystem']
   }];
 }
