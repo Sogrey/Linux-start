@@ -670,5 +670,17 @@ function getCommands() {
     command: 'lilo',
     desc: '安装核心载入开机管理程序',
     tags: ['FileSystem']
+  }, {
+    command: 'mount',
+    desc: '用于挂载Linux系统外的文件',
+    tags: ['FileSystem']
+  }, {
+    command: 'umount',
+    desc: '用于卸载已经加载的文件系统',
+    tags: ['FileSystem']
+  }, {
+    command: 'showmount',
+    desc: '显示NFS服务器加载的信息',
+    tags: ['FileSystem']
   }];
 }
