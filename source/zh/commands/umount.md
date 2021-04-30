@@ -33,49 +33,17 @@ umount  [-dflnrv]  {dir|device}...
 ## 选项
 
 ``` bash
--a
-
-卸载/etc/fstab中的所有文件系统。使用umountVersion2.7及更高版本，未卸载proc文件系统
-
--f
-
-强制卸载
-
---fake
-
-模拟卸载过程。它可用于从/etc/mtab中删除前面使用-n选项卸载的条目。
-
--n
-
-不在/etc/mtab中记录卸载信息，在/etc只读的系统中，这个选项很重要
-
--d
-
-如果是个回环设备，同时释放掉这回环设备
-
--r
-
-如果卸载失败，尝试以读写的方式挂载
-
--l
-
-懒散的umount。现在将文件系统从文件系统层次结构中分离出来，并在文件系统不再繁忙时立即清除对该文件系统的所有引用。
-
--O option
-
-指示这些操作只应在/etc/fstab中指定选项的文件系统上执行。可以在逗号分隔列表中指定多个选项类型。每个选项都可以no作为前缀，以指定不应采取任何行动的选项。
-
--t type
-
-指定挂载的文件系统类型。目前支持的系统有：adfs, affs, autofs, cifs, coda, coherent, cramfs, debugfs, devpts, efs, ext, ext2,  ext3,  ext4,  hfs,  hfsplus,  hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs, nfs4, ntfs, proc, qnx4, ramfs, reiserfs, romfs,  squashfs, smbfs,  sysv, tmpfs, ubifs, udf, ufs, umsdos, usbfs, vfat, xenix, xfs, xiafs。可以在逗号分隔列表中指定多个类型。文件系统类型列表可以no作为前缀，以指定不应对其采取行动的文件系统类型。
-
--v
-
-显示详细执行过程
-
---no-canonicalize
-
-不要把路径规范化
+-a         # 卸载/etc/fstab中的所有文件系统。使用umountVersion2.7及更高版本，未卸载proc文件系统
+-f         # 强制卸载
+--fake     # 模拟卸载过程。它可用于从/etc/mtab中删除前面使用-n选项卸载的条目。
+-n         # 不在/etc/mtab中记录卸载信息，在/etc只读的系统中，这个选项很重要
+-d         # 如果是个回环设备，同时释放掉这回环设备
+-r         # 如果卸载失败，尝试以读写的方式挂载
+-l         # 懒散的umount。现在将文件系统从文件系统层次结构中分离出来，并在文件系统不再繁忙时立即清除对该文件系统的所有引用。
+-O option  # 指示这些操作只应在/etc/fstab中指定选项的文件系统上执行。可以在逗号分隔列表中指定多个选项类型。每个选项都可以no作为前缀，以指定不应采取任何行动的选项。
+-t type    # 指定挂载的文件系统类型。目前支持的系统有：adfs, affs, autofs, cifs, coda, coherent, cramfs, debugfs, devpts, efs, ext, ext2,  ext3,  ext4,  hfs,  hfsplus,  hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs, nfs4, ntfs, proc, qnx4, ramfs, reiserfs, romfs,  squashfs, smbfs,  sysv, tmpfs, ubifs, udf, ufs, umsdos, usbfs, vfat, xenix, xfs, xiafs。可以在逗号分隔列表中指定多个类型。文件系统类型列表可以no作为前缀，以指定不应对其采取行动的文件系统类型。
+-v         # 显示详细执行过程
+--no-canonicalize  # 不要把路径规范化
 
 -h                           # 显示帮助文档
 -V                           # 显示命令版本信息
