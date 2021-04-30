@@ -35,35 +35,15 @@ mount  [-fnrsvw]  [-t vfstype]  [-o options]  device  dir
 
 调用mount所使用的全部挂载选项集是通过首先从fstab表中提取文件系统的挂载选项，然后应用“-o“参数指定的任何选项，然后在出现时应用”-r“或”-w“选项来确定的。
 ``` bash
--a | --all
+-a, --all              # 挂载/etc/fstab中的所有文件系统
+-f, --fake             # 除了系统调用外，执行挂载的所有过程，一般和“-v”一起使用。这是一个模拟挂载过程
+-F, --fork             # 和“-a”一起使用，并行挂载多个设备，加快挂载速度。一个缺点是挂载是以未定义的顺序完成的。因此，如果您想同时挂载/usr和/usr/spool，则不能使用此选项。
+-i,  --internal-only   # 即使存在/sbin/mount，也不要调用/sbin/mount.<filesystem>Helper
+-l                     # 在mount输出中添加标签。mount必须具有读取磁盘设备(例如，suid root)的权限，才能工作。我们可以使用e2label(8)实用程序为ext2、ext3或ext4设置这样的标签，也可以使用xfs_admin(8)为XFS设置这样的标签，也可以使用reiserfstune(8)为reiserfs设置这样的标签。
+-n, --no-mtab          # 不在/etc/mtab中记录挂载信息，在/etc只读的系统中，这个选项很重要
+--no-canonicalize      # 不要把路径规范化。挂载命令将所有路径(从命令行或fstab)规范化，并存储到”/etc/mtab”文件的规范化路径。此选项可与已规范化的绝对路径的”-f”标志一起使用。
 
-挂载/etc/fstab中的所有文件系统
-
--f | --fake
-
-除了系统调用外，执行挂载的所有过程，一般和“-v”一起使用。这是一个模拟挂载过程
-
--F | --fork
-
-和“-a”一起使用，并行挂载多个设备，加快挂载速度。一个缺点是挂载是以未定义的顺序完成的。因此，如果您想同时挂载/usr和/usr/spool，则不能使用此选项。
-
--i |  --internal-only
-
-即使存在/sbin/mount，也不要调用/sbin/mount.<filesystem>Helper
-
--l
-
-在mount输出中添加标签。mount必须具有读取磁盘设备(例如，suid root)的权限，才能工作。我们可以使用e2label(8)实用程序为ext2、ext3或ext4设置这样的标签，也可以使用xfs_admin(8)为XFS设置这样的标签，也可以使用reiserfstune(8)为reiserfs设置这样的标签。
-
--n | --no-mtab
-
-不在/etc/mtab中记录挂载信息，在/etc只读的系统中，这个选项很重要
-
---no-canonicalize
-
-不要把路径规范化。挂载命令将所有路径(从命令行或fstab)规范化，并存储到”/etc/mtab”文件的规范化路径。此选项可与已规范化的绝对路径的”-f”标志一起使用。
-
--p | --pass-fd num
+-p, --pass-fd num
 
 在使用加密的循环挂载情况下，从文件描述符num读取密码短语，而不是从终端读取密码。
 
@@ -71,7 +51,7 @@ mount  [-fnrsvw]  [-t vfstype]  [-o options]  device  dir
 
 容忍草率的mount选项而不是失败。这将忽略文件系统类型不支持的挂载选项。并非所有文件系统都支持此选项。此选项用于支持基于linux的自动报警器。
 
--r | --read-only
+-r, --read-only
 
 只读的方式挂载，同义词是“-o ro“。请注意，根据文件系统类型、状态和内核行为，系统仍然可以写入设备。例如，如果文件系统是脏的，ext3或ext4将重播它的日志。为了防止这种写访问，您可能希望使用“ro，noload”挂载选项挂载ext3或ext4文件系统，或者将块设备设置为只读模式，请参阅命令块dev。
 
@@ -101,23 +81,23 @@ auto类型对于用户安装的软盘可能很有用。创建一个文件“/etc
 
 可以在逗号分隔的列表中指定多个类型。文件系统类型列表可以no作为前缀，以指定不应该采取任何操作的文件系统类型。(使用-a选项可以有意义。)例如，命令“mount  -a  -t  nomsdos,ext“，挂载所有文件系统，MSDOS和ext类型的文件系统除外。
 
--O | --test-opts opts
+-O, --test-opts opts
 
 与“-a‘一起使用，以限制应用“-a”的一组文件系统。除了在“-a”的上下文中，它是无用的。例如命令“mount  -a –O  no_netdev”，挂载所有文件系统，但那些在“/etc/fstab”文件的options字段中指定了“_netdev”的文件系统除外。它与“-t”的不同之处在于，每个选项都是完全匹配的；一个选项开头的前导no不会否定其余选项。-t和-o选项实际上是累积的；也就是说，命令“mount  -a  -t  ext2  -O  _netdev”，使用“_netdev”选项挂载所有ext2文件系统，而不是指定ext2或指定了“_netdev“选项的所有文件系统。
 
--o | --options opts
+-o, --options opts
 
 选项使用“-o“标志指定，后面是逗号分隔的选项字符串。例如”mount  LABEL=mydisk  -o  noatime,nouser “
 
--B |  --bind
+-B,  --bind
 
 在其他地方重新装入子树(以便其内容在两个地方都可用)
 
--R | --rbind
+-R, --rbind
 
 重新装入子树，并将所有可能的子树放到其他地方(以便其内容在两个地方都可用)
 
--M | --move
+-M, --move
 
 将子树移到其他地方
 
@@ -409,7 +389,7 @@ ptmxmode=value
 
 说明
 
-acl | noacl
+acl, noacl
 
 支持POSIX的访问权限，或者不支持
 
@@ -459,7 +439,7 @@ nouid32
 
 禁用32位UID和GID。这是为了与只存储和期望16位值的旧内核的互操作性。
 
-oldalloc | orlov
+oldalloc, orlov
 
 对新节点使用旧分配器或Orlov分配器。Orlov是默认的。
 
@@ -1331,11 +1311,11 @@ osyncisosync
 
 使O_SYNC写入实现真O_SYNC。没有此选项，LinuxXFS的行为就像使用了一个grocisdsync选项，这将使对使用O_sync标志集打开的文件的写操作就像使用了O_DSYNC标志一样。这样可以在不损害数据安全的情况下获得更好的性能。但是，如果此选项无效，则如果系统崩溃，则会丢失来自O_sync写入的时间戳更新。如果时间戳更新是关键的，请使用心得顺式选项。
 
-uquota | usrquota| uqnoenforce | quota
+uquota, usrquota| uqnoenforce, quota
 
 启用用户磁盘配额记帐，并强制限制(可选)。
 
-gquota | grpquota | gqnoenforce
+gquota, grpquota, gqnoenforce
 
 已启用磁盘配额记帐组，并强制执行限制(可选)。
 
