@@ -42,44 +42,18 @@ mount  [-fnrsvw]  [-t vfstype]  [-o options]  device  dir
 -l                     # 在mount输出中添加标签。mount必须具有读取磁盘设备(例如，suid root)的权限，才能工作。我们可以使用e2label(8)实用程序为ext2、ext3或ext4设置这样的标签，也可以使用xfs_admin(8)为XFS设置这样的标签，也可以使用reiserfstune(8)为reiserfs设置这样的标签。
 -n, --no-mtab          # 不在/etc/mtab中记录挂载信息，在/etc只读的系统中，这个选项很重要
 --no-canonicalize      # 不要把路径规范化。挂载命令将所有路径(从命令行或fstab)规范化，并存储到”/etc/mtab”文件的规范化路径。此选项可与已规范化的绝对路径的”-f”标志一起使用。
-
--p, --pass-fd num
-
-在使用加密的循环挂载情况下，从文件描述符num读取密码短语，而不是从终端读取密码。
-
--s
-
-容忍草率的mount选项而不是失败。这将忽略文件系统类型不支持的挂载选项。并非所有文件系统都支持此选项。此选项用于支持基于linux的自动报警器。
-
--r, --read-only
-
-只读的方式挂载，同义词是“-o ro“。请注意，根据文件系统类型、状态和内核行为，系统仍然可以写入设备。例如，如果文件系统是脏的，ext3或ext4将重播它的日志。为了防止这种写访问，您可能希望使用“ro，noload”挂载选项挂载ext3或ext4文件系统，或者将块设备设置为只读模式，请参阅命令块dev。
-
--w l -rw
-
-以读写的方式挂载，默认选项。同义词是“-o rw“。
-
--L label
-
-挂载指定label的分区
-
--U uuid
-
-挂载指定UUID的分区，这两个选项要求文件“/proc/partitions “(自Linux2.1.116以来)存在。
-
--t type
-
-指定挂载的文件系统类型。目前支持的系统有：adfs, affs, autofs, cifs, coda, coherent, cramfs, debugfs, devpts, efs, ext, ext2,  ext3,  ext4,  hfs,  hfsplus,  hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs, nfs4, ntfs, proc, qnx4, ramfs, reiserfs, romfs,  squashfs, smbfs,  sysv, tmpfs, ubifs, udf, ufs, umsdos, usbfs, vfat, xenix, xfs, xiafs。请注意，coherent、sysv和xenix是等价的，xenix和coherent在将来的某个时候会被删除-改用sysv。因为内核版本2.1.21，ext和xiafs类型已经不存在了。更早的时候，usbfs被称为usbdevfs。
-
-程序mount和umount支持文件系统子类型。子类型由‘.subtype’后缀定义。例如‘fuse.sshfs’。建议使用子类型表示法，而不是向挂载源添加任何前缀(例如‘sshfs#example.com’是去预置的)。
-
-对于大多数类型，挂载程序所要做的就是发出一个简单的挂载(2)系统调用，而不需要详细了解文件系统类型。但是，对于少数类型(如nfs、nfs4、cifs、smbfs、ncpfs)，需要有特殊代码。nfs、nfs4、cifs、smbfs和ncpfs文件系统有一个单独的挂载程序。为了使以统一的方式处理所有类型成为可能，挂载将执行程序“/sbin/mount.type“(如果存在的话)时调用类型。由于不同版本的smb装入程序有不同的调用约定，因此“/sbin/mount.smbfs“可能必须是设置所需调用的shell脚本。
-
-如果没有给出“-t“选项，或者指定了auto类型，那么挂载将尝试猜测所需的类型。挂载使用blchild或volume_id库来猜测文件系统类型；如果没有显示任何熟悉的内容，挂载将尝试读取文件”/etc/filesystems“，或者如果不存在，则会尝试读取”/proc/filesystems“。这里列出的文件系统类型将被尝试，除了标记为“nodev”的文件系统(例如devpt、proc和nfs)。如果”/etc/filesystems“在一行中以单一的”*“结束，那么挂载将它在之后读取“/proc/filesystems”。
-
-auto类型对于用户安装的软盘可能很有用。创建一个文件“/etc/ filesystems“可以帮助更改探测顺序(例如，在MSDOS或ext2之前尝试vFAT)，或者如果您使用内核模块自动加载器。
-
-可以在逗号分隔的列表中指定多个类型。文件系统类型列表可以no作为前缀，以指定不应该采取任何操作的文件系统类型。(使用-a选项可以有意义。)例如，命令“mount  -a  -t  nomsdos,ext“，挂载所有文件系统，MSDOS和ext类型的文件系统除外。
+-p, --pass-fd num      # 在使用加密的循环挂载情况下，从文件描述符num读取密码短语，而不是从终端读取密码。
+-s                     # 容忍草率的mount选项而不是失败。这将忽略文件系统类型不支持的挂载选项。并非所有文件系统都支持此选项。此选项用于支持基于linux的自动报警器。
+-r, --read-only        # 只读的方式挂载，同义词是“-o ro“。请注意，根据文件系统类型、状态和内核行为，系统仍然可以写入设备。例如，如果文件系统是脏的，ext3或ext4将重播它的日志。为了防止这种写访问，您可能希望使用“ro，noload”挂载选项挂载ext3或ext4文件系统，或者将块设备设置为只读模式，请参阅命令块dev。
+-w l -rw               # 以读写的方式挂载，默认选项。同义词是“-o rw“。
+-L label               # 挂载指定label的分区
+-U uuid                # 挂载指定UUID的分区，这两个选项要求文件“/proc/partitions “(自Linux2.1.116以来)存在。
+-t type                # 指定挂载的文件系统类型。目前支持的系统有：adfs, affs, autofs, cifs, coda, coherent, cramfs, debugfs, devpts, efs, ext, ext2,  ext3,  ext4,  hfs,  hfsplus,  hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs, nfs4, ntfs, proc, qnx4, ramfs, reiserfs, romfs,  squashfs, smbfs,  sysv, tmpfs, ubifs, udf, ufs, umsdos, usbfs, vfat, xenix, xfs, xiafs。请注意，coherent、sysv和xenix是等价的，xenix和coherent在将来的某个时候会被删除-改用sysv。因为内核版本2.1.21，ext和xiafs类型已经不存在了。更早的时候，usbfs被称为usbdevfs。
+                       # 程序mount和umount支持文件系统子类型。子类型由‘.subtype’后缀定义。例如‘fuse.sshfs’。建议使用子类型表示法，而不是向挂载源添加任何前缀(例如‘sshfs#example.com’是去预置的)。
+                       # 对于大多数类型，挂载程序所要做的就是发出一个简单的挂载(2)系统调用，而不需要详细了解文件系统类型。但是，对于少数类型(如nfs、nfs4、cifs、smbfs、ncpfs)，需要有特殊代码。nfs、nfs4、cifs、smbfs和ncpfs文件系统有一个单独的挂载程序。为了使以统一的方式处理所有类型成为可能，挂载将执行程序“/sbin/mount.type“(如果存在的话)时调用类型。由于不同版本的smb装入程序有不同的调用约定，因此“/sbin/mount.smbfs“可能必须是设置所需调用的shell脚本。
+                       # 如果没有给出“-t“选项，或者指定了auto类型，那么挂载将尝试猜测所需的类型。挂载使用blchild或volume_id库来猜测文件系统类型；如果没有显示任何熟悉的内容，挂载将尝试读取文件”/etc/filesystems“，或者如果不存在，则会尝试读取”/proc/filesystems“。这里列出的文件系统类型将被尝试，除了标记为“nodev”的文件系统(例如devpt、proc和nfs)。如果”/etc/filesystems“在一行中以单一的”*“结束，那么挂载将它在之后读取“/proc/filesystems”。
+                       # auto类型对于用户安装的软盘可能很有用。创建一个文件“/etc/ filesystems“可以帮助更改探测顺序(例如，在MSDOS或ext2之前尝试vFAT)，或者如果您使用内核模块自动加载器。
+                       # 可以在逗号分隔的列表中指定多个类型。文件系统类型列表可以no作为前缀，以指定不应该采取任何操作的文件系统类型。(使用-a选项可以有意义。)例如，命令“mount  -a  -t  nomsdos,ext“，挂载所有文件系统，MSDOS和ext类型的文件系统除外。
 
 -O, --test-opts opts
 
