@@ -54,30 +54,12 @@ mount  [-fnrsvw]  [-t vfstype]  [-o options]  device  dir
                        # 如果没有给出“-t“选项，或者指定了auto类型，那么挂载将尝试猜测所需的类型。挂载使用blchild或volume_id库来猜测文件系统类型；如果没有显示任何熟悉的内容，挂载将尝试读取文件”/etc/filesystems“，或者如果不存在，则会尝试读取”/proc/filesystems“。这里列出的文件系统类型将被尝试，除了标记为“nodev”的文件系统(例如devpt、proc和nfs)。如果”/etc/filesystems“在一行中以单一的”*“结束，那么挂载将它在之后读取“/proc/filesystems”。
                        # auto类型对于用户安装的软盘可能很有用。创建一个文件“/etc/ filesystems“可以帮助更改探测顺序(例如，在MSDOS或ext2之前尝试vFAT)，或者如果您使用内核模块自动加载器。
                        # 可以在逗号分隔的列表中指定多个类型。文件系统类型列表可以no作为前缀，以指定不应该采取任何操作的文件系统类型。(使用-a选项可以有意义。)例如，命令“mount  -a  -t  nomsdos,ext“，挂载所有文件系统，MSDOS和ext类型的文件系统除外。
-
--O, --test-opts opts
-
-与“-a‘一起使用，以限制应用“-a”的一组文件系统。除了在“-a”的上下文中，它是无用的。例如命令“mount  -a –O  no_netdev”，挂载所有文件系统，但那些在“/etc/fstab”文件的options字段中指定了“_netdev”的文件系统除外。它与“-t”的不同之处在于，每个选项都是完全匹配的；一个选项开头的前导no不会否定其余选项。-t和-o选项实际上是累积的；也就是说，命令“mount  -a  -t  ext2  -O  _netdev”，使用“_netdev”选项挂载所有ext2文件系统，而不是指定ext2或指定了“_netdev“选项的所有文件系统。
-
--o, --options opts
-
-选项使用“-o“标志指定，后面是逗号分隔的选项字符串。例如”mount  LABEL=mydisk  -o  noatime,nouser “
-
--B,  --bind
-
-在其他地方重新装入子树(以便其内容在两个地方都可用)
-
--R, --rbind
-
-重新装入子树，并将所有可能的子树放到其他地方(以便其内容在两个地方都可用)
-
--M, --move
-
-将子树移到其他地方
-
--v
-
-显示详细执行过程
+-O, --test-opts opts   # 与“-a‘一起使用，以限制应用“-a”的一组文件系统。除了在“-a”的上下文中，它是无用的。例如命令“mount  -a –O  no_netdev”，挂载所有文件系统，但那些在“/etc/fstab”文件的options字段中指定了“_netdev”的文件系统除外。它与“-t”的不同之处在于，每个选项都是完全匹配的；一个选项开头的前导no不会否定其余选项。-t和-o选项实际上是累积的；也就是说，命令“mount  -a  -t  ext2  -O  _netdev”，使用“_netdev”选项挂载所有ext2文件系统，而不是指定ext2或指定了“_netdev“选项的所有文件系统。
+-o, --options opts    # 选项使用“-o“标志指定，后面是逗号分隔的选项字符串。例如”mount  LABEL=mydisk  -o  noatime,nouser “
+-B,  --bind           # 在其他地方重新装入子树(以便其内容在两个地方都可用)
+-R, --rbind           # 重新装入子树，并将所有可能的子树放到其他地方(以便其内容在两个地方都可用)
+-M, --move            # 将子树移到其他地方
+-v                    # 显示详细执行过程
 
 --help                           # 显示帮助文档
 --version                        # 显示命令版本信息
@@ -87,13 +69,8 @@ mount  [-fnrsvw]  [-t vfstype]  [-o options]  device  dir
 只有当这些选项出现在“/etc/fstab“文件中时，这些选项才会有用。其中一些选项可以在默认情况下在系统内核中启用或禁用。要检查当前设置，请参阅”/proc/mount“中的选项。以下选项适用于正在挂载的任何文件系统(但并不是每个文件系统实际上都符合它们-例如，现在的sync选项只对ext 2、ext 3、fat、vfat和ufs有效)。
 
 ``` bash
-async
-
-文件系统的所有I/O都应该异步完成
-
-atime
-
-不要使用noatime特性，那么inode访问时间由内核缺省值控制。
+async               # 文件系统的所有I/O都应该异步完成
+atime               # 不要使用noatime特性，那么inode访问时间由内核缺省值控制。
 
 noatime
 
