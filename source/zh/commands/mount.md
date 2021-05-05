@@ -71,156 +71,47 @@ mount  [-fnrsvw]  [-t vfstype]  [-o options]  device  dir
 ``` bash
 async               # 文件系统的所有I/O都应该异步完成
 atime               # 不要使用noatime特性，那么inode访问时间由内核缺省值控制。
-
-noatime
-
-不要更新此文件系统上的inode访问时间(例如，为了更快地访问新闻线轴以加快新闻服务器的速度)。
-
-auto
-
-使用“-a“选项挂载
-
-noauto
-
-只能显式挂载(即-a选项不会导致安装文件系统)
-
-context=context
-
-fscontext=context
-
-defcontext=context
-
-rootcontext=context
-
-当安装不支持扩展属性的文件系统(如用VFAT格式化的软盘或硬盘)或通常不在SELinux下运行的系统(如非SELinux工作站上的ext 3格式化磁盘)时，“context=“选项非常有用。您还可以在不信任的文件系统(如软盘)上使用”context=“。它还有助于与早期2.4.<x>内核版本中支持xattr的文件系统兼容。即使在支持xatts的地方，也可以通过为整个磁盘分配一个安全上下文来节省时间，而不必对每个文件进行标记。可移动介质的一个常用选项是”context=system_u:object_r:removable_t“。另外两个选项是“fscontext=”和“defcontext=”，这两个选项都是context选项的相互排斥。这意味着您可以相互使用fscontext和defcontext，但这两者都不能与context一起使用。
-
-“fstcontext=”选项适用于所有文件系统，而不管它们对xattr的支持如何，fstext选项将总体文件系统标签设置为特定的安全上下文。这个文件系统标签与文件上的各个标签是分开的。它代表了某些类型的权限检查的整个文件系统，例如在挂载或文件创建期间。单个的文件标签仍然是从文件本身的xatts获取的。context选项除了为单个文件提供相同的标签外，实际上还设置了fscontext提供的聚合上下文。
-
-可以使用“defcontext= option”为未标记的文件设置默认的安全上下文。这将重写策略中未标记文件的值集，并需要支持xattr标记的文件系统。
-
-“rootcontext=  option”允许您显式地标记在FS或inode之前挂载的FS的根inode，因为可以访问用户空间。
-
-defaults
-
-使用默认的选项：rw, suid, dev, exec, auto, nouser, async,relatime
-
-dev
-
-在文件系统上解释字符或阻塞特殊设备
-
-nodev
-
-不在在文件系统上解释字符或阻塞特殊设备
-
-diratime
-
-更新此文件系统上的目录inode访问时间。这是默认的
-
-nodiratime
-
-不要更新此文件系统上的目录inode访问时间。
-
-dirsync
-
-文件系统中的所有目录更新都应该同步进行，这会影响以下系统调用：creat、link、unlink、symlink、mkdir、rmdir、mnod和rename。
-
-exec
-
-允许执行二进制文件
-
-noexec
-
-不允许在安装的文件系统上直接执行任何二进制文件。
-
-group
-
-如果普通用户的组与设备组匹配，则允许普通用户(即非root用户)挂载文件系统。此选项意味着选项nosuid和nodev(除非被后续选项覆盖，如选项group，dev，suid)。
-
-iversion
-
-每次修改inode时，i_version字段都会递增
-
-noiversion
-
-每次修改inode时，i_version字段不变
-
-mand
-
-允许此文件系统上的强制锁
-
-nomand
-
-不允许此文件系统上的强制锁
-
-_netdev
-
-文件系统驻留在需要网络访问的设备上(用于防止系统试图在系统上启用网络之前安装这些文件系统)。
-
-nofail
-
-如果此设备不存在，请不要报告它的错误
-
-relatime
-
-更新inode访问时间相对于修改或更改时间。只有在上一次访问时间早于当前修改或更改时间时，才会更新访问时间。(类似于noatime，但它不会破坏那些需要知道文件自上次修改后是否已被读取的应用程序。)
-
-由于Linux2.6.30，内核默认使用此选项提供的行为(除非指定了noatime)，因此需要严格的选项才能获得传统的语义。此外，从Linux2.6.30开始，如果文件的历史超过1天，那么文件的最后一次访问时间总是更新的。
-
-norelatime
-
-不使用relatime
-
-strictatime
-
-允许显式请求完整的atime更新。这使得内核可以默认为relatime或noatime，但仍然允许用户空间覆盖它。有关默认系统挂载选项的详细信息，请参阅/proc/mount。
-
-nostrictatime
-
-使用内核的默认行为进行inode访问时间更新
-
-suid
-
-允许设置用户标识符或组标识符位生效
-
-nosuid
-
-不允许设置用户标识符或组标识符位生效
-
-owner
-
-允许普通用户(即非root用户)在设备所有者的情况下挂载文件系统。
-
-remount
-
-试图重新挂载已经挂载的文件系统。这通常用于更改文件系统的挂载标志，特别是使只读文件系统可写。它不改变设备或安装点。remount功能遵循mount命令如何使用fstab中的选项的标准方式。这意味着只有当device和dir完全指定时，挂载命令才不会读取fstab(或mtab)，例如命令“mount  -o  remount,rw  /dev/foo  /dir”，在这个调用之后，所有旧的挂载选项都被替换了，并且忽略了fstab中的任意内容，但“loop= option”除外，这个选项是内部生成的，并由挂载命令维护。命令“mount  -o  remount,rw  /dir”，在此调用之后，挂载读取fstab(或mtab)，并将这些选项与命令行(-o)中的选项合并。
-
-ro
-
-以只读方式挂载
-
-_rnetdev
-
-类似于“_netdev”，除了“fsck-a”在rc.sysinit期间检查这个文件系统。
-
-rw
-
-以读写的方式挂载
-
-sync
-
-对文件系统的I/O应该同步执行。如果媒体的写入周期有限(例如，一些闪存驱动器)，“同步”可能会导致生命周期缩短。
-
-user
-
-允许普通用户挂载文件系统。将挂载用户的名称写入mtab，以便他可以再次卸载文件系统。
-
-nouser
-
-禁止普通用户(即非根用户)挂载文件系统，这是默认的。
-
-users
-
-允许每个用户挂载和卸载文件系统。
+noatime             # 不要更新此文件系统上的inode访问时间(例如，为了更快地访问新闻线轴以加快新闻服务器的速度)。
+auto                # 使用“-a“选项挂载
+noauto              # 只能显式挂载(即-a选项不会导致安装文件系统)
+context=context     # 
+fscontext=context   #
+defcontext=context  #
+rootcontext=context # 当安装不支持扩展属性的文件系统(如用VFAT格式化的软盘或硬盘)或通常不在SELinux下运行的系统(如非SELinux工作站上的ext 3格式化磁盘)时，“context=“选项非常有用。您还可以在不信任的文件系统(如软盘)上使用”context=“。它还有助于与早期2.4.<x>内核版本中支持xattr的文件系统兼容。即使在支持xatts的地方，也可以通过为整个磁盘分配一个安全上下文来节省时间，而不必对每个文件进行标记。可移动介质的一个常用选项是”context=system_u:object_r:removable_t“。另外两个选项是“fscontext=”和“defcontext=”，这两个选项都是context选项的相互排斥。这意味着您可以相互使用fscontext和defcontext，但这两者都不能与context一起使用。
+                    # “fstcontext=”选项适用于所有文件系统，而不管它们对xattr的支持如何，fstext选项将总体文件系统标签设置为特定的安全上下文。这个文件系统标签与文件上的各个标签是分开的。它代表了某些类型的权限检查的整个文件系统，例如在挂载或文件创建期间。单个的文件标签仍然是从文件本身的xatts获取的。context选项除了为单个文件提供相同的标签外，实际上还设置了fscontext提供的聚合上下文。
+                    # 可以使用“defcontext= option”为未标记的文件设置默认的安全上下文。这将重写策略中未标记文件的值集，并需要支持xattr标记的文件系统。
+                    # “rootcontext=  option”允许您显式地标记在FS或inode之前挂载的FS的根inode，因为可以访问用户空间。
+defaults            # 使用默认的选项：rw, suid, dev, exec, auto, nouser, async,relatime
+dev                 # 在文件系统上解释字符或阻塞特殊设备
+nodev               # 不在在文件系统上解释字符或阻塞特殊设备
+diratime            # 更新此文件系统上的目录inode访问时间。这是默认的
+nodiratime          # 不要更新此文件系统上的目录inode访问时间。
+dirsync             # 文件系统中的所有目录更新都应该同步进行，这会影响以下系统调用：creat、link、unlink、symlink、mkdir、rmdir、mnod和rename。
+exec                # 允许执行二进制文件
+noexec              # 不允许在安装的文件系统上直接执行任何二进制文件。
+group               # 如果普通用户的组与设备组匹配，则允许普通用户(即非root用户)挂载文件系统。此选项意味着选项nosuid和nodev(除非被后续选项覆盖，如选项group，dev，suid)。
+iversion            # 每次修改inode时，i_version字段都会递增
+noiversion          # 每次修改inode时，i_version字段不变
+mand                # 允许此文件系统上的强制锁
+nomand              # 不允许此文件系统上的强制锁
+_netdev             # 文件系统驻留在需要网络访问的设备上(用于防止系统试图在系统上启用网络之前安装这些文件系统)。
+nofail              # 如果此设备不存在，请不要报告它的错误
+relatime            # 更新inode访问时间相对于修改或更改时间。只有在上一次访问时间早于当前修改或更改时间时，才会更新访问时间。(类似于noatime，但它不会破坏那些需要知道文件自上次修改后是否已被读取的应用程序。)
+                    # 由于Linux2.6.30，内核默认使用此选项提供的行为(除非指定了noatime)，因此需要严格的选项才能获得传统的语义。此外，从Linux2.6.30开始，如果文件的历史超过1天，那么文件的最后一次访问时间总是更新的。
+norelatime          # 不使用relatime
+strictatime         # 允许显式请求完整的atime更新。这使得内核可以默认为relatime或noatime，但仍然允许用户空间覆盖它。有关默认系统挂载选项的详细信息，请参阅/proc/mount。
+nostrictatime       # 使用内核的默认行为进行inode访问时间更新
+suid                # 允许设置用户标识符或组标识符位生效
+nosuid              # 不允许设置用户标识符或组标识符位生效
+owner               # 允许普通用户(即非root用户)在设备所有者的情况下挂载文件系统。
+remount             # 试图重新挂载已经挂载的文件系统。这通常用于更改文件系统的挂载标志，特别是使只读文件系统可写。它不改变设备或安装点。remount功能遵循mount命令如何使用fstab中的选项的标准方式。这意味着只有当device和dir完全指定时，挂载命令才不会读取fstab(或mtab)，例如命令“mount  -o  remount,rw  /dev/foo  /dir”，在这个调用之后，所有旧的挂载选项都被替换了，并且忽略了fstab中的任意内容，但“loop= option”除外，这个选项是内部生成的，并由挂载命令维护。命令“mount  -o  remount,rw  /dir”，在此调用之后，挂载读取fstab(或mtab)，并将这些选项与命令行(-o)中的选项合并。
+ro                  # 以只读方式挂载
+_rnetdev            # 类似于“_netdev”，除了“fsck-a”在rc.sysinit期间检查这个文件系统。
+rw                  # 以读写的方式挂载
+sync                # 对文件系统的I/O应该同步执行。如果媒体的写入周期有限(例如，一些闪存驱动器)，“同步”可能会导致生命周期缩短。
+user                # 允许普通用户挂载文件系统。将挂载用户的名称写入mtab，以便他可以再次卸载文件系统。
+nouser              # 禁止普通用户(即非根用户)挂载文件系统，这是默认的。
+users               # 允许每个用户挂载和卸载文件系统。
 ```
 **adfs选项**
 
