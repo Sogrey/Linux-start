@@ -127,117 +127,56 @@ othmask=value   # 分别为ADFS“所有者”权限和“其他”权限设置�
 
 ``` bash
 uid=value
-
-gid=value
-
-设置文件系统根目录的所有者和组(默认值：uid=gid=0，但如果使用uid或gid选项而没有指定的值，则采用当前进程的uid和gid)
-
+gid=value            # 设置文件系统根目录的所有者和组(默认值：uid=gid=0，但如果使用uid或gid选项而没有指定的值，则采用当前进程的uid和gid)
 setuid=value
-
-setgid=value
-
-设置所有文件的所有者和组
-
-mode=value
-
-将所有文件的模式设置为值&0777(不考虑原始权限)。向具有读取权限的目录添加搜索权限。该值以八进制表示。
-
-protect
-
-不允许对文件系统上的保护位进行任何更改。
-
-usemp
-
-在第一次同步或umount时，将文件系统根的uid和gid设置为挂载点的uid和gid，然后清除此选项。
-
-verbose
-
-打印每个成功安装的信息消息。
-
-prefix=string
-
-在跟随链接时，在卷名之前使用的前缀
-
-volume=string
-
-前缀(长度最多为30)，在符号链接后面时使用在‘/’之前。
-
-reserved=value
-
-(默认：2.)设备开始时未使用的块数
-
-root=value
-
-显式地给出根块的位置。
-
-bs=value
-
-设置块大小。允许值为512，1024，2048，4096。
-
-grpquota|noquota|quota|usrquota
-
-这些选项被接受，但被忽略。(但是，配额实用程序可以对/etc/fSTAB中的此类字符串作出反应。)
+setgid=value         # 设置所有文件的所有者和组
+mode=value           # 将所有文件的模式设置为值&0777(不考虑原始权限)。向具有读取权限的目录添加搜索权限。该值以八进制表示。
+protect              # 不允许对文件系统上的保护位进行任何更改。
+usemp                # 在第一次同步或umount时，将文件系统根的uid和gid设置为挂载点的uid和gid，然后清除此选项。
+verbose              # 打印每个成功安装的信息消息。
+prefix=string        # 在跟随链接时，在卷名之前使用的前缀
+volume=string        # 前缀(长度最多为30)，在符号链接后面时使用在‘/’之前。
+reserved=value       # (默认：2.)设备开始时未使用的块数
+root=value           # 显式地给出根块的位置。
+bs=value             # 设置块大小。允许值为512，1024，2048，4096。
+grpquota|noquota|quota|usrquota # 这些选项被接受，但被忽略。(但是，配额实用程序可以对/etc/fSTAB中的此类字符串作出反应。)
 ```
 
-cifs选项
+**cifs选项**
 
 参考mount.cifs。
 
-6）coherent选项：
+**coherent选项**
 
 没有
 
-7）debugfs选项
+**debugfs选项**
 
 调试器文件系统是一个伪文件系统，传统上安装在“/sys/kernel/debug”上。没有选项
 
-8）devpts选项：
+**devpts选项**
 
 devpt文件系统是一个伪文件系统，传统上安装在“/dev/pts”上。为了获得伪终端，进程打开“/dev/ptmx”；然后将伪终端的数量提供给进程，伪终端从站可以作为“/dev/pt/<number>”访问。
 
-选项
-
-说明
-
+``` bash
 uid=value
-
-gid=value
-
-这将新创建的PTY的所有者或组设置为指定的值。当未指定任何内容时，它们将被设置为创建过程的UID和GID。例如，如果存在带有GID 5的TTY组，那么gid=5将导致新创建的PTY属于TTY组。
-
-mode=value
-
-将新创建的PTY的mode设置为指定的值。默认值为0600。mode=620和gid=5的值使“mesgy”成为新创建的PTY的默认值。
-
-newinstance
-
-创建devpt文件系统的私有实例，以便在这个新实例中分配的ptys索引独立于在其他devpt实例中创建的索引。所有没有此newinstance选项的devpt都共享相同的Pty索引集(即遗留模式)，每个带有newinstance选项的devpt都有一组私有的Pty索引。
-
-ptmxmode=value
-
-在devpt文件系统中为新的ptmx设备节点设置mode。随着对devpt的多个实例的支持(请参阅上面的newinstance选项)，每个实例在devpt文件系统的根目录中都有一个私有的ptmx节点(通常是/dev/pt/ptmx)。
-
-为了与较早版本的内核兼容，新ptmx节点的默认模式是0000。“ptmxmode=value“为ptmx节点指定了更有用的模式，并在指定newinstance选项时强烈推荐。
-
-9）ext选项
+gid=value          # 这将新创建的PTY的所有者或组设置为指定的值。当未指定任何内容时，它们将被设置为创建过程的UID和GID。例如，如果存在带有GID 5的TTY组，那么gid=5将导致新创建的PTY属于TTY组。
+mode=value         # 将新创建的PTY的mode设置为指定的值。默认值为0600。mode=620和gid=5的值使“mesgy”成为新创建的PTY的默认值。
+newinstance        # 创建devpt文件系统的私有实例，以便在这个新实例中分配的ptys索引独立于在其他devpt实例中创建的索引。所有没有此newinstance选项的devpt都共享相同的Pty索引集(即遗留模式)，每个带有newinstance选项的devpt都有一组私有的Pty索引。
+ptmxmode=value     # 在devpt文件系统中为新的ptmx设备节点设置mode。随着对devpt的多个实例的支持(请参阅上面的newinstance选项)，每个实例在devpt文件系统的根目录中都有一个私有的ptmx节点(通常是/dev/pt/ptmx)。
+                  # 为了与较早版本的内核兼容，新ptmx节点的默认模式是0000。 “ptmxmode=value“为ptmx节点指定了更有用的模式，并在指定newinstance选项时强烈推荐。
+```
+**ext选项**
 
 没有选项。请注意，“ext”文件系统已经过时。不要使用它，因为Linux2.1.21版本的extfs不再是内核源代码的一部分。
 
-10）ext2选项
+**ext2选项**
 
 ‘ext2’文件系统是标准的Linux文件系统，从Linux2.5.46开始，对于大多数挂载选项，默认是由文件系统超级块决定的。
 
-选项
-
-说明
-
-acl, noacl
-
-支持POSIX的访问权限，或者不支持
-
-bsddf|minixdf
-
-设置statfs系统调用的行为。minxdf行为是在f_block字段中返回文件系统的块总数，而bsddf行为(这是默认的)是减去ext 2文件系统使用的、不可用于文件存储的开销块。
+``` bash
+acl, noacl          # 支持POSIX的访问权限，或者不支持
+bsddf|minixdf       # 设置statfs系统调用的行为。minxdf行为是在f_block字段中返回文件系统的块总数，而bsddf行为(这是默认的)是减去ext 2文件系统使用的、不可用于文件存储的开销块。
 
 % mount /k -o minixdf; df /k; umount /k
 
