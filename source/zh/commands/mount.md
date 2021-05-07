@@ -177,52 +177,22 @@ ptmxmode=value     # 在devpt文件系统中为新的ptmx设备节点设置mode�
 ``` bash
 acl, noacl          # 支持POSIX的访问权限，或者不支持
 bsddf|minixdf       # 设置statfs系统调用的行为。minxdf行为是在f_block字段中返回文件系统的块总数，而bsddf行为(这是默认的)是减去ext 2文件系统使用的、不可用于文件存储的开销块。
-
 % mount /k -o minixdf; df /k; umount /k
-
 Filesystem   1024-blocks  Used Available Capacity Mounted on
-
 /dev/sda6      2630655   86954  2412169      3%   /k
-
 % mount /k -o bsddf; df /k; umount /k
-
 Filesystem   1024-blocks  Used Available Capacity Mounted on
-
 /dev/sda6      2543714      13  2412169      0%   /k
+check={none|nocheck}      # 在挂载时不进行检查。这是默认的。这是快速的。明智的做法是时不时地调用e2fsck(8)，例如在启动时调用e2fsck(8)。
 
-check={none|nocheck}
-
-在挂载时不进行检查。这是默认的。这是快速的。明智的做法是时不时地调用e2fsck(8)，例如在启动时调用e2fsck(8)。
-
-debug
-
-在每个(重新)挂载上打印调试信息
-
-errors={continue|remount-ro|panic}
-
-定义遇到错误时的行为。(要么忽略错误，标记文件系统错误并继续，要么重新装入文件系统只读，或者恐慌和停止系统。)默认设置在文件系统超级块中，可以使用tune2fs(8)进行更改。
-
+debug               # 在每个(重新)挂载上打印调试信息
+errors={continue|remount-ro|panic}  # 定义遇到错误时的行为。(要么忽略错误，标记文件系统错误并继续，要么重新装入文件系统只读，或者恐慌和停止系统。)默认设置在文件系统超级块中，可以使用tune2fs(8)进行更改。
 grpid|bsdgroups
-
-nogrpid|sysvgroups
-
-这些选项定义了新创建的文件所获得的组id。当设置grpid时，它接受创建它的目录的组id；否则(默认)它接受当前进程的fsgid，除非目录设置了setgid位，在这种情况下，它从父目录获取gid，如果setgid位本身是一个目录，也会获得它的设置。
-
-grpquota|noquota|quota|usrquota
-
-这些选项被接受，但被忽略
-
-nobh
-
-不要将buffer_heads附加到文件分页缓存
-
-nouid32
-
-禁用32位UID和GID。这是为了与只存储和期望16位值的旧内核的互操作性。
-
-oldalloc, orlov
-
-对新节点使用旧分配器或Orlov分配器。Orlov是默认的。
+nogrpid|sysvgroups      # 这些选项定义了新创建的文件所获得的组id。当设置grpid时，它接受创建它的目录的组id；否则(默认)它接受当前进程的fsgid，除非目录设置了setgid位，在这种情况下，它从父目录获取gid，如果setgid位本身是一个目录，也会获得它的设置。
+grpquota|noquota|quota|usrquota # 这些选项被接受，但被忽略
+nobh                  # 不要将buffer_heads附加到文件分页缓存
+nouid32               # 禁用32位UID和GID。这是为了与只存储和期望16位值的旧内核的互操作性。
+oldalloc, orlov       # 对新节点使用旧分配器或Orlov分配器。Orlov是默认的。
 
 resgid=n
 
