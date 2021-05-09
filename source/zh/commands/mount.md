@@ -235,100 +235,36 @@ nodelalloc                # 禁用延迟分配。块是在数据从用户复制�
 max_batch_time=usec       # ext 4应该等待额外的文件系统操作与同步写入操作一起批处理最大时间。由于同步写入操作将强制提交，然后等待I/O完成，因此它的开销并不大，而且可以获得巨大的吞吐量胜利，因此我们等待少量的时间来查看是否有任何其他事务可以在同步写入上恢复。所使用的算法旨在通过测量完成事务提交所需的时间(平均)来自动调整磁盘的速度。这一次称为“提交时间”。如果transactoin运行的时间少于提交时间，ext 4将尝试休眠提交时间，以查看其他操作是否将加入事务。提交时间以max_batch_time为上限，默认为15000 us(15 Ms)。通过将max_batch_time设置为0，可以完全关闭此优化
 min_batch_time=usec       # 此参数将提交时间(如上所述)设置为至少min_batch_time。默认为零微秒。增加此参数可能会提高高速磁盘上多线程同步工作负载的吞吐量，而代价是增加延迟。
 journal_ioprio=prio       # I/O优先级(从0到7，其中0是最高优先级)，在提交操作期间，应该使用它来执行kJournal 2提交的I/O操作。这默认为3，这比默认的I/O优先级略高一些。
+abort                     # 为了调试目的，模拟调用ext 4_abort()的效果。这通常是在重新安装已经挂载的文件系统时使用的。
+auto_da_alloc|noauto_da_alloc # 当noautoda_alloc通过以下模式替换现有文件时，许多损坏的应用程序不使用fsync()。例如“fd = open("foo.new")/write(fd,..)/close(fd)/ rename("foo.new", "foo")”或者更坏的“fd = open("foo", O_TRUNC)/write(fd,..)/close(fd)”。
+                         # 如果启用了auto_da_alloc，ext 4将检测replace-via-rename和replace-via-truncate模式，并强制分配任何延迟分配块，以便在下一次日志提交时，在默认的Data=Order模式下，新文件的数据块在重命名()操作完成之前被强制放入磁盘。这提供了与ext 3大致相同的保证级别，并避免了系统在延迟分配块被迫进入磁盘之前崩溃时可能出现的“零长度”问题
+discard/nodiscard       # 控制在释放块时ext4是否应该向基础块设备发出discard/TRIM命令。这对于ssd设备和稀疏/稀疏配置的LUN很有用，但是默认情况下，在完成足够的测试之前，它是关闭的。
+nouid32                 # 禁用32位UID和GID。这是为了与只存储和期望16位值的旧内核的互操作性。
+resize                  # 允许将文件系统的大小调整到上一个现有块组的末尾，必须通过在线或脱机的regze2fs进一步调整大小。它只能与重装一起使用。
+block_validity/noblock_validity # 该选项允许启用或禁用内核中的工具，用于跟踪内部数据结构中的文件系统元数据块。这允许多块分配器和其他例程快速定位可能与文件系统元数据块重叠的区段。此选项用于调试，并且由于它对性能产生负面影响，默认情况下是关闭的。
+dioread_lock/dioread_nolock   # 控制ext4是否应该使用DIO读取锁定。如果指定dioread_nolock选项，ext4将在缓冲区写入之前分配未初始化的范围，并在IO完成后将范围转换为初始化范围。这种方法允许ext4代码避免使用inode互斥，从而提高了高速存储的可伸缩性。然而，这不适用于势利选项，安装将失败。它也不适用于数据日志记录和dioread_nolock选项，内核警告将忽略它们。注意，dioread_nolock代码路径仅用于基于范围的文件。由于限制，此选项默认为OFF(例如dioread_lock)
+i_version                 # 启用64位inode版本支持。默认情况下，此选项已关闭。
+```
+**fat选项**
 
-abort
-
-为了调试目的，模拟调用ext 4_abort()的效果。这通常是在重新安装已经挂载的文件系统时使用的。
-
-auto_da_alloc|noauto_da_alloc
-
-当noautoda_alloc通过以下模式替换现有文件时，许多损坏的应用程序不使用fsync()。例如“fd = open("foo.new")/write(fd,..)/close(fd)/ rename("foo.new", "foo")”或者更坏的“fd = open("foo", O_TRUNC)/write(fd,..)/close(fd)”。
-
-如果启用了auto_da_alloc，ext 4将检测replace-via-rename和replace-via-truncate模式，并强制分配任何延迟分配块，以便在下一次日志提交时，在默认的Data=Order模式下，新文件的数据块在重命名()操作完成之前被强制放入磁盘。这提供了与ext 3大致相同的保证级别，并避免了系统在延迟分配块被迫进入磁盘之前崩溃时可能出现的“零长度”问题
-
-discard/nodiscard
-
-控制在释放块时ext4是否应该向基础块设备发出discard/TRIM命令。这对于ssd设备和稀疏/稀疏配置的LUN很有用，但是默认情况下，在完成足够的测试之前，它是关闭的。
-
-nouid32
-
-禁用32位UID和GID。这是为了与只存储和期望16位值的旧内核的互操作性。
-
-resize
-
-允许将文件系统的大小调整到上一个现有块组的末尾，必须通过在线或脱机的regze2fs进一步调整大小。它只能与重装一起使用。
-
-block_validity/noblock_validity
-
-         该选项允许启用或禁用内核中的工具，用于跟踪内部数据结构中的文件系统元数据块。这允许多块分配器和其他例程快速定位可能与文件系统元数据块重叠的区段。此选项用于调试，并且由于它对性能产生负面影响，默认情况下是关闭的。
-
-dioread_lock/dioread_nolock
-
-控制ext4是否应该使用DIO读取锁定。如果指定dioread_nolock选项，ext4将在缓冲区写入之前分配未初始化的范围，并在IO完成后将范围转换为初始化范围。这种方法允许ext4代码避免使用inode互斥，从而提高了高速存储的可伸缩性。然而，这不适用于势利选项，安装将失败。它也不适用于数据日志记录和dioread_nolock选项，内核警告将忽略它们。注意，dioread_nolock代码路径仅用于基于范围的文件。由于限制，此选项默认为OFF(例如dioread_lock)
-
-i_version
-
-启用64位inode版本支持。默认情况下，此选项已关闭。
-
-13）fat选项
-
-选项
-
-说明
-
-blocksize={512|1024|2048}
-
-设置块大小(默认512)。这一选择已经过时。
-
+``` bash
+blocksize={512|1024|2048}    # 设置块大小(默认512)。这一选择已经过时。
 uid=value   
-
-gid=value
-
-设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
-
-umask=value
-
-设置umask(不存在的权限的位掩码)。默认的是当前进程的umask。这个数值是以八进制表示的。
-
-dmask=value
-
-设置仅应用于目录的umask。默认的是当前进程的umask。这个数值是以八进制表示的。
-
-fmask=value
-
-设置仅应用于常规文件的umask。默认的是当前进程的umask。这个值是以八进制表示的。
-
-allow_utime=value
-
-此选项控制mtime/atime的权限检查。20，如果当前进程位于文件组ID组中，则可以更改时间戳；2，其他用户可以更改时间戳。默认设置来自于“dmask”选项。(如果目录是可写的，utime(2)也是允许的。即。~dmask&022)。通常，utime(2)检查当前进程是否是文件的所有者，或者它具有CAP_FOWNER功能。但是FAT文件系统在磁盘上没有uid/gid，所以常规检查太不灵活了。有了这个选项，你可以放松一下。
-
-check=value
-
-三种不同程度的级别是可以选择的：
-
-r[elaxed]，大小写被接受并等效，长名称部分被截断(例如verylongname.foobar变成verylong.foo)，在每个名称部分(名称和扩展名)中接受前导和嵌入空格。
-
-n[ormal]，像“relaxed”，但许多特殊的字符(*，？，<，空格等)都被拒绝了。这是默认的。
-
-s[trict]，像“normal”，但名称可能不包含长的部分和特殊字符，有时使用的Linux，但不被MS-DOS接受。(+, =, spaces)
-
-codepage=value
-
-设置用于在FAT和VFAT文件系统上转换为短名字符的代码页。默认情况下，使用代码页437。
-
-conv={b[inary]|t[ext]|a[uto]}
-
-FAT文件系统可以在内核中执行“CRLF<->NL”(MS-DOS文本格式到UNIX文本格式)的转换。以下转换模式可用：
-
-binary，不执行转换。这是默认的。
-
-text，对所有文件执行“CRLF<->NL”。
-
-auto，CRLF<->NL”翻译是对所有没有“众所周知的二进制”扩展名的文件执行的。已知扩展列表可以在“fs/fat/misc.c”开头找到(从2.0开始，列表是：exe、com、bin、app、sys、drv、OVL、ovr、obj、lib、DLL、PIF、ARC、zip、LHA、Lzh、Zoo、tar、z、ARJ、tz、taz、tzp、tpz，gz，tgz，deb，gif，bmp，tif，gl，jpg，pcx，tfm，vf，gf，pk，pxl，dvi)。
-
-cvf_format=module
-
-强制驱动程序使用CVF(压缩卷文件)模块cvf_module而不是自动检测。如果内核支持KMOD，则cvf_format=xxx选项还控制按需加载CVF模块。此选项已过时。
+gid=value                    # 设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
+umask=value                  # 设置umask(不存在的权限的位掩码)。默认的是当前进程的umask。这个数值是以八进制表示的。
+dmask=value                  # 设置仅应用于目录的umask。默认的是当前进程的umask。这个数值是以八进制表示的。
+fmask=value                  # 设置仅应用于常规文件的umask。默认的是当前进程的umask。这个值是以八进制表示的。
+allow_utime=value            # 此选项控制mtime/atime的权限检查。20，如果当前进程位于文件组ID组中，则可以更改时间戳；2，其他用户可以更改时间戳。默认设置来自于“dmask”选项。(如果目录是可写的，utime(2)也是允许的。即。~dmask&022)。通常，utime(2)检查当前进程是否是文件的所有者，或者它具有CAP_FOWNER功能。但是FAT文件系统在磁盘上没有uid/gid，所以常规检查太不灵活了。有了这个选项，你可以放松一下。
+check=value                  # 三种不同程度的级别是可以选择的：
+                             # - r[elaxed]，大小写被接受并等效，长名称部分被截断(例如verylongname.foobar变成verylong.foo)，在每个名称部分(名称和扩展名)中接受前导和嵌入空格。
+                             # - n[ormal]，像“relaxed”，但许多特殊的字符(*，？，<，空格等)都被拒绝了。这是默认的。
+                             # - s[trict]，像“normal”，但名称可能不包含长的部分和特殊字符，有时使用的Linux，但不被MS-DOS接受。(+, =, spaces)
+codepage=value               # 设置用于在FAT和VFAT文件系统上转换为短名字符的代码页。默认情况下，使用代码页437。
+conv={b[inary]|t[ext]|a[uto]} # FAT文件系统可以在内核中执行“CRLF<->NL”(MS-DOS文本格式到UNIX文本格式)的转换。以下转换模式可用：
+                              # - binary，不执行转换。这是默认的。
+                              # - text，对所有文件执行“CRLF<->NL”。
+                              # - auto，CRLF<->NL”翻译是对所有没有“众所周知的二进制”扩展名的文件执行的。已知扩展列表可以在“fs/fat/misc.c”开头找到(从2.0开始，列表是：exe、com、bin、app、sys、drv、OVL、ovr、obj、lib、DLL、PIF、ARC、zip、LHA、Lzh、Zoo、tar、z、ARJ、tz、taz、tzp、tpz，gz，tgz，deb，gif，bmp，tif，gl，jpg，pcx，tfm，vf，gf，pk，pxl，dvi)。
+cvf_format=module             # 强制驱动程序使用CVF(压缩卷文件)模块cvf_module而不是自动检测。如果内核支持KMOD，则cvf_format=xxx选项还控制按需加载CVF模块。此选项已过时。
 
 cvf_option=option
 
