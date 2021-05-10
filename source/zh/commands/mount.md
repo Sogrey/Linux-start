@@ -265,66 +265,23 @@ conv={b[inary]|t[ext]|a[uto]} # FAT文件系统可以在内核中执行“CRLF<-
                               # - text，对所有文件执行“CRLF<->NL”。
                               # - auto，CRLF<->NL”翻译是对所有没有“众所周知的二进制”扩展名的文件执行的。已知扩展列表可以在“fs/fat/misc.c”开头找到(从2.0开始，列表是：exe、com、bin、app、sys、drv、OVL、ovr、obj、lib、DLL、PIF、ARC、zip、LHA、Lzh、Zoo、tar、z、ARJ、tz、taz、tzp、tpz，gz，tgz，deb，gif，bmp，tif，gl，jpg，pcx，tfm，vf，gf，pk，pxl，dvi)。
 cvf_format=module             # 强制驱动程序使用CVF(压缩卷文件)模块cvf_module而不是自动检测。如果内核支持KMOD，则cvf_format=xxx选项还控制按需加载CVF模块。此选项已过时。
-
-cvf_option=option
-
-选项传递给cvf_module。这一选择已经过时。
-
-debug
-
-打开调试标志。将打印版本字符串和文件系统参数列表(如果参数看起来不一致，也会打印这些数据)。
-
-fat={12|16|32}
-
-指定12、16或32位fat。这将覆盖自动FAT类型检测例程。谨慎使用
-
-iocharset=value
-
-用于转换8位字符和16位Unicode字符之间的字符集。默认为iso 8859-1。长文件名以unicode格式存储在磁盘上。
-
-tz=UTC
-
-此选项禁止在本地时间(Windows在FAT上使用)和UTC(Linux内部使用)之间的时间戳转换。当将设备(如数码相机)设置为UTC以避免本地时间的陷阱时，这尤其有用。
-
-quiet
-
-打开quiet标志。尝试chown或chmod文件虽然失败，但不会返回错误。小心使用！
-
-showexec
-
-如果设置了，只有当扩展名的扩展名为.exe、.com或.bat时，文件的执行权限位才会被允许。
-
-sys_immutable
-
-如果设置，FAT上的ATTR_SYS属性将作为Linux上的不变标志处理。默认情况下未设置
-
-flush
-
-如果设置了，文件系统将比正常情况下更早地尝试刷新到磁盘。默认情况下未设置。
-
-usefree
-
-使用FSINFO上存储的“空闲群集”值。它将用于在不扫描磁盘的情况下确定空闲集群的数量。但是默认情况下不使用它，因为最近的Windows在某些情况下没有正确地更新它。如果您确信FSINFO上的“空闲群集”是正确的，则可以通过此选项避免扫描磁盘。
-
-dots, nodots, dotsOK=[yes|no]
-
-将Unix或DOS约定强加于FAT文件系统的各种错误尝试
-
-14）hfs选项
-
-选项
-
-说明
-
+cvf_option=option             # 选项传递给cvf_module。这一选择已经过时。
+debug                         # 打开调试标志。将打印版本字符串和文件系统参数列表(如果参数看起来不一致，也会打印这些数据)。
+fat={12|16|32}                # 指定12、16或32位fat。这将覆盖自动FAT类型检测例程。谨慎使用
+iocharset=value               # 用于转换8位字符和16位Unicode字符之间的字符集。默认为iso 8859-1。长文件名以unicode格式存储在磁盘上。
+tz=UTC                        # 此选项禁止在本地时间(Windows在FAT上使用)和UTC(Linux内部使用)之间的时间戳转换。当将设备(如数码相机)设置为UTC以避免本地时间的陷阱时，这尤其有用。
+quiet                         # 打开quiet标志。尝试chown或chmod文件虽然失败，但不会返回错误。小心使用！
+showexec                      # 如果设置了，只有当扩展名的扩展名为.exe、.com或.bat时，文件的执行权限位才会被允许。
+sys_immutable                 # 如果设置，FAT上的ATTR_SYS属性将作为Linux上的不变标志处理。默认情况下未设置
+flush                         # 如果设置了，文件系统将比正常情况下更早地尝试刷新到磁盘。默认情况下未设置。
+usefree                       # 使用FSINFO上存储的“空闲群集”值。它将用于在不扫描磁盘的情况下确定空闲集群的数量。但是默认情况下不使用它，因为最近的Windows在某些情况下没有正确地更新它。如果您确信FSINFO上的“空闲群集”是正确的，则可以通过此选项避免扫描磁盘。
+dots, nodots, dotsOK=[yes|no] # 将Unix或DOS约定强加于FAT文件系统的各种错误尝试
+```
+**hfs选项**
+``` bash
 creator=cccc
-
-type=cccc
-
-设置创建者/类型值，如用于创建新文件的MacOS查找器所示。默认值：“？？？？”
-
-uid=n, gid=n
-
-设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
+type=cccc                     # 设置创建者/类型值，如用于创建新文件的MacOS查找器所示。默认值：“？？？？”
+uid=n, gid=n                  #  设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
 
 dir_umask=n,
 
