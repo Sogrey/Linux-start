@@ -282,266 +282,109 @@ dots, nodots, dotsOK=[yes|no] # 将Unix或DOS约定强加于FAT文件系统的�
 creator=cccc
 type=cccc                     # 设置创建者/类型值，如用于创建新文件的MacOS查找器所示。默认值：“？？？？”
 uid=n, gid=n                  #  设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
-
 dir_umask=n,
-
 file_umask=n,
+umask=n                       # 设置用于所有目录、所有常规文件或所有文件和目录的umask。默认为当前进程的umask。
+session=n                     # 选择要挂载的CDROM会话。默认情况下，将该决定留给CDROM驱动程序处理。除了CDROM作为底层设备之外，此选项将失败。
+part=n                        # 从设备中选择分区号n。只对CDROMS有意义。默认情况下根本不解析分区表
+quiet                         # 静默模式，不要抱怨挂载选项无效
+```
+**hpfs选项**
 
-umask=n
-
-设置用于所有目录、所有常规文件或所有文件和目录的umask。默认为当前进程的umask。
-
-session=n
-
-选择要挂载的CDROM会话。默认情况下，将该决定留给CDROM驱动程序处理。除了CDROM作为底层设备之外，此选项将失败。
-
-part=n
-
-从设备中选择分区号n。只对CDROMS有意义。默认情况下根本不解析分区表
-
-quiet
-
-静默模式，不要抱怨挂载选项无效
-
-15）hpfs选项
-
-选项
-
-说明
-
+``` bash
 uid=value  
-
-gid=value
-
-设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
-
-umask=value
-
-设置umask(不存在的权限的位掩码)。默认的是当前进程的umask。这个值是以八进制表示的。
-
-case={lower|asis}
-
-将所有文件名转换为小写，或保留它们。(默认值：case=lower。)
-
-conv={binary|text|auto}
-
-对于conv=text，在读取文件时删除一些随机CRS(特别是所有后面跟着NL)。对于conv=auto，在conv= binary和conv=text之间随机选择多少。对于conv= binary文件，只需读取文件中的内容即可。这是默认的。
-
-nocheck
-
-当某些一致性检查失败时，不要中止安装。
-
-16）iso9660选项
+gid=value                     # 设置所有文件的所有者和组。(默认值：当前进程的uid和gid。)
+umask=value                   # 设置umask(不存在的权限的位掩码)。默认的是当前进程的umask。这个值是以八进制表示的。
+case={lower|asis}             # 将所有文件名转换为小写，或保留它们。(默认值：case=lower。)
+conv={binary|text|auto}       # 对于conv=text，在读取文件时删除一些随机CRS(特别是所有后面跟着NL)。对于conv=auto，在conv= binary和conv=text之间随机选择多少。对于conv= binary文件，只需读取文件中的内容即可。这是默认的。
+nocheck                       # 当某些一致性检查失败时，不要中止安装。
+```
+**iso9660选项**
 
 ISO 9660是描述用于CD-ROM的文件系统结构的标准。(在一些DVD上也可以看到这种文件系统类型。还请参阅UDF文件系统。)正常的iso 9660文件名以8.3格式出现(即，对文件名长度的类似DOS的限制)，此外，所有字符都是大写的。此外，也没有文件所有权、保护、链接数量、块/字符设备的设置等字段。
 
 RockRidge是对iso 9660的扩展，它提供了所有类似Unix的特性。基本上，每个目录记录都有提供所有附加信息的扩展，而且当Rock Ridge在使用时，文件系统与普通UNIX文件系统是无法区分的(当然，它是只读的)。
-
-选项
-
-说明
-
-norock
-
-显示帮助信息
-
-nojoliet
-
-禁用Rock Ridge扩展的使用，即使可用
-
-check={r[elaxed]|s[trict]}
-
-使用check=relaxed，文件名在进行查找之前首先被转换为小写。这可能只有与norock和map= normal一起才有意义。(默认情况下：check=strict)
-
+``` bash
+norock                       # 显示帮助信息
+nojoliet                     # 禁用Rock Ridge扩展的使用，即使可用
+check={r[elaxed]|s[trict]}   # 使用check=relaxed，文件名在进行查找之前首先被转换为小写。这可能只有与norock和map= normal一起才有意义。(默认情况下：check=strict)
 uid=value
+gid=value                    # 为文件系统中的所有文件提供指定的用户或组id，可能会覆盖RockRidge扩展中的信息。(默认值：UID=0，gid=0。)
+map={n[ormal]|o[ff]|a[corn]} # 对于非Rock Ridge卷，普通名称转换为从大写到小写的ASCII，删除一个尾随‘；1’，并转换‘；’到‘.’。使用map=off不进行名称转换。见norock。(默认值：map= normal.)map=acorn就像map= normal一样，但如果存在，也可以应用Acorn扩展。
+mode=value                   # 对于非Rock Ridge卷，给所有文件指定模式。(默认情况下：每个人都有读取权限。)因为Linux2.1.37不再需要指定十进制模式。
+unhide                       # 还显示隐藏的和相关的文件。(如果普通文件和关联的或隐藏的文件具有相同的文件名，这可能使普通文件无法访问。)
+block={512|1024|2048}        # 将块大小设置为指示值。(默认值：Block=1024。)
+conv={a[uto]|b[inary]|m[text]|t[ext]} # (默认值：conv=binary。)由于Linux1.3.54，此选项不再起作用。(非二进制设置过去非常危险，可能导致无声的数据损坏。)
+cruft                        # 如果文件长度的高字节包含其他垃圾，请设置此挂载选项以忽略文件长度的高阶位。这意味着文件不能大于16 MB。
+session=x                    # 选择多会话CD上的会话数
+sbsector=xxx                 # 回话从xxx区开始。
+iocharset=value              # 用于将CD上的16位Unicode字符转换为8位字符的字符集。默认值为iso 8859-1。
+utf8                         # 将cd上的16位Unicode字符转换为utf-8
+```
+**jfs选项**
 
-gid=value
-
-为文件系统中的所有文件提供指定的用户或组id，可能会覆盖RockRidge扩展中的信息。(默认值：UID=0，gid=0。)
-
-map={n[ormal]|o[ff]|a[corn]}
-
-对于非Rock Ridge卷，普通名称转换为从大写到小写的ASCII，删除一个尾随‘；1’，并转换‘；’到‘.’。使用map=off不进行名称转换。见norock。(默认值：map= normal.)map=acorn就像map= normal一样，但如果存在，也可以应用Acorn扩展。
-
-mode=value
-
-对于非Rock Ridge卷，给所有文件指定模式。(默认情况下：每个人都有读取权限。)因为Linux2.1.37不再需要指定十进制模式。
-
-unhide
-
-还显示隐藏的和相关的文件。(如果普通文件和关联的或隐藏的文件具有相同的文件名，这可能使普通文件无法访问。)
-
-block={512|1024|2048}
-
-将块大小设置为指示值。(默认值：Block=1024。)
-
-conv={a[uto]|b[inary]|m[text]|t[ext]}
-
-(默认值：conv=binary。)由于Linux1.3.54，此选项不再起作用。(非二进制设置过去非常危险，可能导致无声的数据损坏。)
-
-cruft
-
-如果文件长度的高字节包含其他垃圾，请设置此挂载选项以忽略文件长度的高阶位。这意味着文件不能大于16 MB。
-
-session=x
-
-选择多会话CD上的会话数
-
-sbsector=xxx
-
-回话从xxx区开始。
-
-iocharset=value
-
-用于将CD上的16位Unicode字符转换为8位字符的字符集。默认值为iso 8859-1。
-
-utf8
-
-将cd上的16位Unicode字符转换为utf-8
-
-17）jfs选项：
-
-选项
-
-说明
-
-iocharset=name
-
-用于将Unicode转换为ASCII的字符集。默认情况是不进行转换。使用iocharset=utf 8翻译UTF 8。这需要在内核.config文件中设置CONFIG_NLS_UTF8。
-
-resize=value
-
-调整卷的块数。JFS只支持增长卷，而不支持缩小卷。此选项仅在重装入时有效，当卷被挂载时读写。没有值的resize关键字将使卷增长到分区的完整大小。
-
-nointegrity
-
-不要写日志。此选项的主要用途是在从备份媒体还原卷时允许更高的性能。如果系统异常弯曲，则无法保证卷的完整性。
-
-integrity
-
-默认。将元数据更改提交到日志。使用此选项可重新装入以前指定no完整性选项的卷，以恢复正常行为。
-
-errors={continue|remount-ro|panic}
-
-定义遇到错误时的行为。(要么忽略错误，标记文件系统错误并继续，要么重新装入文件系统只读，或者恐慌和停止系统。)
-
-noquota|quota|usrquota|grpquota
-
-这些选项有效，但是被忽略
-
-18）minix选项
+``` bash
+iocharset=name               # 用于将Unicode转换为ASCII的字符集。默认情况是不进行转换。使用iocharset=utf 8翻译UTF 8。这需要在内核.config文件中设置CONFIG_NLS_UTF8。
+resize=value                 # 调整卷的块数。JFS只支持增长卷，而不支持缩小卷。此选项仅在重装入时有效，当卷被挂载时读写。没有值的resize关键字将使卷增长到分区的完整大小。
+nointegrity                  # 不要写日志。此选项的主要用途是在从备份媒体还原卷时允许更高的性能。如果系统异常弯曲，则无法保证卷的完整性。
+integrity                    # 默认。将元数据更改提交到日志。使用此选项可重新装入以前指定no完整性选项的卷，以恢复正常行为。
+errors={continue|remount-ro|panic} # 定义遇到错误时的行为。(要么忽略错误，标记文件系统错误并继续，要么重新装入文件系统只读，或者恐慌和停止系统。)
+noquota|quota|usrquota|grpquota # 这些选项有效，但是被忽略
+```
+**minix选项**
 
 没有
 
-19）msdos选项
+**msdos选项**
 
 请参阅FAT的安装选项。如果MSDOS文件系统检测到不一致性，它会报告一个错误并设置文件系统只读。通过重新安装文件系统，可以再次使其可写。
 
-20）ncpfs选项
+**ncpfs选项**
 
 就像nfs一样，ncpfs实现需要一个二进制参数(Structncp_Mad_Data)到挂载系统调用。这个参数是由ncpmount(8)构造的，并且当前版本的挂载(2.12)不知道任何关于ncpfs的信息。
 
-21）nfs和nfs4选项
+**nfs和nfs4选项**
 
 请参阅nfs(5)手册页的选项部分(必须安装nfs-utils包)。nfs和nfs4实现需要对挂载系统调用使用二进制参数(Structnfs_Armad_Data)。这个参数是由mount.nfs(8)构造的，而且当前版本的挂载(2.13)不知道任何关于nfs和nfs4的信息。
 
-22）ntfs选项：
+**ntfs选项**
 
-选项
-
-说明
-
-iocharset=name
-
-当返回文件名时要使用的字符集。与VFAT不同，NTFS禁止包含不可转换字符的名称。不受欢迎。
-
-nls=name
-
-前面名为iocharset的选项的新名称
-
-utf8
-
-使用UTF-8转换文件名.
-
-uni_xlate={0|1|2}
-
-如果是0(或“no”或“false”)，不要对未知Unicode字符使用转义序列。如果是1(或“是”或“真”)或2，使用vfat风格的以“：”开头的4字节转义序列。在这里，2给出了一个小的Endian编码，1给出了一个字节的bigendian编码。
-
-posix=[0|1]
-
-如果启用(POSIX=1)，则文件系统区分大小写。8.3别名被表示为硬链接，而不是被抑制。此选项已过时。
-
+``` bash
+iocharset=name             # 当返回文件名时要使用的字符集。与VFAT不同，NTFS禁止包含不可转换字符的名称。不受欢迎。
+nls=name                   # 前面名为iocharset的选项的新名称
+utf8                       # 使用UTF-8转换文件名.
+uni_xlate={0|1|2}          # 如果是0(或“no”或“false”)，不要对未知Unicode字符使用转义序列。如果是1(或“是”或“真”)或2，使用vfat风格的以“：”开头的4字节转义序列。在这里，2给出了一个小的Endian编码，1给出了一个字节的bigendian编码。
+posix=[0|1]                # 如果启用(POSIX=1)，则文件系统区分大小写。8.3别名被表示为硬链接，而不是被抑制。此选项已过时。
 uid=value 
-
 gid=value  
-
-umask=value
-
-在文件系统上设置文件权限。umask值以八进制为单位。默认情况下，这些文件由root拥有，其他人无法读取。
-
-23）proc选项：
-
-选项
-
-说明
-
+umask=value                # 在文件系统上设置文件权限。umask值以八进制为单位。默认情况下，这些文件由root拥有，其他人无法读取。
+```
+**proc选项**
+``` bash
 uid=value
-
-gid=value
-
-目前没有效果
-
-24）ramfs选项
+gid=value            # 目前没有效果
+```
+**ramfs选项**
 
 Ramfs是一个基于内存的文件系统。从Linux2.3.99pre4开始。没有挂载选项
 
-25）reiserfs选项
+**reiserfs选项**
 
 Reiserfs是一个日志文件系统。
 
-选项
-
-说明
-
-conv
-
-指示3.6ReiserFS软件使用新创建的对象的3.6格式挂载3.5版本的文件系统。此文件系统将不再与ReiserFS3.5工具兼容。
-
-hash={rupasov|tea|r5|detect}
-
-选择ReiserFS将用于查找目录中文件的散列函数
-
-rupasov，一种由Yury Yu. Rupasov发明的哈希。它快速并保持局部性，将按字典顺序关闭的文件名映射到关闭哈希值。不应使用此选项，因为它会导致高概率的哈希冲突。
-
-tea，由Jeremy Fitzhardinge实现的Davis-Meyer函数。它在名称中使用散列置换位。它具有很高的随机性，因此，在一定的CPU成本下，哈希冲突的概率很低。如果R5散列遇到EHASHCOLLISION错误，则可使用此方法。
-
-r5，一个修改版本的rupasov散列。默认情况下，它是最好的选择，除非文件系统有巨大的目录和不寻常的文件名模式。
-
-detect，通过检查正在挂载的文件系统，指示挂载以检测正在使用的哈希函数，并将这些信息写入ReiserFS超级块。这仅适用于旧格式文件系统的第一次挂载。
-
-hashed_relocation
-
-调块分配器。这可能在某些情况下提供性能改进
-
-no_unhashed_relocation
-
-调块分配器。这可能在某些情况下提供性能改进
-
-noborder
-
-禁用Yury Yu发明的边界分配器算法
-
-nolog
-
-禁用日志记录。这将在某些情况下提供轻微的性能改进，代价是失去ReiserFS在崩溃中的快速恢复。即使打开了此选项，ReiserFS仍然执行所有日志操作，除非实际写入其日志区域。NOLOG的实现是一项正在进行的工作。
-
-notail
-
-默认情况下，ReiserFS将小文件和“文件尾”直接存储到其树中。这就混淆了一些实用程序，如LILO (8)。此选项用于禁用将文件打包到树中。
-
-replayonly
-
-重播日志中的事务，但不要实际挂载文件系统。主要用于reiserfsck。
+``` bash
+conv                  # 指示3.6ReiserFS软件使用新创建的对象的3.6格式挂载3.5版本的文件系统。此文件系统将不再与ReiserFS3.5工具兼容。
+hash={rupasov|tea|r5|detect} # 选择ReiserFS将用于查找目录中文件的散列函数
+                      # rupasov，一种由Yury Yu. Rupasov发明的哈希。它快速并保持局部性，将按字典顺序关闭的文件名映射到关闭哈希值。不应使用此选项，因为它会导致高概率的哈希冲突。
+                      # tea，由Jeremy Fitzhardinge实现的Davis-Meyer函数。它在名称中使用散列置换位。它具有很高的随机性，因此，在一定的CPU成本下，哈希冲突的概率很低。如果R5散列遇到EHASHCOLLISION错误，则可使用此方法。
+                      # r5，一个修改版本的rupasov散列。默认情况下，它是最好的选择，除非文件系统有巨大的目录和不寻常的文件名模式。
+                      # detect，通过检查正在挂载的文件系统，指示挂载以检测正在使用的哈希函数，并将这些信息写入ReiserFS超级块。这仅适用于旧格式文件系统的第一次挂载。
+hashed_relocation     # 调块分配器。这可能在某些情况下提供性能改进
+no_unhashed_relocation # 调块分配器。这可能在某些情况下提供性能改进
+noborder              # 禁用Yury Yu发明的边界分配器算法
+nolog                 # 禁用日志记录。这将在某些情况下提供轻微的性能改进，代价是失去ReiserFS在崩溃中的快速恢复。即使打开了此选项，ReiserFS仍然执行所有日志操作，除非实际写入其日志区域。NOLOG的实现是一项正在进行的工作。
+notail                # 默认情况下，ReiserFS将小文件和“文件尾”直接存储到其树中。这就混淆了一些实用程序，如LILO (8)。此选项用于禁用将文件打包到树中。
+replayonly            # 重播日志中的事务，但不要实际挂载文件系统。主要用于reiserfsck。
 
 resize=number
 
