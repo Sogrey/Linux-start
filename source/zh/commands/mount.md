@@ -385,40 +385,28 @@ noborder              # 禁用Yury Yu发明的边界分配器算法
 nolog                 # 禁用日志记录。这将在某些情况下提供轻微的性能改进，代价是失去ReiserFS在崩溃中的快速恢复。即使打开了此选项，ReiserFS仍然执行所有日志操作，除非实际写入其日志区域。NOLOG的实现是一项正在进行的工作。
 notail                # 默认情况下，ReiserFS将小文件和“文件尾”直接存储到其树中。这就混淆了一些实用程序，如LILO (8)。此选项用于禁用将文件打包到树中。
 replayonly            # 重播日志中的事务，但不要实际挂载文件系统。主要用于reiserfsck。
-
-resize=number
-
-重新装入选项，它允许在线扩展ReiserFS分区。指示ReiserFS假定设备有数字块。此选项设计用于逻辑卷管理(LVM)下的设备。有一个特殊的Resizer实用程序可以从ftp://ftp.namesys.com/pub/reiserfsprogs.获得。
-
-user_xattr
-
-启用扩展用户属性
-
-acl
-
-启用POSIX访问控制列表
-
-barrier=none / barrier=flush
-
-这允许/禁用在日记代码中使用写屏障。barrier=none用它，barrier=flush启用它。写障碍强制在磁盘上正确排序日志提交，使易失性磁盘写入缓存安全使用，在某些性能上的损失。默认情况下，ReiserFS文件系统不启用写屏障。确保启用屏障，除非您的磁盘是电池支持的方式或其他方式。否则，在发生电源故障时，您将面临文件系统损坏的风险。
-
-26）romfs选项
+resize=number         # 重新装入选项，它允许在线扩展ReiserFS分区。指示ReiserFS假定设备有数字块。此选项设计用于逻辑卷管理(LVM)下的设备。有一个特殊的Resizer实用程序可以从ftp://ftp.namesys.com/pub/reiserfsprogs.获得。
+user_xattr            # 启用扩展用户属性
+acl                   # 启用POSIX访问控制列表
+barrier=none / barrier=flush # 这允许/禁用在日记代码中使用写屏障。barrier=none用它，barrier=flush启用它。写障碍强制在磁盘上正确排序日志提交，使易失性磁盘写入缓存安全使用，在某些性能上的损失。默认情况下，ReiserFS文件系统不启用写屏障。确保启用屏障，除非您的磁盘是电池支持的方式或其他方式。否则，在发生电源故障时，您将面临文件系统损坏的风险。
+```
+**romfs选项**
 
 无
 
-27）squashfs选项
+**squashfs选项**
 
 无
 
-28）smbfs选项
+**smbfs选项**
 
 与nfs一样，smbfs实现需要一个二进制参数(smb_mount_data)到挂载系统调用。这个参数是由smbmount(8)构造的，而当前版本的挂载(2.12)不知道任何有关smbfs的信息。
 
-29）sysv选项
+**sysv选项**
 
 无
 
-30）ubifs选项
+**ubifs选项**
 
 UBIFS是一个在UBI卷之上工作的闪存文件系统。请注意，atime不受支持，并且总是被关闭。设备名称可以指定为
 
@@ -432,31 +420,14 @@ ubi:NAME，UBI设备号0，卷标NAME。
 
 可以使用“！”代替分隔符“：”。
 
-选项
-
-说明
-
-bulk_read
-
-启用大容量读取。VFS预读是禁用的，因为它减慢了文件系统的速度.批量读取是一种内部优化。如果数据一次读取，而不是几次读取请求时，一些闪存可能读取得更快。例如，OneNAND如果读取多个NAND页，就可以执行“同时读取加载”操作。
-
-no_bulk_read
-
-不要启用bulk_read。这是默认的
-
-chk_data_crc
-
-检查数据CRC-32校验和。这是默认的
-
-no_chk_data_crc.
-
-不要检查数据CRC-32校验和。使用此选项，文件系统不会检查crc-32校验和中的数据，但会检查它是否有内部索引信息。此选项只影响阅读，而不影响写入。在写入数据时，始终计算CRC-32
-
-compr={none|lzo|zlib}
-
-选择写入新文件时使用的默认压缩程序。如果使用None选项挂载，仍然可以读取压缩文件。
-
-31）udf选项
+``` bash
+bulk_read               # 启用大容量读取。VFS预读是禁用的，因为它减慢了文件系统的速度.批量读取是一种内部优化。如果数据一次读取，而不是几次读取请求时，一些闪存可能读取得更快。例如，OneNAND如果读取多个NAND页，就可以执行“同时读取加载”操作。
+no_bulk_read            # 不要启用bulk_read。这是默认的
+chk_data_crc            # 检查数据CRC-32校验和。这是默认的
+no_chk_data_crc.        # 不要检查数据CRC-32校验和。使用此选项，文件系统不会检查crc-32校验和中的数据，但会检查它是否有内部索引信息。此选项只影响阅读，而不影响写入。在写入数据时，始终计算CRC-32
+compr={none|lzo|zlib}   # 选择写入新文件时使用的默认压缩程序。如果使用None选项挂载，仍然可以读取压缩文件。
+```
+**udf选项**
 
 Udf是光存储技术协会定义的“通用磁盘格式”文件系统，经常用于dvd-rom。
 
