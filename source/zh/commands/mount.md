@@ -431,17 +431,9 @@ compr={none|lzo|zlib}   # 选择写入新文件时使用的默认压缩程序。
 
 Udf是光存储技术协会定义的“通用磁盘格式”文件系统，经常用于dvd-rom。
 
-选项
-
-说明
-
-gid=
-
-设置默认组
-
-umask=
-
-设置默认umask，八进制
+``` bash
+gid=                    # 设置默认组
+umask=                  # 设置默认umask，八进制
 
 uid=
 
@@ -498,7 +490,7 @@ fileset=
 rootdir=
 
 重写根目录位置
-
+```
 32）ufs选项：
 
 选项
