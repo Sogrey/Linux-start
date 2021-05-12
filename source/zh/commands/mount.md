@@ -434,26 +434,11 @@ Udf是光存储技术协会定义的“通用磁盘格式”文件系统，经�
 ``` bash
 gid=                    # 设置默认组
 umask=                  # 设置默认umask，八进制
-
-uid=
-
-设置默认用户
-
-unhide
-
-显示其他隐藏文件
-
-undelete
-
-在列表中显示已删除的文件
-
-nostrict
-
-未设定严格一致性
-
-iocharset
-
-设置NLS字符集
+uid=                    # 设置默认用户
+unhide                  # 显示其他隐藏文件
+undelete                # 在列表中显示已删除的文件
+nostrict                # 未设定严格一致性
+iocharset               # 设置NLS字符集
 
 bs=
 
