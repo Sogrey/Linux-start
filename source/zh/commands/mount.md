@@ -439,18 +439,9 @@ unhide                  # 显示其他隐藏文件
 undelete                # 在列表中显示已删除的文件
 nostrict                # 未设定严格一致性
 iocharset               # 设置NLS字符集
-
-bs=
-
-设置块大小，如果不是2048，可能不工作
-
-novrs
-
-忽略卷标序列识别
-
-session=
-
-从0设置CDROM会话计数。默认值：最后一次会话
+bs=                     # 设置块大小，如果不是2048，可能不工作
+novrs                   # 忽略卷标序列识别
+session=                # 从0设置CDROM会话计数。默认值：最后一次会话
 
 anchor=
 
