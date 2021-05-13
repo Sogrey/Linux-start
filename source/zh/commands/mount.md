@@ -442,40 +442,17 @@ iocharset               # 设置NLS字符集
 bs=                     # 设置块大小，如果不是2048，可能不工作
 novrs                   # 忽略卷标序列识别
 session=                # 从0设置CDROM会话计数。默认值：最后一次会话
-
-anchor=
-
-覆盖标准锚位置。缺省值：256
-
-volume=
-
-覆盖VolumeDesc位置
-
-partition=
-
-覆盖PartitionDesc位置
-
-lastblock=
-
-设置系统的最后一个块
-
-fileset=
-
-重写文件集块位置
-
-rootdir=
-
-重写根目录位置
+anchor=                 # 覆盖标准锚位置。缺省值：256
+volume=                 # 覆盖VolumeDesc位置
+partition=              # 覆盖PartitionDesc位置
+lastblock=              # 设置系统的最后一个块
+fileset=                # 重写文件集块位置
+rootdir=                # 重写根目录位置
 ```
-32）ufs选项：
+**ufs选项**
 
-选项
-
-说明
-
-ufstype=value
-
-UFS是一个在不同操作系统中广泛使用的文件系统。问题在于实现之间的差异。一些实现的特性是无文档的，因此很难自动识别UFS的类型。这就是为什么用户必须指定UFS类型的挂载选项。可能的价值是：
+``` bash
+ufstype=value           # UFS是一个在不同操作系统中广泛使用的文件系统。问题在于实现之间的差异。一些实现的特性是无文档的，因此很难自动识别UFS的类型。这就是为什么用户必须指定UFS类型的挂载选项。可能的价值是：
 
 old，旧格式的UFS，这是默认的，只读的。(别忘了给出-r选项。)
 
@@ -500,8 +477,8 @@ onerror=value
 panic，如果遇到错误，则引发内核恐慌。
 
 [lock|umount|repair]，这些挂载选项目前不执行任何操作；当遇到错误时，只打印控制台消息。
-
-33）umsdos选项
+```
+**umsdos选项**
 
 查看msdos的选项
 
