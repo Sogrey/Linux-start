@@ -453,144 +453,66 @@ rootdir=                # 重写根目录位置
 
 ``` bash
 ufstype=value           # UFS是一个在不同操作系统中广泛使用的文件系统。问题在于实现之间的差异。一些实现的特性是无文档的，因此很难自动识别UFS的类型。这就是为什么用户必须指定UFS类型的挂载选项。可能的价值是：
-
-old，旧格式的UFS，这是默认的，只读的。(别忘了给出-r选项。)
-
-44bsd，用于BSD类系统(NetBSD、FreeBSD、OpenBSD)创建的文件系统。
-
-sun，对于Sparc上由SunOS或Solaris创建的文件系统。
-
-sunx86，对于Solaris在x86上创建的文件系统
-
-hp，对于hp-ux创建的文件系统，只读
-
-nextstep，对于由NeXTStep创建的文件系统(在下一个站点上)(当前为只读)
-
-nextstep-cd，对于NextStepCDROM(块_size=2048)，只读。
-
-openstep，对于OpenStep创建的文件系统(当前仅读)。MacOSX也使用相同的文件系统类型。
-
-onerror=value
-
-设置错误行为：
-
-panic，如果遇到错误，则引发内核恐慌。
-
-[lock|umount|repair]，这些挂载选项目前不执行任何操作；当遇到错误时，只打印控制台消息。
+                        # old，旧格式的UFS，这是默认的，只读的。(别忘了给出-r选项。)
+                        # 44bsd，用于BSD类系统(NetBSD、FreeBSD、OpenBSD)创建的文件系统。
+                        # sun，对于Sparc上由SunOS或Solaris创建的文件系统。
+                        # sunx86，对于Solaris在x86上创建的文件系统
+                        # hp，对于hp-ux创建的文件系统，只读
+                        # nextstep，对于由NeXTStep创建的文件系统(在下一个站点上)(当前为只读)
+                        # nextstep-cd，对于NextStepCDROM(块_size=2048)，只读。
+                        # openstep，对于OpenStep创建的文件系统(当前仅读)。MacOSX也使用相同的文件系统类型。
+onerror=value           # 设置错误行为：
+                        # panic，如果遇到错误，则引发内核恐慌。
+                        # [lock|umount|repair]，这些挂载选项目前不执行任何操作；当遇到错误时，只打印控制台消息。
 ```
 **umsdos选项**
 
 查看msdos的选项
 
-34）vfat选项
+**vfat选项**
 
 首先，FAT的安装选项被识别出来。dotsOK选项由vFAT显式地终止。
 
-选项
+``` bash
+uni_xlate                # 将未处理的Unicode字符转换为特殊转义序列。这使您可以备份和还原用任何Unicode字符创建的文件名。如果没有这个选项，在不可能翻译的情况下使用“？”。转义字符是“：”，因为它在vFAT文件系统上是非法的。使用的转义序列，其中u的Unicode字符是：‘，(u&0x3f)，(u>6)和0x3f)，(u>12)
+posix                    # 允许两个文件的名字相同，但是大小写不同
+nonumtail                # 在尝试name~num.ext之前，先尝试使用没有序列号的短名称。
+utf8                     # utf8是控制台使用的Unicode的文件系统安全8位编码。可以为具有此选项的文件系统启用它，也可以使用utf8=0、utf8=no或utf8=false禁用它。如果设置了‘uni_xlate’，那么utf8就会被禁用。
+shortname={lower|win95|winnt|mixed} # 定义用于创建和显示符合8.3个字符的文件名的行为。如果文件的长名称存在，它将始终是首选显示。有四种模式：
+                        # lower，在显示时强制将短名显示为小写；在短名并非全部大写时存储长名称。此模式是默认模式。
+                        # win95，在显示时将短名强制显示为大写；在短名并非全部大写时存储长名称。
+                        # winnt，按原样显示短名；当短名不是全部小写或全部大写时，存储一个长名称。
+                        # mixed，按原样显示短名；在短名不全大写时存储长名
+```
+**usbfs选项**
 
-说明
-
-uni_xlate
-
-将未处理的Unicode字符转换为特殊转义序列。这使您可以备份和还原用任何Unicode字符创建的文件名。如果没有这个选项，在不可能翻译的情况下使用“？”。转义字符是“：”，因为它在vFAT文件系统上是非法的。使用的转义序列，其中u的Unicode字符是：‘，(u&0x3f)，(u>6)和0x3f)，(u>12)
-
-posix
-
-允许两个文件的名字相同，但是大小写不同
-
-nonumtail
-
-在尝试name~num.ext之前，先尝试使用没有序列号的短名称。
-
-utf8
-
-utf8是控制台使用的Unicode的文件系统安全8位编码。可以为具有此选项的文件系统启用它，也可以使用utf8=0、utf8=no或utf8=false禁用它。如果设置了‘uni_xlate’，那么utf8就会被禁用。
-
-shortname={lower|win95|winnt|mixed}
-
-定义用于创建和显示符合8.3个字符的文件名的行为。如果文件的长名称存在，它将始终是首选显示。有四种模式：
-
-lower，在显示时强制将短名显示为小写；在短名并非全部大写时存储长名称。此模式是默认模式。
-
-win95，在显示时将短名强制显示为大写；在短名并非全部大写时存储长名称。
-
-winnt，按原样显示短名；当短名不是全部小写或全部大写时，存储一个长名称。
-
-mixed，按原样显示短名；在短名不全大写时存储长名
-
-35）usbfs选项：
-
-选项
-
-说明
-
+``` bash
 devuid=uid
-
 devgid=gid
-
-devmode=mode
-
-在usbfs文件系统中设置设备文件的所有者、组和模式(默认值：uid=gid=0，mode=0644)。该模式以八进制表示。
-
+devmode=mode            # 在usbfs文件系统中设置设备文件的所有者、组和模式(默认值：uid=gid=0，mode=0644)。该模式以八进制表示。
 busuid=uid
-
 busgid=gid
-
-busmode=mode
-
-在usbfs文件系统中设置总线目录的所有者、组和模式(默认值：uid=gid=0，mode=0555)。该模式以八进制表示。
-
+busmode=mode            # 在usbfs文件系统中设置总线目录的所有者、组和模式(默认值：uid=gid=0，mode=0555)。该模式以八进制表示。
 listuid=uid
-
 listgid=gid
-
-listmode=mode
-
-设置文件设备的所有者、组和模式(默认值：UID=gid=0，mode=0444)。该模式以八进制表示。
-
-36）xenix选项
+listmode=mode           # 设置文件设备的所有者、组和模式(默认值：UID=gid=0，mode=0444)。该模式以八进制表示。
+```
+**xenix选项**
 
 无
 
-37）xfs选项：
+**xfs选项**
 
-选项
-
-说明
-
-allocsize=size
-
-在执行延迟分配写入时设置缓冲的I/O文件结束预分配大小(默认大小为64 KiB)。此选项的有效值是页面大小(通常为4 KiB)到1 GiB(包括-2的功率增量)。
-
-attr2|noattr2
-
-选项启用/禁用(默认启用)-磁盘上存储内联扩展属性的方式将进行“机会主义”改进。当首次使用新表单时(通过设置或删除扩展属性)，将更新磁盘上超级块功能位字段，以反映正在使用的这种格式。
-
-barrier
-
-启用块层写入栏写入日记和未写入范围转换。这允许为支持写屏障的设备启用驱动器级写缓存
-
-dmapi
-
-启用DMAPI(数据管理API)事件回调。与mtpt选项一起使用
-
+``` bash
+allocsize=size           # 在执行延迟分配写入时设置缓冲的I/O文件结束预分配大小(默认大小为64 KiB)。此选项的有效值是页面大小(通常为4 KiB)到1 GiB(包括-2的功率增量)。
+attr2|noattr2            # 选项启用/禁用(默认启用)-磁盘上存储内联扩展属性的方式将进行“机会主义”改进。当首次使用新表单时(通过设置或删除扩展属性)，将更新磁盘上超级块功能位字段，以反映正在使用的这种格式。
+barrier                  # 启用块层写入栏写入日记和未写入范围转换。这允许为支持写屏障的设备启用驱动器级写缓存
+dmapi                    # 启用DMAPI(数据管理API)事件回调。与mtpt选项一起使用
 grpid|bsdgroups
-
-nogrpid|sysvgroups
-
-这些选项定义了新创建的文件获取的组ID。设置GRAPID时，它接受创建它的目录的组ID；否则(默认)它接受当前进程的fsgid，除非目录设置了setgid位，在这种情况下，它从父目录获取gid，如果它是目录本身，也会获得setgid位集。
-
-ihashsize=value
-
-设置可用于散列指定挂载点的内存中节点的散列桶数。如果使用的值为零，则默认算法选择的值将显示在“/proc/mounts”中。
-
-ikeep|noikeep
-
-当inode集群清空inode时，将它们保存在磁盘上(i备)-这是传统的XFS行为，目前仍然是默认的。使用noikeep备选项，inode集群将返回到空闲空间池中。
-
-inode64
-
-            指示允许XFS在文件系统中的任何位置创建inode，包括那些将导致inode数占用32位以上的节点。这是为了向后兼容性而提供的，但对于无法处理大型inode编号的备份应用程序则会造成问题。
+nogrpid|sysvgroups       # 这些选项定义了新创建的文件获取的组ID。设置GRAPID时，它接受创建它的目录的组ID；否则(默认)它接受当前进程的fsgid，除非目录设置了setgid位，在这种情况下，它从父目录获取gid，如果它是目录本身，也会获得setgid位集。
+ihashsize=value          # 设置可用于散列指定挂载点的内存中节点的散列桶数。如果使用的值为零，则默认算法选择的值将显示在“/proc/mounts”中。
+ikeep|noikeep            # 当inode集群清空inode时，将它们保存在磁盘上(i备)-这是传统的XFS行为，目前仍然是默认的。使用noikeep备选项，inode集群将返回到空闲空间池中。
+inode64                  # 指示允许XFS在文件系统中的任何位置创建inode，包括那些将导致inode数占用32位以上的节点。这是为了向后兼容性而提供的，但对于无法处理大型inode编号的备份应用程序则会造成问题。
 
 largeio|nolargeio
 
@@ -655,7 +577,7 @@ swidth=value
 swalloc
 
 当扩展文件的当前结束且文件大小大于条带宽度大小时，数据分配将被舍入到条带宽度边界。
-
+```
 38）xiafs选项
 
 无
