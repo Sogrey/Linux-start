@@ -518,111 +518,46 @@ logbufs=value            # 设置内存中日志缓冲区的数量。有效数�
 logbsize=value           # 设置每个内存中日志缓冲区的大小。大小可以字节为单位，也可以带有“k”后缀的千字节为单位。版本1和版本2日志的有效大小分别为16384(16k)和32768(32k)。版本2日志的有效大小还包括65536(64k)、131072(128 K)和262144(256 K)。内存大于32 mb的机器的默认值为32768，内存较少的机器默认使用16384。
 logdev=device
 rtdev=device             # 使用外部日志(元数据日志)和/或实时设备。XFS文件系统有三个部分：数据部分、日志部分和实时部分。实时部分是可选的，日志部分可以独立于数据部分，也可以包含在其中。参见XFS(5)
-
-mtpt=mountpoint
-
-与dmapi选项一起使用。此处指定的值将包含在DMAPI挂载事件中，并且应该是所使用的实际挂载点的路径。
-
-noalign
-
-数据分配将不会在条形单元边界上对齐。
-
-noatime
-
-读取文件时不更新访问时间戳
-
-norecovery
-
-文件系统将在不运行日志恢复的情况下挂载。如果文件系统没有干净地卸载，那么在无恢复模式下挂载时可能会不一致。因此，某些文件或目录可能无法访问。安装的文件系统必须是只读的，否则挂载将失败.
-
-nouuid
-
-不要使用文件系统UUID检查双挂载文件系统。这对于挂载LVM快照卷很有用。
-
-osyncisosync
-
-使O_SYNC写入实现真O_SYNC。没有此选项，LinuxXFS的行为就像使用了一个grocisdsync选项，这将使对使用O_sync标志集打开的文件的写操作就像使用了O_DSYNC标志一样。这样可以在不损害数据安全的情况下获得更好的性能。但是，如果此选项无效，则如果系统崩溃，则会丢失来自O_sync写入的时间戳更新。如果时间戳更新是关键的，请使用心得顺式选项。
-
-uquota, usrquota| uqnoenforce, quota
-
-启用用户磁盘配额记帐，并强制限制(可选)。
-
-gquota, grpquota, gqnoenforce
-
-已启用磁盘配额记帐组，并强制执行限制(可选)。
-
-pquota|prjquota|pqnoenforce
-
-启用项目磁盘配额会计并强制执行限制(可选)
-
-sunit=value
-
-swidth=value
-
-用于指定RAID设备或条带卷的条带单元和宽度。值必须以512字节块单元指定.如果没有指定此选项，并且文件系统是在条卷上创建的，或者在mkfs时为RAID设备指定了条带宽度或单元，那么挂载系统调用将从超级块恢复值。对于直接在RAID设备上创建的文件系统，如果在创建文件系统后底层磁盘布局发生了更改，则可以使用这些选项覆盖超级块中的信息。如果sunit选项已经指定，并且必须是sunit值的倍数，则必须使用swidth选项。
-
-swalloc
-
-当扩展文件的当前结束且文件大小大于条带宽度大小时，数据分配将被舍入到条带宽度边界。
+mtpt=mountpoint          # 与dmapi选项一起使用。此处指定的值将包含在DMAPI挂载事件中，并且应该是所使用的实际挂载点的路径。
+noalign                  # 数据分配将不会在条形单元边界上对齐。
+noatime                  # 读取文件时不更新访问时间戳
+norecovery               # 文件系统将在不运行日志恢复的情况下挂载。如果文件系统没有干净地卸载，那么在无恢复模式下挂载时可能会不一致。因此，某些文件或目录可能无法访问。安装的文件系统必须是只读的，否则挂载将失败.
+nouuid                   # 不要使用文件系统UUID检查双挂载文件系统。这对于挂载LVM快照卷很有用。
+osyncisosync             # 使O_SYNC写入实现真O_SYNC。没有此选项，LinuxXFS的行为就像使用了一个grocisdsync选项，这将使对使用O_sync标志集打开的文件的写操作就像使用了O_DSYNC标志一样。这样可以在不损害数据安全的情况下获得更好的性能。但是，如果此选项无效，则如果系统崩溃，则会丢失来自O_sync写入的时间戳更新。如果时间戳更新是关键的，请使用心得顺式选项。
+uquota, usrquota| uqnoenforce, quota # 启用用户磁盘配额记帐，并强制限制(可选)。
+gquota, grpquota, gqnoenforce # 已启用磁盘配额记帐组，并强制执行限制(可选)。
+pquota|prjquota|pqnoenforce # 启用项目磁盘配额会计并强制执行限制(可选)
+sunit=value              
+swidth=value              # 用于指定RAID设备或条带卷的条带单元和宽度。值必须以512字节块单元指定.如果没有指定此选项，并且文件系统是在条卷上创建的，或者在mkfs时为RAID设备指定了条带宽度或单元，那么挂载系统调用将从超级块恢复值。对于直接在RAID设备上创建的文件系统，如果在创建文件系统后底层磁盘布局发生了更改，则可以使用这些选项覆盖超级块中的信息。如果sunit选项已经指定，并且必须是sunit值的倍数，则必须使用swidth选项。
+swalloc                   # 当扩展文件的当前结束且文件大小大于条带宽度大小时，数据分配将被舍入到条带宽度边界。
 ```
-38）xiafs选项
+**xiafs选项**
 
 无
 
-39）回环设备
+**回环设备**
 
 另一种可能的类型是通过循环装置安装，例如指令“mount  /tmp/fdimage  /mnt  -t  vfat  -o  loop=/dev/loop3”，设置循环设备/dev/loop 3，使其与文件/tmp/fdigage相对应，然后在/mnt上挂载此设备。这种类型的挂载知道四个选项，即循环、偏移、大小消除和加密，它们实际上是losetup (8)的选项。(除了特定于文件系统类型的选项之外，还可以使用这些选项。) 如果没有提到显式循环设备(但只提供了一个选项‘-o loop’)，那么挂载将尝试找到一些未使用的循环设备并使用它。
 
 由于Linux2.6.25支持自动销毁循环设备，因此由挂载分配的任何循环设备都将由umount在/etc/mtab上独立释放。您也可以使用‘loset-d’或‘umount-d’手动释放循环设备。
 
-40）tmpfs选项
+**tmpfs选项**
 
-选项
-
-说明
-
-size=nbytes
-
-覆盖文件系统的默认最大大小。大小以字节为单位，并舍入到整页。默认值是内存的一半。Size参数还接受后缀%，以将tmpfs实例限制在物理RAM的百分比上：当未指定size或nr_block时，默认值为size=50%。
-
-nr_blocks=
-
-与size相同，但在PAGE_CACHE_SIZE的块中
-
-nr_inodes=
-
-此实例的最大节点数。默认为物理RAM页数的一半，或(在具有高内存的计算机上)低内存页数的一半，以较低的值为准。
-
-mode=
-
-设置根目录的初始权限
-
-uid=
-
-用户id
-
-gid=
-
-组id
-
-mpol=[default|prefer:Node|bind:NodeList|
-
-interleave|interleave:NodeList]
-
-为该实例中的所有文件设置NUMA内存分配策略(如果启用了内核CONFIG_NUMA)，可以通过“mount -o remount”对其进行动态调整：
-
-default，更倾向于从本地节点分配内存。
-
-prefer：Node，更愿意从给定的节点分配内存。
-
-bind:NodeList，仅从NodeList中的节点分配内存。
-
-interleave，依次从每个节点分配。
-
-interleave:NodeList，依次从NodeList的每个节点分配。
-
-NodeList格式是以逗号分隔的小数和范围列表，范围为两个连字符分隔的十进制数，是范围内最小和最大的节点数。例如“mpol=bind:0-3,5,7,9-15”。
-
+``` bash
+size=nbytes             # 覆盖文件系统的默认最大大小。大小以字节为单位，并舍入到整页。默认值是内存的一半。Size参数还接受后缀%，以将tmpfs实例限制在物理RAM的百分比上：当未指定size或nr_block时，默认值为size=50%。
+nr_blocks=              # 与size相同，但在PAGE_CACHE_SIZE的块中
+nr_inodes=              # 此实例的最大节点数。默认为物理RAM页数的一半，或(在具有高内存的计算机上)低内存页数的一半，以较低的值为准。
+mode=                   # 设置根目录的初始权限
+uid=                    # 用户id
+gid=                    # 组id
+mpol=[default|prefer:Node|bind:NodeList|interleave|interleave:NodeList] # 为该实例中的所有文件设置NUMA内存分配策略(如果启用了内核CONFIG_NUMA)，可以通过“mount -o remount”对其进行动态调整：
+                        # - default，更倾向于从本地节点分配内存。
+                        # - prefer：Node，更愿意从给定的节点分配内存。
+                        # - bind:NodeList，仅从NodeList中的节点分配内存。
+                        # - interleave，依次从每个节点分配。
+                        # - interleave:NodeList，依次从NodeList的每个节点分配。
+                        # - NodeList格式是以逗号分隔的小数和范围列表，范围为两个连字符分隔的十进制数，是范围内最小和最大的节点数。例如“mpol=bind:0-3,5,7,9-15”。
+```
  
 
 ## 说明
