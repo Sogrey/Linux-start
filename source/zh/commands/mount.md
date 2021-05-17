@@ -558,7 +558,6 @@ mpol=[default|prefer:Node|bind:NodeList|interleave|interleave:NodeList] # 为该
                         # - interleave:NodeList，依次从NodeList的每个节点分配。
                         # - NodeList格式是以逗号分隔的小数和范围列表，范围为两个连字符分隔的十进制数，是范围内最小和最大的节点数。例如“mpol=bind:0-3,5,7,9-15”。
 ```
- 
 
 ## 说明
 mount的标准格式是“mount -t type device dir”。这告诉内核将在设备(type类型)上找到的文件系统附加到目录dir上。以前的内容(如果有的话)以及dir的所有者和模式变得不可见，只要这个文件系统仍然挂载，路径名dir就会引用设备上的文件系统的根。
