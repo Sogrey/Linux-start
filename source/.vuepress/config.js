@@ -682,5 +682,17 @@ function getCommands() {
     command: 'showmount',
     desc: '显示NFS服务器加载的信息',
     tags: ['FileSystem']
+  }, {
+    command: 'e2label',
+    desc: '设置第二扩展文件系统的卷标',
+    tags: ['FileSystem']
+  }, {
+    command: 'e2image',
+    desc: '将文件系统元数据保存到由图像文件指定的文件中',
+    tags: ['FileSystem']
+  }, {
+    command: 'dumpe2fs',
+    desc: '显示ext2、ext3、ext4文件系统的超级快和块组信息',
+    tags: ['FileSystem']
   }];
 }
