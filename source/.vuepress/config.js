@@ -694,5 +694,17 @@ function getCommands() {
     command: 'dumpe2fs',
     desc: '显示ext2、ext3、ext4文件系统的超级快和块组信息',
     tags: ['FileSystem']
+  }, {
+    command: 'findfs',
+    desc: '标签或UUID查找文件系统',
+    tags: ['FileSystem']
+  }, {
+    command: 'resize2fs',
+    desc: '调整ext2\ext3\ext4文件系统的大小',
+    tags: ['FileSystem']
+  }, {
+    command: 'sync',
+    desc: '用于强制被改变的内容立刻写入磁盘',
+    tags: ['FileSystem']
   }];
 }
