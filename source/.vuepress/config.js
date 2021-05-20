@@ -706,5 +706,13 @@ function getCommands() {
     command: 'sync',
     desc: '用于强制被改变的内容立刻写入磁盘',
     tags: ['FileSystem']
+  }, {
+    command: 'volname',
+    desc: '显示指定的ISO-9660格式的设备的卷名称',
+    tags: ['FileSystem']
+  }, {
+    command: 'tune2fs',
+    desc: 'tune2fs允许系统管理员在Linux ext2、ext3或ext4文件系统上调整各种可调的文件系统参数',
+    tags: ['FileSystem']
   }];
 }
