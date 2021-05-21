@@ -714,5 +714,12 @@ function getCommands() {
     command: 'tune2fs',
     desc: 'tune2fs允许系统管理员在Linux ext2、ext3或ext4文件系统上调整各种可调的文件系统参数',
     tags: ['FileSystem']
+  }, {
+    command: 'ping',
+    desc: '测试主机之间网络的连通性',
+    tags: ['NetworkManagement']
   }];
+
+  
+
 }
