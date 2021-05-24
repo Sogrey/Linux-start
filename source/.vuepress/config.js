@@ -118,7 +118,7 @@ function genGuideSidebar(isZh) {
     collapsable: false,
     children: ["guide/", "guide/quick-start","guide/startup-disk-tools"]
   }, {
-    title: isZh ? "Linux命令手册" : "Linux Commands",
+    title: (isZh ? "Linux命令手册" : "Linux Commands")+'('+getCommands().length+')',
     collapsable: false,
     children: getCommandsBySord('commands/')
   }, {
