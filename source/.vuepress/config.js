@@ -718,6 +718,14 @@ function getCommands() {
     command: 'ping',
     desc: '测试主机之间网络的连通性',
     tags: ['NetworkManagement']
+  }, {
+    command: 'ip',
+    desc: '网络配置工具',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'netstat',
+    desc: '查看Linux中网络系统状态信息',
+    tags: ['NetworkManagement']
   }];
 
   
