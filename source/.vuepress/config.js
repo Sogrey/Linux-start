@@ -130,7 +130,7 @@ function genGuideSidebar(isZh) {
 
 function genCommandsSidebar(isZh) {
   return [{
-    title: isZh ? "Linux命令手册" : "Linux Commands",
+    title: (isZh ? "Linux命令手册" : "Linux Commands")+'('+getCommands().length+')',
     collapsable: false,
     children: getCommandsBySord('')
   }];
