@@ -48,71 +48,22 @@ address_family_options:
 ## 选项
 
 ``` bash
--v,  --verbose
-
-显示执行过程
-
--n,  --numeric
-
-直接显示数字ip
-
---numeric-hosts
-
-显示主机的数字地址，不影响端口和用户名
-
---numeric-ports
-
-显示端口，不影响主机和用户名
-
---numeric-users
-
-显示用户id，不影响主机和端口
-
--A,  --protocol
-
-指定网络类型
-
--c,  --continuous
-
-持续显示
-
--e,  --extend
-
-显示其他附加信息
-
--o,  --timers
-
-显示计时器
-
--p,  --program
-
-显示正在使用的socket程序pid和名字
-
--l,  --listen
-
-只显示监听的socket信息
-
--a,  -all
-
-显示所有连接中的socket信息
-
--F
-
-显示FIB
-
--C
-
-显示路由的缓存
-
--Z,  --context
-
-如果打开了SELinux，那么就打印SELinux的上下文
-
--T,  --notrim
-
-停止修剪长地址
-
- 
+-v,  --verbose          # 显示执行过程
+-n,  --numeric          # 直接显示数字ip
+--numeric-hosts         # 显示主机的数字地址，不影响端口和用户名
+--numeric-ports         # 显示端口，不影响主机和用户名
+--numeric-users         # 显示用户id，不影响主机和端口
+-A,  --protocol         # 指定网络类型
+-c,  --continuous       # 持续显示
+-e,  --extend           # 显示其他附加信息
+-o,  --timers           # 显示计时器
+-p,  --program          # 显示正在使用的socket程序pid和名字
+-l,  --listen           # 只显示监听的socket信息
+-a,  -all               # 显示所有连接中的socket信息
+-F                      # 显示FIB
+-C                      # 显示路由的缓存
+-Z,  --context          # 如果打开了SELinux，那么就打印SELinux的上下文
+-T,  --notrim           # 停止修剪长地址
 
 --help                           # 显示帮助文档
 --version                        # 显示命令版本信息
