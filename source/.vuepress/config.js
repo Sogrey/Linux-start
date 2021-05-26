@@ -726,6 +726,18 @@ function getCommands() {
     command: 'netstat',
     desc: '查看Linux中网络系统状态信息',
     tags: ['NetworkManagement']
+  }, {
+    command: 'arp',
+    desc: 'arp 命令用于显示和修改 IP 到 MAC 转换表',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'arping',
+    desc: '通过发送ARP协议报文测试网络',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'arpwatch',
+    desc: '监听网络上ARP的记录',
+    tags: ['NetworkManagement']
   }];
 
   
