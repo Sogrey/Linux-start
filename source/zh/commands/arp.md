@@ -73,6 +73,7 @@ arp  [-vnD]  [-H type]  [-i if]  -f  [filename]
 ? (10.0.2.2) at 52:54:00:12:35:02 [ether] on eth0
 ? (192.168.1.6) at ff:ee:ee:ee:ee:ee [ether] PERM on eth0
 ```
+
 以数字方式显示
 ``` bash
 [root@localhost ~]$ arp -vn
