@@ -738,6 +738,10 @@ function getCommands() {
     command: 'arpwatch',
     desc: '监听网络上ARP的记录',
     tags: ['NetworkManagement']
+  }, {
+    command: 'ipcalc',
+    desc: '简单的IP地址计算器',
+    tags: ['NetworkManagement']
   }];
 
   
