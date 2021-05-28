@@ -742,6 +742,18 @@ function getCommands() {
     command: 'ipcalc',
     desc: '简单的IP地址计算器',
     tags: ['NetworkManagement']
+  }, {
+    command: 'iptables-save',
+    desc: '备份iptables的表配置',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'iptables-restore',
+    desc: '还原iptables表的配置',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'iptables',
+    desc: 'Linux上常用的防火墙软件',
+    tags: ['NetworkManagement']
   }];
 
   

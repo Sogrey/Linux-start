@@ -117,7 +117,7 @@ bunzip2 filename.bz2
 
 **压缩解压的时候将结果也输出**：
 ``` bash
-$bzip2 -v filename
+bzip2 -v filename
 ```
 输入之后，输出如下：
 ```
