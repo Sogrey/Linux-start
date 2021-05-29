@@ -754,6 +754,14 @@ function getCommands() {
     command: 'iptables',
     desc: 'Linux上常用的防火墙软件',
     tags: ['NetworkManagement']
+  }, {
+    command: 'traceroute',
+    desc: '显示数据包到主机间的路径',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'tracepath',
+    desc: '追踪目的主机经过的路由信息',
+    tags: ['NetworkManagement']
   }];
 
   
