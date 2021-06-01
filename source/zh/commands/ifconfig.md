@@ -170,6 +170,7 @@ eth0      Link encap:Ethernet  HWaddr 08:00:27:14:33:57
           collisions:0 txqueuelen:1000
           RX bytes:83582067 (79.7 MiB)  TX bytes:5843588 (5.5 MiB)
 ```
+
 **其他**
 
 启动关闭指定网卡：
