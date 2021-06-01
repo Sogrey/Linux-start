@@ -762,6 +762,14 @@ function getCommands() {
     command: 'tracepath',
     desc: '追踪目的主机经过的路由信息',
     tags: ['NetworkManagement']
+  }, {
+    command: 'ifcfg',
+    desc: '配置Linux中的网络接口参数',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'ifconfig',
+    desc: '配置和显示Linux系统网卡的网络参数',
+    tags: ['NetworkManagement']
   }];
 
   
