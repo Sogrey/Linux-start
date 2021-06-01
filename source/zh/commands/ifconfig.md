@@ -170,3 +170,36 @@ eth0      Link encap:Ethernet  HWaddr 08:00:27:14:33:57
           collisions:0 txqueuelen:1000
           RX bytes:83582067 (79.7 MiB)  TX bytes:5843588 (5.5 MiB)
 ```
+**其他**
+
+启动关闭指定网卡：
+``` bash
+ifconfig eth0 up
+ifconfig eth0 down
+```
+ifconfig eth0 up为启动网卡eth0，ifconfig eth0 down为关闭网卡eth0。ssh登陆linux服务器操作要小心，关闭了就不能开启了，除非你有多网卡。
+
+为网卡配置和删除IPv6地址：
+``` bash
+ifconfig eth0 add 33ffe:3240:800:1005::2/64    #为网卡eth0配置IPv6地址
+ifconfig eth0 del 33ffe:3240:800:1005::2/64    #为网卡eth0删除IPv6地址
+```
+用ifconfig修改MAC地址：
+``` bash
+ifconfig eth0 hw ether 00:AA:BB:CC:dd:EE
+```
+配置IP地址：
+``` bash
+[root@localhost ~]$ ifconfig eth0 192.168.2.10
+[root@localhost ~]$ ifconfig eth0 192.168.2.10 netmask 255.255.255.0
+[root@localhost ~]$ ifconfig eth0 192.168.2.10 netmask 255.255.255.0 broadcast 192.168.2.255
+```
+启用和关闭arp协议：
+``` bash
+ifconfig eth0 arp    #开启网卡eth0 的arp协议
+ifconfig eth0 -arp   #关闭网卡eth0 的arp协议
+```
+设置最大传输单元：
+``` bash
+ifconfig eth0 mtu 1500    #设置能通过的最大数据包大小为 1500 bytes
+```
