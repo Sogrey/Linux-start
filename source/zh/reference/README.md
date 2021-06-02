@@ -80,6 +80,15 @@ Linux的发行版多种多样：
 
 - [https://developer.huaweicloud.com/en-us/euleros/download.html?developlan=Other](https://developer.huaweicloud.com/en-us/euleros/download.html?developlan=Other)
 
+### openEuler  
+
+
+官网：[https://openeuler.org/](https://openeuler.org/)
+
+下载地址：
+
+- [https://openeuler.org/zh/mirror/list/](https://openeuler.org/zh/mirror/list/)
+
 ### <div class="svg debian">Debian</div>
 
 ![](../../.vuepress/public/img/LinuxOSs/debian.png)
