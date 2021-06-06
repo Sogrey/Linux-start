@@ -26,7 +26,6 @@ ifup指令用来启动网络接口设备，设备必须是定义在“/etc/sysco
 ``` bash
 ifup interface
 ```
-
 ## 选项
 
 无
