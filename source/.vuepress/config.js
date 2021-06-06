@@ -770,6 +770,14 @@ function getCommands() {
     command: 'ifconfig',
     desc: '配置和显示Linux系统网卡的网络参数',
     tags: ['NetworkManagement']
+  }, {
+    command: 'ifup',
+    desc: '激活指定的网络接口',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'ifdown',
+    desc: '禁用指定的网络接口',
+    tags: ['NetworkManagement']
   }];
 
   
