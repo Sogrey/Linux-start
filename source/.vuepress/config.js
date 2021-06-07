@@ -778,6 +778,14 @@ function getCommands() {
     command: 'ifdown',
     desc: '禁用指定的网络接口',
     tags: ['NetworkManagement']
+  }, {
+    command: 'dnsdomainname',
+    desc: '定义DNS系统中FQDN名称的域名',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'domainname',
+    desc: '显示和设置系统的NIS域名',
+    tags: ['NetworkManagement']
   }];
 
   
