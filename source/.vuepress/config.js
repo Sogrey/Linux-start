@@ -795,4 +795,5 @@ function getCommands() {
     desc: '显示主机NIS的域名',
     tags: ['NetworkManagement']
   }];
+  
 }
