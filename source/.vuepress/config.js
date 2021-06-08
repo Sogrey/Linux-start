@@ -786,6 +786,14 @@ function getCommands() {
     command: 'domainname',
     desc: '显示和设置系统的NIS域名',
     tags: ['NetworkManagement']
+  }, {
+    command: 'ypdomainname',
+    desc: '显示主机的NIS的域名',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'nisdomainname',
+    desc: '显示主机NIS的域名',
+    tags: ['NetworkManagement']
   }];
 
   
