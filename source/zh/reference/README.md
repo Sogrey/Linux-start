@@ -42,6 +42,8 @@ Linux的发行版多种多样：
 
 ### <div class="svg redhat">RedHat</div> <div class="svg rhel">RHEL</div>
 
+![](../../.vuepress/public/img/LinuxOSs/RedHat&RHEL.png)
+
 官网：[https://www.redhat.com/zh](https://www.redhat.com/zh) [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
 
 下载地址：
