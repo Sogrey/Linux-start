@@ -796,6 +796,4 @@ function getCommands() {
     tags: ['NetworkManagement']
   }];
 
-  
-
 }
