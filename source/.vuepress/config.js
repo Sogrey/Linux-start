@@ -806,6 +806,5 @@ function getCommands() {
     command: 'hostnamectl',
     desc: '查询或更改系统主机名',
     tags: ['NetworkManagement']
-  }];
-  
+  }];  
 }
