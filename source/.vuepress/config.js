@@ -807,4 +807,5 @@ function getCommands() {
     desc: '查询或更改系统主机名',
     tags: ['NetworkManagement']
   }];  
+  
 }
