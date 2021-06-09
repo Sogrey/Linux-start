@@ -794,6 +794,18 @@ function getCommands() {
     command: 'nisdomainname',
     desc: '显示主机NIS的域名',
     tags: ['NetworkManagement']
+  }, {
+    command: 'route',
+    desc: '显示并设置Linux中静态路由表',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'hostname',
+    desc: '显示和设置系统的主机名',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'hostnamectl',
+    desc: '查询或更改系统主机名',
+    tags: ['NetworkManagement']
   }];
   
 }
