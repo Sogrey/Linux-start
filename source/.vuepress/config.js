@@ -174,7 +174,8 @@ var CommandTypes = {
   DirectoryManagement: '目录管理',
   Permissions: '权限管理',
   UserManagement: '用户管理',
-  NetworkManagement: '网络管理'
+  NetworkManagement: '网络管理',
+  ProcessManagement:'进程管理',
 };
 
 function getCommands() {
@@ -806,6 +807,10 @@ function getCommands() {
     command: 'hostnamectl',
     desc: '查询或更改系统主机名',
     tags: ['NetworkManagement']
+  }, {
+    command: 'ps',
+    desc: '报告当前系统的进程状态',
+    tags: ['ProcessManagement']
   }];  
   
 }
