@@ -110,6 +110,7 @@ v                              # 以虚拟内存为主的模式
 --format format                # 和“-o”一样
 --context                      # 显示安全上下文格式
 ```
+
 ## 输出修饰符
 ``` bash
 -H                # 显示进程层次结构
@@ -138,6 +139,7 @@ n                   # WCHAN和User的数字输出。(包括所有类型的UID和
 --lines n,  --rows n # 设置屏幕高度
 --sort spec          # 排序。语法是“[+|-]key[,[+|-]key[,...]]”，例如，ps jax --sort=uid,-ppid,+pid
 ```
+
 ## 线程模式
 ``` bash
 H        # 把线程当做进程显示
