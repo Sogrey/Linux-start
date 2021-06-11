@@ -811,6 +811,14 @@ function getCommands() {
     command: 'ps',
     desc: '报告当前系统的进程状态',
     tags: ['ProcessManagement']
+  }, {
+    command: 'watch',
+    desc: '可以将命令的输出结果输出到标准输出设备，多用于周期性执行命令/定时执行命令',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'pstree',
+    desc: '以树状图的方式展现进程之间的派生关系',
+    tags: ['ProcessManagement']
   }];  
   
 }
