@@ -819,6 +819,22 @@ function getCommands() {
     command: 'pstree',
     desc: '以树状图的方式展现进程之间的派生关系',
     tags: ['ProcessManagement']
+  }, {
+    command: 'killall',
+    desc: '使用进程的名称来杀死一组进程',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'pgrep',
+    desc: '根据用户给出的信息在当前运行进程中查找并列出符合条件的进程ID（PID）',
+    tags: ['ProcessManagement']
+  }, {
+    command: 'pidof',
+    desc: '查找指定名称的进程的进程号ID号',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'w',
+    desc: '显示目前登入系统的用户信息',
+    tags: ['ProcessManagement']
   }];  
   
 }
