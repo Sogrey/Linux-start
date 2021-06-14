@@ -90,80 +90,29 @@ patch  -pnum   <patchfile
 -N, --forward                # 忽略似乎已反转或已应用的修补程序
 -o outfile ,  --output=outfile # 设置输出文件。如果outfile是要修补的文件之一，请不要使用此选项。当outfile为-时，将输出发送到标准输出，并发送通常会转到标准输出到标准错误的任何消息
 -pnum, --strip=num           # 设置要剥离的路径层数。例如，假设修补程序文件中的文件名是“/u/howard/src/blurfl/blurfl.c”，使用-p0则不会修改，使用-p1结果是“u/howard/src/blurfl/blurfl.c”，使用-p4结果是“blurfl/blurfl.c”
-
---posix
-
-更严格地遵守POSIX标准：当从diff头直观文件名时，从列表(旧的、新的、索引)获取第一个现有文件；不要删除修补后为空的文件；不要问是从RCS、ClearCase、Perforce还是SCCS获取文件；要求命令行中的文件前面有所有选项；当出现不匹配时，不要备份文件。
-
---quoting-style=word
-
-使用样式字引用输出名称。这个词应该是下列之一：
-
-literal，不改变输出
-
-shell，如果shell包含shell元字符或将导致不明确的输出，则引用shell的名称。
-
-shell-always，引用shell的名称，即使它们通常不需要引用。
-
-c，引用C语言字符串的名称。
-
-escape，除省略周围的双引号字符外，引用与c相同。
-
-你可以使用环境变量QUOTING_STYLE来设置这个选项的默认值，如果没有环境变量，那么默认shell。
-
--r rejectfile ,  --reject-file=rejectfile
-
-将拒绝放入拒绝文件，而不是默认的.rej文件。当拒绝文件为‘-’时，丢弃拒绝
-
--R, --reverse
-
-假设此修补程序是用交换的旧文件和新文件创建的。修补程序尝试在应用之前交换每一个块。拒绝以交换格式出现。-R选项不适用于“ed diff”脚本，因为信息太少，无法重建反向操作。
-
---reject-format=format
-
-以指定的格式(上下文或统一格式)生成拒绝文件。如果没有此选项，如果输入补丁是该格式的，则被拒绝的块以统一的diff格式出现，否则以普通的上下文diff形式出现。
-
--s, --silent, --quite
-
-不显示执行过程，除非发生错误
-
--t, --batch
-
-自动跳过错误。
-
--u, --unified
-
-将修补数据解释成一致化的差异
-
---verbose
-
-显示详细执行过程
-
--V method| --version-control=method
-
-确定备份文件名。method还可以由PATCH_VERSION_CONTROL、VERSION_CONTROL环境变量提供，环境变量被此选项覆盖。该方法不影响是否生成备份文件；它只影响已生成的任何备份文件的名称。method的有效值可以是：
-
-existing，nil，对已经有编号的文件进行编号备份，否则进行简单备份。这是默认的
-
-numbered，t，进行编号备份。例如F的编号备份文件名为F~N~其中N是版本号。
-
-simple，never，做简单的备份。-B或--prefix、-Y或--basename-prefix、-z或--suffix选项指定简单的备份文件名。如果没有给出这些选项，则使用一个简单的备份后缀；如果设置了SIMPLE_BACKUP_SUFFIX环境变量的值，则为.orig。
-
--x num ,  --debug=num
-
-只将感兴趣的内部调试标志设置为修补程序
-
--Y preg ,  --basename-prefix=pref
-
-使用简单方法确定备份文件名(请参阅-V)，并在生成备份文件名时将pref前缀为文件名的basename。例如，使用“-Y .del/”选项，“src/patch/util.c”的简单备份文件名是“src/patch/.del/util.c”。
-
--z suffix ,  --suffix=suffix
-
-使用简单方法确定备份文件名(请参阅-V)，并使用suffix作为后缀。例如，使用“-z -”选项，“src/patch/util.c”的备份文件名是“src/patch/util.c-”。
-
--Z, --set-utc
-
-根据上下文diff标头中给出的时间戳设置修补文件的修改和访问时间，假设上下文diff标头使用协调的通用时间(UTC，通常称为GMT)。
+--posix                      # 更严格地遵守POSIX标准：当从diff头直观文件名时，从列表(旧的、新的、索引)获取第一个现有文件；不要删除修补后为空的文件；不要问是从RCS、ClearCase、Perforce还是SCCS获取文件；要求命令行中的文件前面有所有选项；当出现不匹配时，不要备份文件。
+--quoting-style=word         # 使用样式字引用输出名称。这个词应该是下列之一：
+                             # - literal，不改变输出
+                             # - shell，如果shell包含shell元字符或将导致不明确的输出，则引用shell的名称。
+                             # - shell-always，引用shell的名称，即使它们通常不需要引用。
+                             # - c，引用C语言字符串的名称。
+                             # - escape，除省略周围的双引号字符外，引用与c相同。
+                             # - 你可以使用环境变量QUOTING_STYLE来设置这个选项的默认值，如果没有环境变量，那么默认shell。
+-r rejectfile ,  --reject-file=rejectfile # 将拒绝放入拒绝文件，而不是默认的.rej文件。当拒绝文件为‘-’时，丢弃拒绝
+-R, --reverse                # 假设此修补程序是用交换的旧文件和新文件创建的。修补程序尝试在应用之前交换每一个块。拒绝以交换格式出现。-R选项不适用于“ed diff”脚本，因为信息太少，无法重建反向操作。
+--reject-format=format       # 以指定的格式(上下文或统一格式)生成拒绝文件。如果没有此选项，如果输入补丁是该格式的，则被拒绝的块以统一的diff格式出现，否则以普通的上下文diff形式出现。
+-s, --silent, --quite        # 不显示执行过程，除非发生错误
+-t, --batch                  # 自动跳过错误。
+-u, --unified                # 将修补数据解释成一致化的差异
+--verbose                    # 显示详细执行过程
+-V method, --version-control=method # 确定备份文件名。method还可以由PATCH_VERSION_CONTROL、VERSION_CONTROL环境变量提供，环境变量被此选项覆盖。该方法不影响是否生成备份文件；它只影响已生成的任何备份文件的名称。method的有效值可以是：
+                            # - existing，nil，对已经有编号的文件进行编号备份，否则进行简单备份。这是默认的
+                            # - numbered，t，进行编号备份。例如F的编号备份文件名为F~N~其中N是版本号。
+                            # - simple，never，做简单的备份。-B或--prefix、-Y或--basename-prefix、-z或--suffix选项指定简单的备份文件名。如果没有给出这些选项，则使用一个简单的备份后缀；如果设置了SIMPLE_BACKUP_SUFFIX环境变量的值，则为.orig。
+-x num ,  --debug=num       # 只将感兴趣的内部调试标志设置为修补程序
+-Y preg ,  --basename-prefix=pref # 使用简单方法确定备份文件名(请参阅-V)，并在生成备份文件名时将pref前缀为文件名的basename。例如，使用“-Y .del/”选项，“src/patch/util.c”的简单备份文件名是“src/patch/.del/util.c”。
+-z suffix ,  --suffix=suffix # 使用简单方法确定备份文件名(请参阅-V)，并使用suffix作为后缀。例如，使用“-z -”选项，“src/patch/util.c”的备份文件名是“src/patch/util.c-”。
+-Z, --set-utc               # 根据上下文diff标头中给出的时间戳设置修补文件的修改和访问时间，假设上下文diff标头使用协调的通用时间(UTC，通常称为GMT)。
 
 --help                           # 显示帮助文档
 --version                        # 显示命令版本信息
