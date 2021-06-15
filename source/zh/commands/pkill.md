@@ -55,7 +55,9 @@ pkill  [-signal]  [-fvx]  [-n|-o]  [-P ppid,...]  [-g pgrp,...]  [-s sid,...]  [
 - 3  致命错误：内存不足等。
 
 ## 举例
+
 杀死wc进程
+
 ``` bash
 [root@localhost ~]$ pkill -SIGKILL wc       #向wc发送KILL信号，杀死进程
 [1]-  已杀死               nice -n 19 wc
