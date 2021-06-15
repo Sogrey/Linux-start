@@ -49,6 +49,7 @@ pkill  [-signal]  [-fvx]  [-n|-o]  [-P ppid,...]
 --help                  # 显示帮助文档
 --version               # 显示命令版本信息
 ```
+
 ## 返回值
 
 - 0  一个或多个进程符合。
