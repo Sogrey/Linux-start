@@ -24,7 +24,9 @@ pkill可以给指定的进程发送信息，它可以结束某个执行的进程
 ## 语法
 
 ``` bash
-pkill  [-signal]  [-fvx]  [-n|-o]  [-P ppid,...]  [-g pgrp,...]  [-s sid,...]  [-u euid,...]  [-U uid,...]  [-G gid,...]  [-t term,...]  [pattern]
+pkill  [-signal]  [-fvx]  [-n|-o]  [-P ppid,...]
+       [-g pgrp,...]  [-s sid,...]  [-u euid,...]
+       [-U uid,...]  [-G gid,...]  [-t term,...]  [pattern]
 ```
 
 ## 选项
