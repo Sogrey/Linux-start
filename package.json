@@ -26,7 +26,7 @@
     "glob-parent": ">=5.1.2",
     "is-svg": ">=4.2.2",
     "kind-of": ">=6.0.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "lodash.template": ">=4.5.0",
     "minimist": ">=1.2.3",
     "node-forge": ">=0.10.0",
