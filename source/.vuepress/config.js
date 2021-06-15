@@ -835,6 +835,30 @@ function getCommands() {
     command: 'w',
     desc: '显示目前登入系统的用户信息',
     tags: ['ProcessManagement']
+  }, {
+    command: 'init',
+    desc: 'init进程是所有Linux进程的父进程',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'xinit',
+    desc: '是Linux下X-Window系统的初始化程序',
+    tags: ['ProcessManagement']
+  }, {
+    command: 'nice',
+    desc: '改变程序执行的优先权等级',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'renice',
+    desc: '修改正在运行的进程的调度优先级',
+    tags: ['ProcessManagement']
+  }, {
+    command: 'nohup',
+    desc: '将程序以忽略挂起信号的方式运行起来',
+    tags: ['NetworkManagement']
+  }, {
+    command: 'pkill',
+    desc: '可以按照进程名杀死进程',
+    tags: ['ProcessManagement']
   }];  
   
 }
