@@ -176,6 +176,7 @@ var CommandTypes = {
   UserManagement: '用户管理',
   NetworkManagement: '网络管理',
   ProcessManagement:'进程管理',
+  HardwareManagement:'硬件管理',
 };
 
 function getCommands() {
@@ -814,7 +815,7 @@ function getCommands() {
   }, {
     command: 'watch',
     desc: '可以将命令的输出结果输出到标准输出设备，多用于周期性执行命令/定时执行命令',
-    tags: ['NetworkManagement']
+    tags: ['ProcessManagement']
   }, {
     command: 'pstree',
     desc: '以树状图的方式展现进程之间的派生关系',
@@ -822,7 +823,7 @@ function getCommands() {
   }, {
     command: 'killall',
     desc: '使用进程的名称来杀死一组进程',
-    tags: ['NetworkManagement']
+    tags: ['ProcessManagement']
   }, {
     command: 'pgrep',
     desc: '根据用户给出的信息在当前运行进程中查找并列出符合条件的进程ID（PID）',
@@ -830,7 +831,7 @@ function getCommands() {
   }, {
     command: 'pidof',
     desc: '查找指定名称的进程的进程号ID号',
-    tags: ['NetworkManagement']
+    tags: ['ProcessManagement']
   }, {
     command: 'w',
     desc: '显示目前登入系统的用户信息',
@@ -838,7 +839,7 @@ function getCommands() {
   }, {
     command: 'init',
     desc: 'init进程是所有Linux进程的父进程',
-    tags: ['NetworkManagement']
+    tags: ['ProcessManagement']
   }, {
     command: 'xinit',
     desc: '是Linux下X-Window系统的初始化程序',
@@ -846,7 +847,7 @@ function getCommands() {
   }, {
     command: 'nice',
     desc: '改变程序执行的优先权等级',
-    tags: ['NetworkManagement']
+    tags: ['ProcessManagement']
   }, {
     command: 'renice',
     desc: '修改正在运行的进程的调度优先级',
@@ -854,11 +855,19 @@ function getCommands() {
   }, {
     command: 'nohup',
     desc: '将程序以忽略挂起信号的方式运行起来',
-    tags: ['NetworkManagement']
+    tags: ['ProcessManagement']
   }, {
     command: 'pkill',
     desc: '可以按照进程名杀死进程',
     tags: ['ProcessManagement']
+  }, {
+    command: 'df',
+    desc: '显示磁盘的相关信息',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'du',
+    desc: '显示每个文件和目录的磁盘使用空间',
+    tags: ['HardwareManagement']
   }];  
   
 }
