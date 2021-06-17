@@ -868,6 +868,14 @@ function getCommands() {
     command: 'du',
     desc: '显示每个文件和目录的磁盘使用空间',
     tags: ['HardwareManagement']
+  }, {
+    command: 'arch',
+    desc: '显示当前主机的硬件架构类型',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'eject',
+    desc: '用来退出抽取式设备',
+    tags: ['HardwareManagement']
   }];  
   
   
