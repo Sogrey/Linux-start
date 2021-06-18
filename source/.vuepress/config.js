@@ -876,6 +876,10 @@ function getCommands() {
     command: 'eject',
     desc: '用来退出抽取式设备',
     tags: ['HardwareManagement']
+  }, {
+    command: 'lsusb',
+    desc: '显示本机的USB设备列表信息',
+    tags: ['HardwareManagement']
   }];  
   
   
