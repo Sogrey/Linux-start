@@ -39,3 +39,4 @@ pwd  [OPTION]
 [sogrey@bogon 文档]$ pwd
 /home/sogrey/文档
 ```
+
