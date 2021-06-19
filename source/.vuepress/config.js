@@ -885,6 +885,4 @@ function getCommands() {
     desc: '显示当前主机的所有PCI总线信息',
     tags: ['HardwareManagement']
   }];  
-  
-  
 }
