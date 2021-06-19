@@ -880,6 +880,10 @@ function getCommands() {
     command: 'lsusb',
     desc: '显示本机的USB设备列表信息',
     tags: ['HardwareManagement']
+  }, {
+    command: 'lspci',
+    desc: '显示当前主机的所有PCI总线信息',
+    tags: ['HardwareManagement']
   }];  
   
   
