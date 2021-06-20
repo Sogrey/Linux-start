@@ -884,5 +884,9 @@ function getCommands() {
     command: 'lspci',
     desc: '显示当前主机的所有PCI总线信息',
     tags: ['HardwareManagement']
+  }, {
+    command: 'hwclock',
+    desc: '显示与设定硬件时钟',
+    tags: ['HardwareManagement']
   }];  
 }
