@@ -154,6 +154,4 @@ hwlock尝试使用文件“/dev/rtc”。如果内核没有编译“/dev/rtc”�
 [root@localhost ntop-4.0.1]$ hwclock   #查看硬件时钟
 2018年09月04日 星期二 12时25分48秒  -0.263687 seconds
 ```
- 
 
- 
