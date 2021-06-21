@@ -888,5 +888,9 @@ function getCommands() {
     command: 'hwclock',
     desc: '显示与设定硬件时钟',
     tags: ['HardwareManagement']
+  }, {
+    command: 'bc',
+    desc: '算术操作精密运算工具',
+    tags: ['HardwareManagement']
   }];  
 }
