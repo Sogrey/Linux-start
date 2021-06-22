@@ -897,4 +897,5 @@ function getCommands() {
     desc: '用来执行系统关机的命令',
     tags: ['HardwareManagement']
   }];  
+  
 }
