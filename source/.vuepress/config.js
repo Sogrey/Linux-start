@@ -892,5 +892,9 @@ function getCommands() {
     command: 'bc',
     desc: '算术操作精密运算工具',
     tags: ['HardwareManagement']
+  }, {
+    command: 'shutdown',
+    desc: '用来执行系统关机的命令',
+    tags: ['HardwareManagement']
   }];  
 }
