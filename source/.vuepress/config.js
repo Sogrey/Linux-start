@@ -896,6 +896,22 @@ function getCommands() {
     command: 'shutdown',
     desc: '用来执行系统关机的命令',
     tags: ['HardwareManagement']
-  }];  
+  }, {
+    command: 'cal',
+    desc: '显示当前日历或指定日期的日历',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'chkconfig',
+    desc: '检查或设置系统的各种服务',
+    tags: ['HardwareManagement']
+  }], {
+    command: 'clear',
+    desc: '清除当前屏幕终端上的任何信息',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'date',
+    desc: '显示或设置系统时间与日期',
+    tags: ['HardwareManagement']
+  };  
   
 }
