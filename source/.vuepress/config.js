@@ -904,7 +904,7 @@ function getCommands() {
     command: 'chkconfig',
     desc: '检查或设置系统的各种服务',
     tags: ['HardwareManagement']
-  }], {
+  }, {
     command: 'clear',
     desc: '清除当前屏幕终端上的任何信息',
     tags: ['HardwareManagement']
@@ -912,6 +912,6 @@ function getCommands() {
     command: 'date',
     desc: '显示或设置系统时间与日期',
     tags: ['HardwareManagement']
-  };  
+  }];  
   
 }
