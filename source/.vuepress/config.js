@@ -912,6 +912,22 @@ function getCommands() {
     command: 'date',
     desc: '显示或设置系统时间与日期',
     tags: ['HardwareManagement']
+  }, {
+    command: 'hostid',
+    desc: '显示当前主机的十六进制数字标识',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'last',
+    desc: '列出目前与过去登入系统的用户相关信息',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'service',
+    desc: '控制系统服务的实用工具',
+    tags: ['HardwareManagement']
+  }, {
+    command: 'yes',
+    desc: '重复打印指定字符串',
+    tags: ['HardwareManagement']
   }];  
   
 }
