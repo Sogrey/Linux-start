@@ -929,6 +929,4 @@ function getCommands() {
     desc: '重复打印指定字符串',
     tags: ['HardwareManagement']
   }];  
-  
-  
 }
