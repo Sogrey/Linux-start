@@ -941,6 +941,10 @@ function getCommands() {
     command: 'ipcs',
     desc: '分析消息队列共享内存和信号量',
     tags: ['KernelManagement']
+  }, {
+    command: 'kernelversion',
+    desc: '打印当前内核的主版本号',
+    tags: ['KernelManagement']
   }];
   
 }
