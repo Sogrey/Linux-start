@@ -177,6 +177,7 @@ var CommandTypes = {
   NetworkManagement: '网络管理',
   ProcessManagement:'进程管理',
   HardwareManagement:'硬件管理',
+  KernelManagement:'内核管理',
 };
 
 function getCommands() {
@@ -928,6 +929,18 @@ function getCommands() {
     command: 'yes',
     desc: '重复打印指定字符串',
     tags: ['HardwareManagement']
+  }, {
+    command: 'dmesg',
+    desc: '显示Linux系统启动信息',
+    tags: ['KernelManagement']
+  }, {
+    command: 'free',
+    desc: '显示内存的使用情况',
+    tags: ['KernelManagement']
+  }, {
+    command: 'ipcs',
+    desc: '分析消息队列共享内存和信号量',
+    tags: ['KernelManagement']
   }];
-    
+  
 }
