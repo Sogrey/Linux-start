@@ -158,4 +158,3 @@ Linux 2.6.32-431.el6.i686 (localhost.localdomain)    2018年08月10日   _i686_ 
 
 [root@localhost ntop-4.0.1]$
 ```
-
