@@ -945,6 +945,18 @@ function getCommands() {
     command: 'kernelversion',
     desc: '打印当前内核的主版本号',
     tags: ['KernelManagement']
+  }, {
+    command: 'lsmod',
+    desc: '显示已载入系统的模块',
+    tags: ['KernelManagement']
+  }, {
+    command: 'mpstat',
+    desc: '显示各个可用CPU的状态',
+    tags: ['KernelManagement']
+  }, {
+    command: 'sar',
+    desc: '系统运行状态统计工具',
+    tags: ['KernelManagement']
   }];
   
 }
