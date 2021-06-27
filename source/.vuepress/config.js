@@ -957,6 +957,26 @@ function getCommands() {
     command: 'sar',
     desc: '系统运行状态统计工具',
     tags: ['KernelManagement']
+  }, {
+    command: 'slabtop',
+    desc: '实时显示内核slab内存缓存信息',
+    tags: ['KernelManagement']
+  }, {
+    command: 'top',
+    desc: '显示或管理执行中的程序',
+    tags: ['KernelManagement']
+  }, {
+    command: 'uname',
+    desc: '打印系统信息',
+    tags: ['KernelManagement']
+  }, {
+    command: 'uptime',
+    desc: '查看Linux系统负载信息',
+    tags: ['KernelManagement']
+  }, {
+    command: 'vmstat',
+    desc: '显示虚拟内存状态',
+    tags: ['KernelManagement']
   }];
   
 }
