@@ -977,6 +977,18 @@ function getCommands() {
     command: 'vmstat',
     desc: '显示虚拟内存状态',
     tags: ['KernelManagement']
+  }, {
+    command: 'depmod',
+    desc: '分析可载入模块的相依性',
+    tags: ['KernelManagement']
+  }, {
+    command: 'insmod',
+    desc: '将给定的模块加载到内核中',
+    tags: ['KernelManagement']
+  }, {
+    command: 'modprobe',
+    desc: '自动处理可载入模块',
+    tags: ['KernelManagement']
   }];
   
 }
