@@ -989,6 +989,22 @@ function getCommands() {
     command: 'modprobe',
     desc: '自动处理可载入模块',
     tags: ['KernelManagement']
+  }, {
+    command: 'iostat',
+    desc: '监视系统输入输出设备和CPU的使用情况',
+    tags: ['KernelManagement']
+  }, {
+    command: 'rmmod',
+    desc: '从运行的内核中移除指定的内核模块',
+    tags: ['KernelManagement']
+  }, {
+    command: 'sysctl',
+    desc: '时动态地修改内核的运行参数',
+    tags: ['KernelManagement']
+  }, {
+    command: 'tload',
+    desc: '显示系统负载状况',
+    tags: ['KernelManagement']
   }];
   
 }
