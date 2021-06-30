@@ -178,6 +178,7 @@ var CommandTypes = {
   ProcessManagement:'进程管理',
   HardwareManagement:'硬件管理',
   KernelManagement:'内核管理',
+  PrintManagement:'打印管理',
 };
 
 function getCommands() {
@@ -1005,6 +1006,22 @@ function getCommands() {
     command: 'tload',
     desc: '显示系统负载状况',
     tags: ['KernelManagement']
+  }, {
+    command: 'enable',
+    desc: '启动或禁用shell内建命令',
+    tags: ['PrintManagement']
+  }, {
+    command: 'cupsenable',
+    desc: '启动指定的打印机',
+    tags: ['PrintManagement']
+  }, {
+    command: 'accept',
+    desc: '指示打印系统接受发往指定目标打印机的打印任务',
+    tags: ['PrintManagement']
+  }, {
+    command: 'cancel',
+    desc: '取消已存在的打印任务',
+    tags: ['PrintManagement']
   }];
   
 }
