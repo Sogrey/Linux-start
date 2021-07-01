@@ -1022,6 +1022,30 @@ function getCommands() {
     command: 'cancel',
     desc: '取消已存在的打印任务',
     tags: ['PrintManagement']
+  }, {
+    command: 'reject',
+    desc: '指示打印系统拒绝发往指定目标打印机的打印任务',
+    tags: ['PrintManagement']
+  }, {
+    command: 'lp',
+    desc: '打印文件或修改排队的打印任务',
+    tags: ['PrintManagement']
+  }, {
+    command: 'lpc',
+    desc: '命令行方式打印机控制程序',
+    tags: ['PrintManagement']
+  }, {
+    command: 'lpq',
+    desc: '显示打印队列中的打印任务的状态信息',
+    tags: ['PrintManagement']
+  }, {
+    command: 'lpr',
+    desc: '将文件发送给指定打印机进行打印',
+    tags: ['PrintManagement']
+  }, {
+    command: 'lprm',
+    desc: '删除打印队列中的打印任务',
+    tags: ['PrintManagement']
   }];
   
 }
