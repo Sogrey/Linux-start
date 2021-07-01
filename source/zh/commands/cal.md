@@ -84,5 +84,3 @@ cal  [-smjy13]  [[[day] month] year]
 
 [sogrey@bogon ~]$ 
 ```
-
-
