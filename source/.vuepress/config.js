@@ -1047,4 +1047,5 @@ function getCommands() {
     desc: '删除打印队列中的打印任务',
     tags: ['PrintManagement']
   }];
+
 }
