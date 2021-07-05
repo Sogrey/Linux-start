@@ -179,6 +179,7 @@ var CommandTypes = {
   HardwareManagement:'硬件管理',
   KernelManagement:'内核管理',
   PrintManagement:'打印管理',
+  ShellManagement:'Shell管理',
 };
 
 function getCommands() {
@@ -863,6 +864,10 @@ function getCommands() {
     desc: '可以按照进程名杀死进程',
     tags: ['ProcessManagement']
   }, {
+    command: 'skill',
+    desc: '向选定的进程发送信号冻结进程',
+    tags: ['ProcessManagement']
+  }, {
     command: 'df',
     desc: '显示磁盘的相关信息',
     tags: ['HardwareManagement']
@@ -1046,5 +1051,27 @@ function getCommands() {
     command: 'lprm',
     desc: '删除打印队列中的打印任务',
     tags: ['PrintManagement']
+  }, {
+    command: 'lpadmin',
+    desc: '配置CUPS套件中的打印机和类',
+    tags: ['PrintManagement']
+  }, {
+    command: 'pr',
+    desc: '将文本文件转换成适合打印的格式',
+    tags: ['PrintManagement']
+  }, {
+    command: 'lpstat',
+    desc: '显示CUPS中打印机的状态信息',
+    tags: ['PrintManagement']
+  }, {
+    command: 'echo',
+    desc: '输出指定的字符串或者变量',
+    tags: ['ShellManagement']
+  }, {
+    command: 'kill',
+    desc: '发送信号到进程',
+    tags: ['ProcessManagement','ShellManagement']
   }];
+
+  
 }
