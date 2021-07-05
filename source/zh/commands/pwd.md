@@ -40,3 +40,5 @@ pwd  [OPTION]
 /home/sogrey/文档
 ```
 
+
+
