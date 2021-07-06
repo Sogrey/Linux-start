@@ -1071,6 +1071,22 @@ function getCommands() {
     command: 'kill',
     desc: '发送信号到进程',
     tags: ['ProcessManagement','ShellManagement']
+  }, {
+    command: 'alias',
+    desc: '定义或显示别名',
+    tags: ['ShellManagement']
+  }, {
+    command: 'unalias',
+    desc: '删除由alias设置的别名',
+    tags: ['ShellManagement']
+  }, {
+    command: 'set',
+    desc: '显示或设置shell特性及shell变量',
+    tags: ['ShellManagement']
+  }, {
+    command: 'ulimit',
+    desc: '控制shell程序的资源',
+    tags: ['ShellManagement']
   }];
 
   
