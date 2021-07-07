@@ -266,7 +266,7 @@ find: 探测到文件系统循环；“/var/named/chroot/var/named” 是与 “
 /usr/lib/python2.6/pdb.doc
 /lib/kbd/keymaps/i386/qwerty/no-latin1.doc
 ```
-2）将查找到的内容输出到res.txt
+将查找到的内容输出到res.txt
 ```bash
 [sogrey@bogon 文档]$  find / -name *.doc -fprint res.txt  # 找到文件，输出到res.txt
 find: 探测到文件系统循环；“/var/named/chroot/var/named” 是与 “/var/named” 相同的文件系统循环的一部分。
@@ -275,7 +275,7 @@ find: 探测到文件系统循环；“/var/named/chroot/var/named” 是与 “
 /usr/lib/python2.6/pdb.doc
 /lib/kbd/keymaps/i386/qwerty/no-latin1.doc
 ```
-3）查找属于指定用户的文件
+查找属于指定用户的文件
 ``` bash
 [sogrey@bogon 文档]$  find / -user david -perm 777 #查找属于用户david，并且权利是777的文件
 find: 探测到文件系统循环；“/var/named/chroot/var/named” 是与 “/var/named” 相同的文件系统循环的一部分。
