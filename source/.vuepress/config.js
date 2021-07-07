@@ -1087,6 +1087,22 @@ function getCommands() {
     command: 'ulimit',
     desc: '控制shell程序的资源',
     tags: ['ShellManagement']
+  }, {
+    command: 'declare',
+    desc: '声明变量，设置或显示变量的值和属性',
+    tags: ['ShellManagement']
+  }, {
+    command: 'export',
+    desc: '为shell变量或函数设置导出属性',
+    tags: ['ShellManagement']
+  }, {
+    command: 'fc',
+    desc: '显示历史列表中的命令或修改指定的历史命令并执行',
+    tags: ['ShellManagement']
+  }, {
+    command: 'eval',
+    desc: 'eval会调用shell，将参数作为指令来自行',
+    tags: ['ShellManagement']
   }];
 
   
