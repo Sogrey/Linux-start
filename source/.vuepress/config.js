@@ -1120,6 +1120,5 @@ function getCommands() {
     desc: '删除指定的shell变量或函数',
     tags: ['ShellManagement']
   }];
-
-  
+ 
 }
