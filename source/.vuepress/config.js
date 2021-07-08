@@ -1103,6 +1103,22 @@ function getCommands() {
     command: 'eval',
     desc: 'eval会调用shell，将参数作为指令来自行',
     tags: ['ShellManagement']
+  }, {
+    command: 'popd',
+    desc: '从目录堆栈中删除目录',
+    tags: ['ShellManagement']
+  }, {
+    command: 'pushd',
+    desc: '将目录添加到目录堆栈顶部',
+    tags: ['ShellManagement']
+  }, {
+    command: 'shopt',
+    desc: '显示和设置shell操作选项',
+    tags: ['ShellManagement']
+  }, {
+    command: 'unset',
+    desc: '删除指定的shell变量或函数',
+    tags: ['ShellManagement']
   }];
 
   
