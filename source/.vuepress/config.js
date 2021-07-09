@@ -1119,6 +1119,26 @@ function getCommands() {
     command: 'unset',
     desc: '删除指定的shell变量或函数',
     tags: ['ShellManagement']
+  }, {
+    command: 'logout',
+    desc: '退出当前登录的Shell',
+    tags: ['ShellManagement']
+  }, {
+    command: 'bg',
+    desc: '将前台终端作业移动到后台运行',
+    tags: ['ShellManagement']
+  }, {
+    command: 'fg',
+    desc: '将后台作业移动到前台终端运行',
+    tags: ['ShellManagement']
+  }, {
+    command: 'exec',
+    desc: '调用并执行指定的命令',
+    tags: ['ShellManagement']
+  }, {
+    command: 'exit',
+    desc: '退出当前的shell',
+    tags: ['ShellManagement']
   }];
  
 }
