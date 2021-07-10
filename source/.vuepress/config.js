@@ -1139,6 +1139,26 @@ function getCommands() {
     command: 'exit',
     desc: '退出当前的shell',
     tags: ['ShellManagement']
+  }, {
+    command: 'jobs',
+    desc: '显示作业的状态',
+    tags: ['ShellManagement']
+  }, {
+    command: 'bind',
+    desc: '显示或设置键盘按键与其相关的功能',
+    tags: ['ShellManagement']
+  }, {
+    command: 'dirs',
+    desc: '显示目录堆栈',
+    tags: ['ShellManagement']
+  }, {
+    command: 'history',
+    desc: '显示或操作历史列表',
+    tags: ['ShellManagement']
+  }, {
+    command: 'hash',
+    desc: '用来显示和清除指定运行时系统查询的hash表',
+    tags: ['ShellManagement']
   }];
  
 }
