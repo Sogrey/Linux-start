@@ -180,6 +180,8 @@ var CommandTypes = {
   KernelManagement:'内核管理',
   PrintManagement:'打印管理',
   ShellManagement:'Shell管理',
+  NetworkServiceManagement:'Shell管理',
+  FTP:'FTP',
 };
 
 function getCommands() {
@@ -1159,7 +1161,11 @@ function getCommands() {
     command: 'hash',
     desc: '用来显示和清除指定运行时系统查询的hash表',
     tags: ['ShellManagement']
+  }, {
+    command: 'uupick',
+    desc: '命令处理传送进来的文件',
+    tags: ['NetworkServiceManagement','FTP']
   }];
   
- 
+
 }
