@@ -40,4 +40,3 @@ uupick [-v][-I<配置文件>][-s<主机>][-x<层级>][--help]
 uupick-s localhost
 ```
 该命令通常没有输出。
-
