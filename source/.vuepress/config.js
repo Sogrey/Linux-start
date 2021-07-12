@@ -1165,6 +1165,26 @@ function getCommands() {
     command: 'uupick',
     desc: '命令处理传送进来的文件',
     tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'get',
+    desc: '登录ftp服务器之后从服务器获取文件',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'mget',
+    desc: '登录mftp服务器之后从服务器获取文件',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'mirror',
+    desc: '登录ftp服务器之后从服务器获取目录',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'mput',
+    desc: '登录ftp服务器之后将文件上传到服务器',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'put',
+    desc: '登录ftp服务器之后将文件上传到服务器',
+    tags: ['NetworkServiceManagement','FTP']
   }];
   
 
