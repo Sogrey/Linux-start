@@ -30,8 +30,8 @@ arch    [OPTION]
 ## 选项
 
 ``` bash
---help                           # 显示帮助文档
---version                        # 显示命令版本信息
+--help               # 显示帮助文档
+--version            # 显示命令版本信息
 ```
 ## 举例
 

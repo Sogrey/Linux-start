@@ -1186,5 +1186,4 @@ function getCommands() {
     desc: '登录ftp服务器之后将文件上传到服务器',
     tags: ['NetworkServiceManagement','FTP']
   }];
-  
 }
