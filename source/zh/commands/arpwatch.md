@@ -68,7 +68,6 @@ arpwatch  [选项]
 监听arp信息
 ``` bash
 [root@localhost ~]$ arpwatch -i eth0               # 监听网卡eht0 
-
 [root@localhost ~]$ tail -n 3 /var/log/messages    # 查看最近的日志信息
 Sep 30 08:29:59 localhost arpwatch: listening on eth0
 Sep 30 08:30:01 localhost arpwatch: new station 192.168.1.1 c8:41:29:f4:4a:20
