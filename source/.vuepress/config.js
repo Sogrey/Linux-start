@@ -1193,6 +1193,30 @@ function getCommands() {
     command: 'put',
     desc: '登录ftp服务器之后将文件上传到服务器',
     tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'ftp',
+    desc: '用来登录远程ftp服务器',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'lftp',
+    desc: '用来登录远程ftp服务器，是一个字符界面的文件传输工具',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'quit',
+    desc: '退出ftp服务器',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'ftpcount',
+    desc: '显示目前已FTP登入的用户人数',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'ftpwho',
+    desc: '显示当前每个ftp会话信息',
+    tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'ftpshut',
+    desc: '在指定的时间关闭FTP服务器',
+    tags: ['NetworkServiceManagement','FTP']
   }];
   
 }
