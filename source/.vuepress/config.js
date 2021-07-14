@@ -190,6 +190,7 @@ var CommandTypes = {
   ShellManagement:'Shell管理',
   NetworkServiceManagement:'Shell管理',
   FTP:'FTP',
+  Apache:'Apache',
 };
 
 function getCommands() {
@@ -1217,6 +1218,38 @@ function getCommands() {
     command: 'ftpshut',
     desc: '在指定的时间关闭FTP服务器',
     tags: ['NetworkServiceManagement','FTP']
+  }, {
+    command: 'ab',
+    desc: 'Apache服务器的性能测试工具',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'apachectl',
+    desc: 'Apache服务器前端控制工具',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'elinks',
+    desc: '纯文本界面的WWW浏览器',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'htdigest',
+    desc: 'Apache服务器内置工具',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'htpasswd',
+    desc: 'apache服务器创建密码认证文件',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'httpd',
+    desc: 'apache超文本传输协议的主程序',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'lynx',
+    desc: '纯文本模式的网页浏览器',
+    tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'wget',
+    desc: 'Linux系统下载文件工具',
+    tags: ['NetworkServiceManagement','Apache']
   }];
   
 }
