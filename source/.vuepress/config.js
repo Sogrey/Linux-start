@@ -191,6 +191,8 @@ var CommandTypes = {
   NetworkServiceManagement:'Shell管理',
   FTP:'FTP',
   Apache:'Apache',
+  DNS:'DNS',
+  NFS:'NFS',
 };
 
 function getCommands() {
@@ -693,10 +695,6 @@ function getCommands() {
   }, {
     command: 'umount',
     desc: '用于卸载已经加载的文件系统',
-    tags: ['FileSystem']
-  }, {
-    command: 'showmount',
-    desc: '显示NFS服务器加载的信息',
     tags: ['FileSystem']
   }, {
     command: 'e2label',
@@ -1250,6 +1248,29 @@ function getCommands() {
     command: 'wget',
     desc: 'Linux系统下载文件工具',
     tags: ['NetworkServiceManagement','Apache']
+  }, {
+    command: 'dig',
+    desc: '域名查询工具',
+    tags: ['NetworkServiceManagement','DNS']
+  }, {
+    command: 'host',
+    desc: '常用的分析域名查询工具',
+    tags: ['NetworkServiceManagement','DNS']
+  }, {
+    command: 'nslookup',
+    desc: '查询域名DNS信息的工具',
+    tags: ['NetworkServiceManagement','DNS']
+  }, {
+    command: 'showmount',
+    desc: '显示NFS服务器加载的信息',
+    tags: ['NetworkServiceManagement','NFS']
+  }, {
+    command: 'nfsstat',
+    desc: '列出NFS客户端和服务器的工作状态',
+    tags: ['NetworkServiceManagement','NFS']
+  }, {
+    command: 'exportfs',
+    desc: '管理NFS共享文件系统列表',
+    tags: ['NetworkServiceManagement','NFS']
   }];
-  
 }
