@@ -193,6 +193,8 @@ var CommandTypes = {
   Apache:'Apache',
   DNS:'DNS',
   NFS:'NFS',
+  MAIL:'MAIL',
+  NTP:'NTP',
 };
 
 function getCommands() {
@@ -1272,5 +1274,29 @@ function getCommands() {
     command: 'exportfs',
     desc: '管理NFS共享文件系统列表',
     tags: ['NetworkServiceManagement','NFS']
+  }, {
+    command: 'sendmail',
+    desc: '一个发送邮件的代理程序',
+    tags: ['NetworkServiceManagement','MAIL']
+  }, {
+    command: 'mailq',
+    desc: '显示出待发送的邮件队列',
+    tags: ['NetworkServiceManagement','MAIL']
+  }, {
+    command: 'mail',
+    desc: '一个邮件的管理程序',
+    tags: ['NetworkServiceManagement','MAIL']
+  }, {
+    command: 'ntpstat',
+    desc: '用于显示本机上一次和服务器同步时间的情况',
+    tags: ['NetworkServiceManagement','NTP']
+  }, {
+    command: 'ntpq',
+    desc: '使用NTP模式6数据包与NTP服务器通信',
+    tags: ['NetworkServiceManagement','NTP']
+  }, {
+    command: 'ntpdate',
+    desc: '通过轮询指定服务器设置本地日期和时间从而确定正确的时间',
+    tags: ['NetworkServiceManagement','NTP']
   }];
 }
