@@ -1299,4 +1299,5 @@ function getCommands() {
     desc: '通过轮询指定服务器设置本地日期和时间从而确定正确的时间',
     tags: ['NetworkServiceManagement','NTP']
   }];
+  
 }
