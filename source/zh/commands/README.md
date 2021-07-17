@@ -1,181 +1,215 @@
-module.exports = {
-  port: "3000",
-  dest: "docs",
-  ga: "UA-85414008-1",
-  base: "/Linux-start/",
-  markdown: {
-    externalLinks: {
-      target: '_blank',
-      rel: 'noopener noreferrer'
-    }
-  },
-  lang: "zh-CN",
-  title: "Linux 入门",
-  description: "入坑Linux",
-  locales: {
-    "/zh/": {
-      lang: "zh-CN",
-      title: "Linux 入门",
-      description: "入坑Linux",
-    },
-    // "/en/": {
-    //   lang: "en-US",
-    //   title: "Linux start",
-    //   description: "Linux start"
-    // }
-  },
-  head: [
-    ["link", {
-      rel: "icon",
-      href: "/favicon.ico"
-    }],
-    ["link", {
-      rel: "stylesheet",
-      href: "/css/style.css"
-    }],
-    //     ['script', {
-    //       id: "scriptImporter"
-    //     }, `
-    //     (function() { 
-    //     var script = document.createElement("script"); 
-    //     script.src = "/js/linux-commands.js";
-    //     setTimeout(() => document.body.append(script))
-    //     })(); 
-    // `]
-  ],
-  themeConfig: {
-    repo: "Sogrey/Linux-start",
-    docsRepo: "Sogrey/Linux-start",
-    editLinks: true,
-    docsDir: 'source',
-    navbar: true,
-    search: true,
-    searchMaxSuggestions: 20,
-    smoothScroll: true,
-    // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
-    nextLinks: true,
-    // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
-    prevLinks: true,
-    locales: {
-      "/zh/": {
-        label: "简体中文",
-        selectText: "选择语言",
-        editLinkText: "在 GitHub 上编辑此页",
-        lastUpdated: "上次更新",
-        nav: [{
-            text: "指南",
-            link: "/zh/"
-          },
-          // {
-          //   text: "Linux命令手册",
-          //   link: "/zh/commands/"
-          // },
-          {
-            text: "参考资料",
-            link: "/zh/reference/"
-          }
-        ],
-        sidebar: {
-          "/zh/": genGuideSidebar(true),
-          "/zh/commands/": genCommandsSidebar(true),
-          "/zh/reference/": genReferenceSidebar(true)
+# Linux 命令手册查询
+
+
+<div class="search">
+    <ul class="search-list" id="result" style="display: none;"><li>请尝试输入一些字符，进行搜索！</li></ul>
+    <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="命令检索">
+    <div class="enter-input">
+        <button id="search_btn">搜索</button>
+    </div>
+</div>
+
+<div id="type-list">
+<a href="index.html">所有命令</a>
+</div>
+
+<div id='linux-commands'>
+<ul id='linux-commands-list'>
+<!-- <li><a style="color: black;" href="?type=DirectoryManagement">[目录管理]</a> <a href="pwd.html"><span>pwd</span> - 显示目录内容列表</a></li> -->
+</ul>
+<div id="no-result">查无结果</div>
+</div>
+
+<script>
+function getCommandsBySord(parentDir, cmdType, keyword) {
+    var LinuxCommands = getCommands();
+    var commands = {};
+    for (let i = 0; i < LinuxCommands.length; i++) {
+        const linuxCommand = LinuxCommands[i];
+        var parent = '';
+        if (parentDir) {
+            parent = parentDir;
+            if (!parent.endsWith('/')) parent += '/';
         }
-      },
-      // "/en/": {
-      //   label: "English",
-      //   selectText: "Languages",
-      //   editLinkText: "Edit this page on GitHub",
-      //   lastUpdated: "Last Updated",
-      //   nav: [{
-      //       text: "Guide",
-      //       link: "/en/guide/"
-      //     },
-      //     {
-      //       text: "Config",
-      //       link: "/en/config/"
-      //     },
-      //     {
-      //       text: "Ecosystem",
-      //       items: [{
-      //         text: "Baidu",
-      //         link: "https://www.baidu.com"
-      //       },
-      //       {
-      //         text: "Taobao",
-      //         link: "http://www.taobao.com"
-      //       },
-      //       {
-      //         text: "Iqiyi",
-      //         link: "http://www.iqiyi.com/"
-      //         }
-      //       ]
-      //     }
-      //   ],
-      //   sidebar: {
-      //     "/en/guide/": genGuideSidebar(false),
-      //     "/en/config/": genConfigSidebar(false)
-      //   }
-      // }
+
+        if (!cmdType && !keyword) {
+            linuxCommand.command = parent + linuxCommand.command;
+            if (!Object.hasOwnProperty.call(commands, linuxCommand.command)) {
+                commands[linuxCommand.command] = linuxCommand;
+            }
+        } else {
+            var isRight = false;
+            if (cmdType && !keyword) {
+                if (linuxCommand.tags.indexOf(cmdType) > -1) {
+                    isRight = true;
+                }
+            } else if (!cmdType && keyword) {
+                if (linuxCommand.command.indexOf(keyword) > -1 || linuxCommand.desc.indexOf(keyword) > -1) {
+                    isRight = true;
+                }
+            } else if (linuxCommand.tags.indexOf(cmdType) > -1 && (linuxCommand.command.indexOf(keyword) > -1 || linuxCommand.desc.indexOf(keyword) > -1)) {
+                isRight = true;
+            }
+
+            if (isRight) {
+                linuxCommand.command = parent + linuxCommand.command;
+                if (!Object.hasOwnProperty.call(commands, linuxCommand.command)) {
+                    commands[linuxCommand.command] = linuxCommand;
+                }
+            }
+        }
     }
-  }
-};
 
-function genGuideSidebar(isZh) {
-  return [{
-    title: isZh ? "快速入门" : "Getting Start",
-    collapsable: false,
-    children: ["guide/", "guide/quick-start","guide/startup-disk-tools"]
-  }, {
-    title: (isZh ? "Linux命令手册" : "Linux Commands")+'('+getCommands().length+')',
-    collapsable: false,
-    children: getCommandsBySord('commands/')
-  }, {
-    title: isZh ? "参考资料" : "Reference",
-    collapsable: false,
-    children: ["reference/"]
-  }];
+    console.log(commands);
+    return commands;
 }
 
-function genCommandsSidebar(isZh) {
-  return [{
-    title: (isZh ? "Linux命令手册" : "Linux Commands")+'('+getCommands().length+')',
-    collapsable: false,
-    children: getCommandsBySord('')
-  }];
-}
+function addTypeList(div) {
+    var html = '<a href="index.html">所有命令</a>';
+    for (const key in CommandTypes) {
+        if (Object.hasOwnProperty.call(CommandTypes, key)) {
+            const typeName = CommandTypes[key];
 
-function genReferenceSidebar(isZh) {
-  return [{
-    title: isZh ? "参考资料" : "Reference",
-    collapsable: false,
-    children: [""]
-  }];
-}
+            html += ' | <a href="index.html?type=' + key + '">' + typeName + '</a>'
 
-function getCommandsBySord(parentDir) {
-  var LinuxCommands = getCommands();
-  var commands = [];
-
-  var parent = '';
-  if (parentDir) {
-    parent = parentDir;
-    if (!parent.endsWith('/')) parent += '/';
-
-    commands.push(parent)  // 暂时去掉搜索主页
-  }
-
-  for (let i = 0; i < LinuxCommands.length; i++) {
-    const linuxCommand = LinuxCommands[i];
-
-    if (commands.indexOf(linuxCommand.command) == -1) {
-      commands.push(parent + linuxCommand.command);
+        }
     }
-  }
 
-  commands.sort();
-  console.log(commands, LinuxCommands);
-  return commands;
+    div.innerHTML = html
 }
+
+function addLi(uldiv, types, command, desc, keyword) {
+    var li_1 = window.document.createElement("li");
+
+    var commandText = command;
+
+    if (keyword) {
+        keyword = keyword.replace(/^\s+|\s+$/g, '');
+        if (keyword && keyword.length > 0) {
+            var index1 = commandText.indexOf(keyword);
+            var index2 = desc.indexOf(keyword);
+            if (index1 > -1) {
+                commandText = identifyTheKeyword(commandText, keyword);
+            }
+            if (index2 > -1) {
+                desc = identifyTheKeyword(desc, keyword);
+            }
+        }
+    }
+
+    var iCommandTypes = '';
+    types.forEach((type)=>{
+        if(iCommandTypes.length>0){
+            iCommandTypes+= " | "+CommandTypes[type];
+        }else{
+            iCommandTypes+= CommandTypes[type];
+        }
+    });
+
+    li_1.innerHTML = '<li><a style="color: black;" href="?type=' + types[types.length-1] + '">[' + iCommandTypes + ']</a> <a href="' + command + '.html">' + commandText + ' - ' + desc + '</a></li>';
+    uldiv.appendChild(li_1);
+}
+
+function identifyTheKeyword(text, keyword) {
+    var oReg = new RegExp(keyword, "g");
+
+    return text.replace(oReg, '<span>' + keyword + '</span>');
+}
+
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg); //search,查询？后面的参数，并匹配正则
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
+/**
+ * 关键字+类型查询
+ * @param {*} keyword 
+ */
+function doSearch(keyword) {
+    var searchParamType = GetQueryString('type');
+
+    var searchParamKeyword = keyword;
+    if (!searchParamKeyword) {
+        searchParamKeyword = GetQueryString('keyword');
+    }
+
+    divLinuxCommandsList.innerHTML = '';
+    if (searchParamKeyword && searchParamKeyword.length > 0 && searchParamKeyword != 'null') {
+        var commands = getCommandsBySord('', searchParamType, searchParamKeyword);
+
+        if (commands && JSON.stringify(commands) != "{}") {
+            divLinuxCommandsNoResult.style.display = 'none';
+            for (const key in commands) {
+                if (Object.hasOwnProperty.call(commands, key)) {
+                    const command = commands[key];
+                    addLi(divLinuxCommandsList, command.tags, command.command, command.desc, searchParamKeyword);
+                }
+            }
+        } else {
+            divLinuxCommandsNoResult.style.display = 'block';
+        }
+    } else {
+        searchParamKeyword = '';
+    }
+    //?type=DirectoryManagement&keyword=chmod
+    // console.log('查询参数', searchParamKeyword);
+
+    // window.location = 'index.html?keyword=' + searchParamKeyword;
+}
+
+var divTypeList;
+var divLinuxCommands;
+var divLinuxCommandsList;
+var divLinuxCommandsNoResult;
+var inputQuery;
+var btnSearch;
+
+var onload = function () {
+    console.log('window.onload');
+    divTypeList = window.document.getElementById('type-list');
+    divLinuxCommands = window.document.getElementById('linux-commands');
+    divLinuxCommandsList = window.document.getElementById('linux-commands-list');
+    divLinuxCommandsNoResult = window.document.getElementById('no-result');
+    inputQuery = window.document.getElementById('query');
+    btnSearch = window.document.getElementById('search_btn');
+    if (!btnSearch) return;
+    btnSearch.onclick = function () {
+        doSearch(inputQuery.value);
+    }
+
+    var searchParamType = GetQueryString('type');
+
+    var searchParamKeyword = GetQueryString('keyword');
+
+    //?type=DirectoryManagement&keyword=chmod
+    console.log('查询参数', searchParamType, searchParamKeyword);
+
+    addTypeList(divTypeList);
+
+    if (searchParamKeyword && searchParamKeyword.length > 0 && searchParamKeyword != 'null') {
+        inputQuery.value = searchParamKeyword;
+    } else {
+        searchParamKeyword = '';
+    }
+
+    var commands = getCommandsBySord('', searchParamType, searchParamKeyword);
+
+    if (commands && JSON.stringify(commands) != "{}") {
+        divLinuxCommandsNoResult.style.display = 'none';
+        for (const key in commands) {
+            if (Object.hasOwnProperty.call(commands, key)) {
+                const command = commands[key];
+                addLi(divLinuxCommandsList, command.tags, command.command, command.desc, searchParamKeyword);
+            }
+        }
+    } else {
+        divLinuxCommandsList.innerHTML = '';
+        divLinuxCommandsNoResult.style.display = 'block';
+    }
+}
+
 
 var CommandTypes = {
   FileSystem: '文件系统',
@@ -1345,3 +1379,9 @@ function getCommands() {
     tags: ['NetworkServiceManagement','SAMBA']
   }];
 }
+
+// window.onload = onload;
+setTimeout(function () {
+    onload()
+}, 1000);
+</script>
