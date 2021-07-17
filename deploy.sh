@@ -46,6 +46,7 @@ vuepress build source --dest docs
 echo -e "\033[32;40m [4/4] \033[0m commit 2 gh-pages branch"
 # 进入生成的文件夹
 cd docs/
+
 git init
 git add -A
 git commit -m 'deploy gh-pages'
