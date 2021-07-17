@@ -236,7 +236,5 @@ function getCommands() {
         tags: ['FileSystem']
     }];
 }
-// window.onload = onload;
-setTimeout(function () {
-    onload()
-}, 1000);
+
+onload();
