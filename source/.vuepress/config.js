@@ -172,7 +172,6 @@ function getCommandsBySord(parentDir) {
     }
   }
 
-  
   commands.sort();
   console.log(commands, LinuxCommands);
   return commands;
