@@ -37,7 +37,7 @@ git add -A
 git commit -m 'deploy master'
 
 # 如果你想要部署到 https://USERNAME.github.io
-git push -f https://github.com/Sogrey/Linux-start.git master
+git push -f git@github.com:Sogrey/Linux-start.git master
 
 echo -e "\033[32;40m [3/4] \033[0m Building static files"
 # 生成静态文件
@@ -51,7 +51,7 @@ git init
 git add -A
 git commit -m 'deploy gh-pages'
 
-git push -f https://github.com/Sogrey/Linux-start.git master:gh-pages
+git push -f git@github.com:Sogrey/Linux-start.git master:gh-pages
 
 echo -e "\033[32;40m done \033[0m "
 
