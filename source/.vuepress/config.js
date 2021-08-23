@@ -207,6 +207,10 @@ function getCommands() {
     command: 'ls',
     desc: '显示目录内容列表',
     tags: ['DirectoryManagement','FileSystem']
+  },{
+    command: 'll',
+    desc: '显示目录详细内容列表',
+    tags: ['DirectoryManagement','FileSystem']
   }, {
     command: 'pwd',
     desc: '显示目录内容列表',
