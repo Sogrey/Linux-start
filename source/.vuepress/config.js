@@ -124,9 +124,14 @@ function genGuideSidebar(isZh) {
   return [{
     title: isZh ? "快速入门" : "Getting Start",
     collapsable: false,
-    children: ["guide/", "guide/quick-start","guide/startup-disk-tools"]
+    children: [
+      "guide/",
+      "guide/quick-start",
+      "guide/linux-commands-fullname",
+      "guide/startup-disk-tools"
+    ]
   }, {
-    title: (isZh ? "Linux命令手册" : "Linux Commands")+'('+getCommands().length+')',
+    title: (isZh ? "Linux命令手册" : "Linux Commands") + '(' + getCommands().length + ')',
     collapsable: false,
     children: getCommandsBySord('commands/')
   }, {
@@ -138,7 +143,7 @@ function genGuideSidebar(isZh) {
 
 function genCommandsSidebar(isZh) {
   return [{
-    title: (isZh ? "Linux命令手册" : "Linux Commands")+'('+getCommands().length+')',
+    title: (isZh ? "Linux命令手册" : "Linux Commands") + '(' + getCommands().length + ')',
     collapsable: false,
     children: getCommandsBySord('')
   }];
@@ -183,34 +188,34 @@ var CommandTypes = {
   Permissions: '权限管理',
   UserManagement: '用户管理',
   NetworkManagement: '网络管理',
-  ProcessManagement:'进程管理',
-  HardwareManagement:'硬件管理',
-  KernelManagement:'内核管理',
-  PrintManagement:'打印管理',
-  ShellManagement:'Shell管理',
-  NetworkServiceManagement:'网络服务管理',
-  Compress:'压缩管理',
-  FTP:'FTP',
-  Apache:'Apache',
-  DNS:'DNS',
-  NFS:'NFS',
-  MAIL:'MAIL',
-  NTP:'NTP',
-  SSH:'SSH',
-  SQUID:'SQUID',
-  MYSQL:'MYSQL',
-  SAMBA:'SAMBA',
+  ProcessManagement: '进程管理',
+  HardwareManagement: '硬件管理',
+  KernelManagement: '内核管理',
+  PrintManagement: '打印管理',
+  ShellManagement: 'Shell管理',
+  NetworkServiceManagement: '网络服务管理',
+  Compress: '压缩管理',
+  FTP: 'FTP',
+  Apache: 'Apache',
+  DNS: 'DNS',
+  NFS: 'NFS',
+  MAIL: 'MAIL',
+  NTP: 'NTP',
+  SSH: 'SSH',
+  SQUID: 'SQUID',
+  MYSQL: 'MYSQL',
+  SAMBA: 'SAMBA',
 };
 
 function getCommands() {
   return [{
     command: 'ls',
     desc: '显示目录内容列表',
-    tags: ['DirectoryManagement','FileSystem']
-  },{
+    tags: ['DirectoryManagement', 'FileSystem']
+  }, {
     command: 'll',
     desc: '显示目录详细内容列表',
-    tags: ['DirectoryManagement','FileSystem']
+    tags: ['DirectoryManagement', 'FileSystem']
   }, {
     command: 'pwd',
     desc: '显示目录内容列表',
@@ -230,7 +235,7 @@ function getCommands() {
   }, {
     command: 'rm',
     desc: '删除文件和目录',
-    tags: ['FileSystem','DirectoryManagement']
+    tags: ['FileSystem', 'DirectoryManagement']
   }, {
     command: 'tmpwatch',
     desc: '删除最近一段时间没有访问的文件',
@@ -242,15 +247,15 @@ function getCommands() {
   }, {
     command: 'whereis',
     desc: '查找二进制程序、代码等相关文件路径',
-    tags: ['FileSystem','DirectoryManagement']
+    tags: ['FileSystem', 'DirectoryManagement']
   }, {
     command: 'which',
     desc: '查找并显示给定命令的绝对路径',
-    tags: ['FileSystem','DirectoryManagement']
+    tags: ['FileSystem', 'DirectoryManagement']
   }, {
     command: 'lsattr',
     desc: '显示指定文件或者目录的属性',
-    tags: ['FileSystem','DirectoryManagement']
+    tags: ['FileSystem', 'DirectoryManagement']
   }, {
     command: 'chattr',
     desc: '改变文件的属性',
@@ -270,7 +275,7 @@ function getCommands() {
   }, {
     command: 'mkdir',
     desc: '创建目录',
-    tags: ['FileSystem','DirectoryManagement']
+    tags: ['FileSystem', 'DirectoryManagement']
   }, {
     command: 'file',
     desc: '判断指定文件的文件类型',
@@ -440,7 +445,7 @@ function getCommands() {
     desc: '将文件的制表符转换为空白字符',
     tags: ['FileSystem']
   }, {
-    command: 'fmt',  
+    command: 'fmt',
     desc: '读取文件后优化处理并输出',
     tags: ['FileSystem']
   }, {
@@ -1090,7 +1095,7 @@ function getCommands() {
   }, {
     command: 'kill',
     desc: '发送信号到进程',
-    tags: ['ProcessManagement','ShellManagement']
+    tags: ['ProcessManagement', 'ShellManagement']
   }, {
     command: 'alias',
     desc: '定义或显示别名',
@@ -1182,170 +1187,170 @@ function getCommands() {
   }, {
     command: 'uupick',
     desc: '命令处理传送进来的文件',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'get',
     desc: '登录ftp服务器之后从服务器获取文件',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'mget',
     desc: '登录mftp服务器之后从服务器获取文件',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'mirror',
     desc: '登录ftp服务器之后从服务器获取目录',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'mput',
     desc: '登录ftp服务器之后将文件上传到服务器',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'put',
     desc: '登录ftp服务器之后将文件上传到服务器',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'ftp',
     desc: '用来登录远程ftp服务器',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'lftp',
     desc: '用来登录远程ftp服务器，是一个字符界面的文件传输工具',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'quit',
     desc: '退出ftp服务器',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'ftpcount',
     desc: '显示目前已FTP登入的用户人数',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'ftpwho',
     desc: '显示当前每个ftp会话信息',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'ftpshut',
     desc: '在指定的时间关闭FTP服务器',
-    tags: ['NetworkServiceManagement','FTP']
+    tags: ['NetworkServiceManagement', 'FTP']
   }, {
     command: 'ab',
     desc: 'Apache服务器的性能测试工具',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'apachectl',
     desc: 'Apache服务器前端控制工具',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'elinks',
     desc: '纯文本界面的WWW浏览器',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'htdigest',
     desc: 'Apache服务器内置工具',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'htpasswd',
     desc: 'apache服务器创建密码认证文件',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'httpd',
     desc: 'apache超文本传输协议的主程序',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'lynx',
     desc: '纯文本模式的网页浏览器',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'wget',
     desc: 'Linux系统下载文件工具',
-    tags: ['NetworkServiceManagement','Apache']
+    tags: ['NetworkServiceManagement', 'Apache']
   }, {
     command: 'dig',
     desc: '域名查询工具',
-    tags: ['NetworkServiceManagement','DNS']
+    tags: ['NetworkServiceManagement', 'DNS']
   }, {
     command: 'host',
     desc: '常用的分析域名查询工具',
-    tags: ['NetworkServiceManagement','DNS']
+    tags: ['NetworkServiceManagement', 'DNS']
   }, {
     command: 'nslookup',
     desc: '查询域名DNS信息的工具',
-    tags: ['NetworkServiceManagement','DNS']
+    tags: ['NetworkServiceManagement', 'DNS']
   }, {
     command: 'showmount',
     desc: '显示NFS服务器加载的信息',
-    tags: ['NetworkServiceManagement','NFS']
+    tags: ['NetworkServiceManagement', 'NFS']
   }, {
     command: 'nfsstat',
     desc: '列出NFS客户端和服务器的工作状态',
-    tags: ['NetworkServiceManagement','NFS']
+    tags: ['NetworkServiceManagement', 'NFS']
   }, {
     command: 'exportfs',
     desc: '管理NFS共享文件系统列表',
-    tags: ['NetworkServiceManagement','NFS']
+    tags: ['NetworkServiceManagement', 'NFS']
   }, {
     command: 'sendmail',
     desc: '一个发送邮件的代理程序',
-    tags: ['NetworkServiceManagement','MAIL']
+    tags: ['NetworkServiceManagement', 'MAIL']
   }, {
     command: 'mailq',
     desc: '显示出待发送的邮件队列',
-    tags: ['NetworkServiceManagement','MAIL']
+    tags: ['NetworkServiceManagement', 'MAIL']
   }, {
     command: 'mail',
     desc: '一个邮件的管理程序',
-    tags: ['NetworkServiceManagement','MAIL']
+    tags: ['NetworkServiceManagement', 'MAIL']
   }, {
     command: 'ntpstat',
     desc: '用于显示本机上一次和服务器同步时间的情况',
-    tags: ['NetworkServiceManagement','NTP']
+    tags: ['NetworkServiceManagement', 'NTP']
   }, {
     command: 'ntpq',
     desc: '使用NTP模式6数据包与NTP服务器通信',
-    tags: ['NetworkServiceManagement','NTP']
+    tags: ['NetworkServiceManagement', 'NTP']
   }, {
     command: 'ntpdate',
     desc: '通过轮询指定服务器设置本地日期和时间从而确定正确的时间',
-    tags: ['NetworkServiceManagement','NTP']
+    tags: ['NetworkServiceManagement', 'NTP']
   }, {
     command: 'sshd',
     desc: 'openssh软件套件中的服务器守护进程',
-    tags: ['NetworkServiceManagement','SSH']
+    tags: ['NetworkServiceManagement', 'SSH']
   }, {
     command: 'squid',
     desc: 'squid服务器守护进程',
-    tags: ['NetworkServiceManagement','SQUID']
+    tags: ['NetworkServiceManagement', 'SQUID']
   }, {
     command: 'squidclient',
     desc: 'squid服务器的客户端管理工具',
-    tags: ['NetworkServiceManagement','SQUID']
+    tags: ['NetworkServiceManagement', 'SQUID']
   }, {
     command: 'mysql',
     desc: '一个简单的sql shell',
-    tags: ['NetworkServiceManagement','MYSQL']
+    tags: ['NetworkServiceManagement', 'MYSQL']
   }, {
     command: 'mysqladmin',
     desc: 'mysql数据库的管理工具',
-    tags: ['NetworkServiceManagement','MYSQL']
+    tags: ['NetworkServiceManagement', 'MYSQL']
   }, {
     command: 'mysqldump',
     desc: '一个mysql客户端的备份程序',
-    tags: ['NetworkServiceManagement','MYSQL']
+    tags: ['NetworkServiceManagement', 'MYSQL']
   }, {
     command: 'mysqlimport',
     desc: '可以用来将文本文件中的数据导入到数据库',
-    tags: ['NetworkServiceManagement','MYSQL']
+    tags: ['NetworkServiceManagement', 'MYSQL']
   }, {
     command: 'mysqlshow',
     desc: '一个mysql客户端显示数据库的信息、表信息、字段信息备份程序',
-    tags: ['NetworkServiceManagement','MYSQL']
+    tags: ['NetworkServiceManagement', 'MYSQL']
   }, {
     command: 'smbclient',
     desc: '交互式的访问samba服务器的客户端的管理程序',
-    tags: ['NetworkServiceManagement','SAMBA']
+    tags: ['NetworkServiceManagement', 'SAMBA']
   }, {
     command: 'smbpasswd',
     desc: '可以用来修改samba用户的的密码',
-    tags: ['NetworkServiceManagement','SAMBA']
+    tags: ['NetworkServiceManagement', 'SAMBA']
   }];
 }
