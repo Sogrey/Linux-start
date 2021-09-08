@@ -2,7 +2,7 @@
 
 ## 高频Linux命令大总结
 
-
+- [Linux-commands-cheat-sheet-by-PhoenixNAP.pdf](https://phoenixnap.com/kb/wp-content/uploads/2021/04/Linux-commands-cheat-sheet-by-PhoenixNAP.pdf)
 
 # 关机/重启/注销
 

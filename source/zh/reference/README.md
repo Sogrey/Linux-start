@@ -353,7 +353,19 @@ Linux的发行版多种多样：
 
 官网：[https://www.robolinux.org/](https://www.robolinux.org/)
 
+---
 
+### Solus
+
+![](../../.vuepress/public/img/LinuxOSs/Solus.png)
+
+官网：[https://getsol.us/](https://getsol.us/)
+
+下载地址：
+
+[https://getsol.us/download/](https://getsol.us/download/)
+
+---
 
 
 
@@ -361,3 +373,8 @@ Linux的发行版多种多样：
 ---
 
 > 欢迎补充。
+
+
+## 资料
+
+- [2021 年最佳 Linux 发行版推荐](https://zhuanlan.zhihu.com/p/400895502)
