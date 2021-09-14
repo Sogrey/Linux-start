@@ -66,10 +66,10 @@ module.exports = {
             text: "指南",
             link: "/zh/"
           },
-          // {
-          //   text: "Linux命令手册",
-          //   link: "/zh/commands/"
-          // },
+          {
+            text: "应用",
+            link: "/zh/applications/"
+          },
           {
             text: "参考资料",
             link: "/zh/reference/"
