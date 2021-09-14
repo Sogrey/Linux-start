@@ -373,6 +373,7 @@ Linux的发行版多种多样：
 ![](../../.vuepress/public/img/LinuxOSs/CutefishOS.png)
 
 官网：[https://cn.cutefishos.com/](https://cn.cutefishos.com/)
+
 论坛：
 
 - https://bbs.cutefishos.com/

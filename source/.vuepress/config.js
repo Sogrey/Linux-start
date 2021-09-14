@@ -135,6 +135,12 @@ function genGuideSidebar(isZh) {
     collapsable: false,
     children: getCommandsBySord('commands/')
   }, {
+    title: isZh ? "应用" : "Applications",
+    collapsable: false,
+    children: [
+      "applications/Java&JDK.md" /**Java&JDK */,
+    ]
+  }, {
     title: isZh ? "参考资料" : "Reference",
     collapsable: false,
     children: ["reference/"]
