@@ -35,7 +35,10 @@
     "ssri": ">=8.0.1",
     "y18n": ">=4.0.1",
     "yargs-parser": ">=13.1.2",
-    "path-parse": ">=1.0.7"
+    "path-parse": ">=1.0.7",
+    "set-value": ">=4.0.1",
+    "nth-check": ">=2.0.1",
+    "prismjs": ">=1.25.0"
   },
   "bugs": {
     "url": "https://github.com/Sogrey/Linux-start/issues"
