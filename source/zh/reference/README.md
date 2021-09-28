@@ -91,6 +91,8 @@ Linux的发行版多种多样：
 
 - [https://openeuler.org/zh/mirror/list/](https://openeuler.org/zh/mirror/list/)
 
+> [OpenEuler安装UKUI](https://sogrey.top/article/OpenEuler%E5%AE%89%E8%A3%85UKUI/)
+
 ### <div class="svg debian">Debian</div>
 
 ![](../../.vuepress/public/img/LinuxOSs/debian.png)
