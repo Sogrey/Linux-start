@@ -372,4 +372,5 @@
 
 
 - [硬核！高频Linux命令大总结，建议收藏~ - SegmentFault 思否](https://segmentfault.com/a/1190000040222932)
+- [常考的 21 条 Linux 命令](https://mp.weixin.qq.com/s/CXXOjyOaW-ssjWmmaSb6yw)
 
