@@ -72,6 +72,22 @@ Linux的发行版多种多样：
 
 - [https://wiki.centos.org/Download](https://wiki.centos.org/Download)
 
+### Rocky Linux (CentOS 替代品)
+
+官网：[https://rockylinux.org/](https://rockylinux.org/)
+
+下载地址：
+
+- [https://rockylinux.org/download](https://rockylinux.org/download)
+
+### AlmaLinux (CentOS 替代品)
+
+官网：[https://almalinux.org/](https://almalinux.org/)
+
+下载地址：
+
+- [https://mirrors.almalinux.org/isos.html](https://mirrors.almalinux.org/isos.html)
+
 ### Huawei EulorOS （基于 CentOS）
 
 ![](../../.vuepress/public/img/LinuxOSs/HUAWEI-EulorOS.png)
