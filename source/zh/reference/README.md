@@ -80,7 +80,7 @@ Linux的发行版多种多样：
 
 - [https://rockylinux.org/download](https://rockylinux.org/download)
 
-### AlmaLinux (CentOS 替代品)
+### AlmaLinux (又一个 CentOS 替代品)
 
 官网：[https://almalinux.org/](https://almalinux.org/)
 
