@@ -373,4 +373,13 @@
 
 - [硬核！高频Linux命令大总结，建议收藏~ - SegmentFault 思否](https://segmentfault.com/a/1190000040222932)
 - [常考的 21 条 Linux 命令](https://mp.weixin.qq.com/s/CXXOjyOaW-ssjWmmaSb6yw)
-
+- [linux-command](https://github.com/jaywcjlove/linux-command) [url](https://git.io/linux) 这个开源项目是 Linux 命令大全搜索工具，当前搜集了 570 多个 Linux 命令，主要内容包含：Linux 基础命令分类、Linux 学习资源整理（社区网站、知识相关、软件工具、开源镜像站点、游戏玩家发行版）等；
+- [Awesome-Linux-Software](https://github.com/luong-komorebi/Awesome-Linux-Software) [url](https://luong-komorebi.github.io/Awesome-Linux-Software/) 这个开源项目适用于所有人员，主要内容包含：Linux 应用程序、命令行应用程序、桌面环境、窗口管理器等多种软件工具和其他资料的列表集合，可以说内容是非常的丰富，而且这个开源项目是一名大学生在校期间的所总结出来的，真的不一般。
+- [How-To-Secure-A-Linux-Server](https://github.com/imthenachoman/How-To-Secure-A-Linux-Server) 这个开源项目的目的是教您如何保护 Linux 服务器安全的方法指南，也希望能从中教给您一些有关安全性及其重要性的知识，包括：在你开始使用前的一些指南、SSH 远程服务器需要注意的点、网络、基础、审计方面的操作以及危险操作的注意事项等，同时希望你通过这个开源项目能够对 Linux 服务器安全有一定的认识并运用到实际情况之中。
+- [explainshell](https://github.com/idank/explainshell) explainshell 是一个可以解析 Linux 命令的网站，它可以给出命令的解释和其参数的解释。对 Linux 小白来说，可以有效的将一条长命令进行拆分加以理解，很有帮助。
+- [the-practical-linux-hardening-guide](https://github.com/trimstray/the-practical-linux-hardening-guide) 这个开源项目是一份详细介绍了创建安全 Linux 生产系统所涉及的规划和工具指南。
+- [Linux-Tutorial](https://github.com/judasn/Linux-Tutorial) [在线阅读](https://youmeek.gitbooks.io/linux-tutorial/content/) 这个开源项目是 Java 程序员眼中的 Linux，主要内容包含：Linux / Ubuntu 介绍与安装、Linux 环境下的基础命令操作、Vim 的安装 / 配置 / 快捷键、日常维护与监控、 Linux 环境下的各应用服务安装和配置、高可用、黑客入侵检查等；
+- [linuxtools_rst](https://github.com/me115/linuxtools_rst) [在线阅读](https://linuxtools-rst.readthedocs.org/zh_CN/latest/) 这个开源项目的作者是 大CC，专注于 Linux 工具最常用的用法并希望读者能够应用到实际工作中。主要内容包含：Linux 基础（命令、文件与目录管理、文本处理、磁盘 / 进程管理、性能监控、网络工具）、Linux 工具进阶（程序构建、调试、优化）、工具参考等；
+- [instantbox](https://github.com/instantbox/instantbox) 这个开源项目主要是通过在任何浏览器的即时 Web Shell 访问来启动临时 Linux 系统。目前支持 Ubuntu、CentOS、Arch Linux、Debian、Fedora 和 Alpine 的各种版本。
+- [linuxupskillchallenge](https://github.com/snori74/linuxupskillchallenge) [课程网址](https://linuxupskillchallenge.org/) 这个开源项目是一份开源的 Linux 服务器管理教程，主要包括 20 课的所有源材料，该课程可以让开发者在通过一个月时间快速掌握 Linux 基础使用技巧，而且这份教程过去是付费的，不过现在不仅免费而且还开源了。
+- [TLCL](https://github.com/billie66/TLCL) [在线阅读](https://billie66.github.io/TLCL/book/) 这个开源项目是：快乐的 Linux 命令行，主要内容包含：Shell、配置文件和Shell环境、常见任务和基本工具、编写 Shell 脚本（if、while、case、for 语句）等；
