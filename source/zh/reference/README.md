@@ -74,6 +74,8 @@ Linux的发行版多种多样：
 
 ### Rocky Linux (CentOS 替代品)
 
+![](../../.vuepress/public/img/LinuxOSs/RockyLinux.png)
+
 官网：[https://rockylinux.org/](https://rockylinux.org/)
 
 下载地址：
@@ -81,6 +83,9 @@ Linux的发行版多种多样：
 - [https://rockylinux.org/download](https://rockylinux.org/download)
 
 ### AlmaLinux (又一个 CentOS 替代品)
+
+![](../../.vuepress/public/img/LinuxOSs/AlmaLinux.png)
+
 
 官网：[https://almalinux.org/](https://almalinux.org/)
 
@@ -403,6 +408,27 @@ Linux的发行版多种多样：
 
 ---
 
+### ClearLinux （ Intel Corporation ）
+
+![](../../.vuepress/public/img/LinuxOSs/ClearLinux.png)
+
+官网：[https://clearlinux.org](https://clearlinux.org)
+
+下载地址：
+
+- [https://clearlinux.org/downloads](https://clearlinux.org/downloads)
+
+---
+
+### UbuntuDDE 
+
+![](../../.vuepress/public/img/LinuxOSs/UbuntuDDE.png)
+
+官网：[https://ubuntudde.com/](https://ubuntudde.com/)
+
+下载地址：
+
+- [https://ubuntudde.com/download/](https://ubuntudde.com/download/)
 
 ---
 
