@@ -267,6 +267,17 @@ Linux的发行版多种多样：
 
 - [https://www.ubuntukylin.com/downloads/show.php?id=451&lang=en](https://www.ubuntukylin.com/downloads/show.php?id=451&lang=en)
 
+### 银河麒麟 KylinOS (国产)
+
+![](../../.vuepress/public/img/LinuxOSs/KylinOS.png)
+
+官网：[https://eco.kylinos.cn/](https://eco.kylinos.cn/)
+
+下载地址：
+
+- [https://eco.kylinos.cn/partners/mirror.html](https://eco.kylinos.cn/partners/mirror.html)
+
+
 ### MaboxLinux
 
 ![](../../.vuepress/public/img/LinuxOSs/MaboxLinux.jpg)
