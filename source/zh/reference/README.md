@@ -445,6 +445,8 @@ Linux的发行版多种多样：
 
 ### Parrot OS(基于Debian)
 
+![](../../.vuepress/public/img/LinuxOSs/ParrotOS.png)
+
 官网：[https://www.parrotsec.org/](https://www.parrotsec.org/)
 
 下载地址：
