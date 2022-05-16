@@ -17,6 +17,8 @@
   "author": "Sogrey",
   "license": "MIT",
   "dependencies": {
+    "global": "^4.4.0",
+    "npm-check-updates": "^12.5.10",
     "vuepress": "^1.9.7"
   },
   "devDependencies": {
@@ -31,14 +33,14 @@
     "minimist": ">=1.2.6",
     "node-forge": ">=1.3.1",
     "normalize-url": ">=7.0.3",
+    "nth-check": ">=2.0.1",
+    "path-parse": ">=1.0.7",
+    "prismjs": ">=1.28.0",
     "serialize-javascript": "^6.0.0",
+    "set-value": ">=4.1.0",
     "ssri": ">=9.0.0",
     "y18n": ">=5.0.8",
-    "yargs-parser": ">=21.0.1",
-    "path-parse": ">=1.0.7",
-    "set-value": ">=4.1.0",
-    "nth-check": ">=2.0.1",
-    "prismjs": ">=1.28.0"
+    "yargs-parser": ">=21.0.1"
   },
   "bugs": {
     "url": "https://github.com/Sogrey/Linux-start/issues"

@@ -455,6 +455,19 @@ Linux的发行版多种多样：
 
 ---
 
+### Linux Lite(基于Ubuntu) 开始向 Windows 看齐
+
+![](../../.vuepress/public/img/LinuxOSs/LinuxLiteOS.png)
+
+官网：[https://www.linuxliteos.com](https://www.linuxliteos.com)
+
+下载地址：
+
+- [https://www.linuxliteos.com/download.php](https://www.linuxliteos.com/download.php)
+
+---
+
+
 > 欢迎补充。
 
 
