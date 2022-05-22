@@ -467,6 +467,18 @@ Linux的发行版多种多样：
 
 ---
 
+### Linuxfx(基于Ubuntu) 巴西人开发酷似Windows 11
+
+![](../../.vuepress/public/img/LinuxOSs/Linuxfx.png)
+
+官网：[https://linuxfx.org/](https://linuxfx.org/)
+
+下载地址：
+
+- [https://linuxfx.org/index.php/downloads/x86-64-bit-pc](https://linuxfx.org/index.php/downloads/x86-64-bit-pc)
+
+---
+
 
 > 欢迎补充。
 
