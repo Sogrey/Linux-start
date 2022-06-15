@@ -383,3 +383,5 @@
 - [instantbox](https://github.com/instantbox/instantbox) 这个开源项目主要是通过在任何浏览器的即时 Web Shell 访问来启动临时 Linux 系统。目前支持 Ubuntu、CentOS、Arch Linux、Debian、Fedora 和 Alpine 的各种版本。
 - [linuxupskillchallenge](https://github.com/snori74/linuxupskillchallenge) [课程网址](https://linuxupskillchallenge.org/) 这个开源项目是一份开源的 Linux 服务器管理教程，主要包括 20 课的所有源材料，该课程可以让开发者在通过一个月时间快速掌握 Linux 基础使用技巧，而且这份教程过去是付费的，不过现在不仅免费而且还开源了。
 - [TLCL](https://github.com/billie66/TLCL) [在线阅读](https://billie66.github.io/TLCL/book/) 这个开源项目是：快乐的 Linux 命令行，主要内容包含：Shell、配置文件和Shell环境、常见任务和基本工具、编写 Shell 脚本（if、while、case、for 语句）等；
+- [Linux命令大全](https://www.linuxcool.com)
+- [Linux系统大全](https://www.linuxdown.com)
