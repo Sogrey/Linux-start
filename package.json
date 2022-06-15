@@ -35,7 +35,7 @@
     "normalize-url": ">=7.0.3",
     "nth-check": ">=2.1.1",
     "path-parse": ">=1.0.7",
-    "prismjs": ">=1.28.0",
+    "prismjs": ">=1.27.0",
     "serialize-javascript": "^6.0.0",
     "set-value": ">=4.1.0",
     "ssri": ">=9.0.1",
