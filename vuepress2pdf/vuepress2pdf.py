@@ -105,6 +105,7 @@ class DownloadVuePress2Pdf:
         path = "{}/{}-{}.html".format(self.save_html_path,
                                       name, str(order_index))
         with open(path, 'w', encoding="utf-8") as f:
+            print("downloading path")
             f.write(content)
 
     def get_content_and_next_url(self, content):
@@ -147,6 +148,6 @@ class DownloadVuePress2Pdf:
         return soup.prettify(), next_span_href
 
 
-down = DownloadVuePress2Pdf("https://sogrey.github.io/VuepressBlogTemplate/zh/guide/", "VuepressBlogTemplate",
-                            wkhtmltopdf="D:\\wkhtmltopdf\\bin\\wkhtmltopdf.exe", save_html_path="./files", save_pdf_path='./')
+down = DownloadVuePress2Pdf("https://sogrey.top/Linux-start/zh/guide/", "Linux-start",
+                            wkhtmltopdf="d:\\Programs\\wkhtmltopdf\\bin\\wkhtmltopdf.exe", save_html_path="./files", save_pdf_path='./')
 down.down_all_page_to_pdf()

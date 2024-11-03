@@ -17,7 +17,7 @@ pip install beautifulsoup4
 
 pip install pdfkit
 
-修改脚本最后两行 wkhtmltopdf 的值为你本地安装位置
+修改脚本最后两行 wkhtmltopdf 的值为你本地安装位置 (https://wkhtmltopdf.org/downloads.html)
 
 安装完成之后可以 Windows 下可以将安装路径添加到系统环境变量中
 
