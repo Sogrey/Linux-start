@@ -480,6 +480,18 @@ Linux的发行版多种多样：
 ---
 
 
+### Wubuntu(基于Ubuntu) 同样是一款酷似Windows 11
+
+![](https://wubuntu.org/wp-content/uploads/2024/07/wdesk01-1024x576.png)
+
+官网：[Windows Ubuntu Operating System – Wubuntu](https://wubuntu.org/)
+
+下载地址：
+
+- [Download – Windows Ubuntu Operating System](https://wubuntu.org/download/)
+
+---
+
 > 欢迎补充。
 
 
